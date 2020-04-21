@@ -9,13 +9,13 @@ public class Boundary{
 public class DragFingerOffset : MonoBehaviour
 {
     private float deltaX, deltaY;
-    private Rigidbody2D rigidbody;
+    private Rigidbody rigidbody;
     public Boundary boundary;
     public float moveSpeed;
 
 
     private void Start() {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     private void Update(){
@@ -24,10 +24,10 @@ public class DragFingerOffset : MonoBehaviour
             
             Touch touch = Input.GetTouch(0);
 
-            Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+            Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
 
-            rigidbody.position = new Vector2(
-                Mathf.Clamp (rigidbody.position.x, boundary.xMin, boundary.xMax), Mathf.Clamp (rigidbody.position.y, boundary.yMin, boundary.yMax)
+            rigidbody.position = new Vector3(
+                Mathf.Clamp (rigidbody.position.x, boundary.xMin, boundary.xMax), Mathf.Clamp (rigidbody.position.y, boundary.yMin, boundary.yMax), 0
             );
 
             switch (touch.phase){
@@ -37,7 +37,7 @@ public class DragFingerOffset : MonoBehaviour
                     break;
                 
                 case TouchPhase.Moved:
-                    rigidbody.velocity = new Vector2(touchPos.x-deltaX, touchPos.y - deltaY)* moveSpeed;
+                    rigidbody.velocity = new Vector3(touchPos.x-deltaX, touchPos.y - deltaY, 0)* moveSpeed;
                     break;
 
                 case TouchPhase.Ended:
