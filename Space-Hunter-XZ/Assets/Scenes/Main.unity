@@ -241,7 +241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237985149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0.63}
+  m_LocalPosition: {x: 0, y: 4, z: 0.6}
   m_LocalScale: {x: 6, y: 12, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -498,18 +498,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8292895571536279568}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1042194034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042194033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11bd520839466b74bafe7bee1efabab2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1042194040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -714,6 +702,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_GravityScale
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008577421405375325, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: boundary.xMin
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008577421405375325, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: boundary.xMax
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008577421405375325, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: boundary.zMin
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008577421405375325, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: boundary.zMax
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008577421405375325, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008577421405375325, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: boundary.yMax
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9008577421405375325, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: boundary.yMin
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45cdbd64b747db44ca87dfff145a4044, type: 3}
