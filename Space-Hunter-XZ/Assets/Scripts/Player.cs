@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(Time.time>nextFire);{
+        if(Time.time>nextFire){
             nextFire = Time.time + fireRate;
             Instantiate (shot, shotSpawn.position, shotSpawn.rotation );
         }
