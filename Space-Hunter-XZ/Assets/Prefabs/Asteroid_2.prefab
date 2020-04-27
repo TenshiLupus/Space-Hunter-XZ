@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e877afcd45483e641aeb12d46e354a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -5
+  speed: -2.5
 --- !u!114 &177918623144859674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +113,7 @@ MonoBehaviour:
     type: 3}
   playerExplosion: {fileID: 174090088153095700, guid: 01b8cb57c091bcc439306fe85b572173,
     type: 3}
+  scoreValue: 10
 --- !u!114 &1406270615708483980
 MonoBehaviour:
   m_ObjectHideFlags: 0
