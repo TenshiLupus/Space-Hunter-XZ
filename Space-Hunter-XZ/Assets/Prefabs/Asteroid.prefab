@@ -109,9 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344403ce4a205d6409919cc8289af325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 174090088153095700, guid: 01b8cb57c091bcc439306fe85b572173,
+  explosion: {fileID: 4090127073253334256, guid: 01b8cb57c091bcc439306fe85b572173,
     type: 3}
-  playerExplosion: {fileID: 174090088153095700, guid: 01b8cb57c091bcc439306fe85b572173,
+  playerExplosion: {fileID: 4513939599972435781, guid: 56ec46f3ef32bfd4f857a2a53110157a,
     type: 3}
   scoreValue: 10
 --- !u!114 &2889330915788101141
