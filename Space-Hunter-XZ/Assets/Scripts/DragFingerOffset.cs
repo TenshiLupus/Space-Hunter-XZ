@@ -12,12 +12,12 @@ public class DragFingerOffset : MonoBehaviour
     private Rigidbody rigidbody;
     public Boundary boundary;
     public float moveSpeed;
+    public float tilt;
 
 
     private void Start() {
         rigidbody = GetComponent<Rigidbody>();
     }
-
     private void Update(){
 
         if (Input.touchCount>0){
@@ -45,5 +45,9 @@ public class DragFingerOffset : MonoBehaviour
                     break;
             }    
         }
+    }
+    private void FixedUpdate()
+    {
+        rigidbody.rotation = Quaternion.Euler(0.0f, rigidbody.velocity.x * -tilt, 0.0f);
     }
 }

@@ -6,8 +6,7 @@ public class Mover : MonoBehaviour
 {
     public float speed;
     void Start(){
-        GetComponent<Rigidbody>().velocity = transform.up * speed; 
-
+        GetComponent<Rigidbody>().velocity = transform.up * speed;
     }
 
         void DestroyObjectDelayed()
