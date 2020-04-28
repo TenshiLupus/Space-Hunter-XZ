@@ -1514,7 +1514,7 @@ PrefabInstance:
     - target: {fileID: 6358554632792035462, guid: 45cdbd64b747db44ca87dfff145a4044,
         type: 3}
       propertyPath: fireRate
-      value: 0.25
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6358554632792035462, guid: 45cdbd64b747db44ca87dfff145a4044,
         type: 3}
