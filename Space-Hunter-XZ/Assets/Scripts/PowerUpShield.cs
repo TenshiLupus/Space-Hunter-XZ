@@ -10,6 +10,7 @@ public class PowerUpShield : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.transform.GetChild(2).gameObject.SetActive(true);
+            other.GetComponent<CapsuleCollider>().enabled =false;
             Destroy(gameObject);
 
         }

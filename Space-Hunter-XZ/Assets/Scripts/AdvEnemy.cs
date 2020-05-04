@@ -5,9 +5,12 @@ using UnityEngine;
 public class AdvEnemy : MonoBehaviour
 {
     public float speed;
-    public float currentTime;
+    
+    private float currentTime;
+    private float timerStrafe;
     void Start()
     {
+        timerStrafe = Random.Range(0.9f, 1.0f);
         if (GetComponent<Transform>().position.x < 0)
         {
             GetComponent<Rigidbody>().velocity = transform.right * speed;
@@ -21,13 +24,13 @@ public class AdvEnemy : MonoBehaviour
     void Update()
     {
         currentTime += Time.deltaTime;
-        if (currentTime > 1 && currentTime < 1.2)
+        if (currentTime > timerStrafe && currentTime < timerStrafe + 1)
         {
             GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
-        if (currentTime > 1.2)
+        if (currentTime > 2)
         {
-            GetComponent<Rigidbody>().velocity = transform.up * -speed * 2;
+            GetComponent<Rigidbody>().velocity = transform.up * -speed;
         }
     }
 }

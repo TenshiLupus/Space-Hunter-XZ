@@ -35,6 +35,7 @@ public class DestroyByContact : MonoBehaviour
             Instantiate(playerExplosion, transform.position, transform.rotation);
             other.gameObject.SetActive(false);
             Destroy(gameObject);
+            other.GetComponentInParent<CapsuleCollider>().enabled = true;
             return;
         }
         if (other.CompareTag("Hazard"))

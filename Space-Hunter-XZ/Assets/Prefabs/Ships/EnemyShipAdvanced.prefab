@@ -40,7 +40,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4627506581927843999}
   - component: {fileID: 8530782443014302347}
-  - component: {fileID: 2792892878178856218}
   - component: {fileID: 4423434272931078825}
   - component: {fileID: 7953281503546547792}
   - component: {fileID: 7239138865377884544}
@@ -63,7 +62,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8530782443014302348}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4609575, y: -3.9210746, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children:
   - {fileID: 1062550318395211930}
@@ -86,19 +85,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2792892878178856218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8530782443014302348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e877afcd45483e641aeb12d46e354a16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
 --- !u!33 &4423434272931078825
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -191,8 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shot: {fileID: 1138246660802597438, guid: 17e852a5e912ccc4788d422b55515abb, type: 3}
   shotSpawn: {fileID: 1062550318395211930}
-  fireRate: 1.33
-  delay: 0.5
+  fireRate: 0.5
+  delay: 1
 --- !u!82 &8530782443014302349
 AudioSource:
   m_ObjectHideFlags: 0
@@ -301,5 +287,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e6255aa36851147971921d1508fb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
-  currentTime: 0
+  speed: 6
