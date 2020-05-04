@@ -5,6 +5,7 @@ using UnityEngine;
 public class AdvEnemy : MonoBehaviour
 {
     public float speed;
+    public float currentTime;
     void Start()
     {
         if (GetComponent<Transform>().position.x < 0)
@@ -19,9 +20,14 @@ public class AdvEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > 1)
+        currentTime += Time.deltaTime;
+        if (currentTime > 1 && currentTime < 1.2)
         {
             GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
+        if (currentTime > 1.2)
+        {
+            GetComponent<Rigidbody>().velocity = transform.up * -speed * 2;
         }
     }
 }

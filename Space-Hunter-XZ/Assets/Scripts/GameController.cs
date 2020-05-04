@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     public int waveIncrease;
     public float spawnWait;
     public float startWait;
+    public float advWaveWait;
     public float waveWait;
     
     public Text scoreText;
@@ -47,12 +48,11 @@ public class GameController : MonoBehaviour
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate(hazard, spawnPosition, spawnRotation);
                 yield return new WaitForSeconds(spawnWait);
-                if (i + 1 == hazardCount)
-                {
-                    Instantiate(advEnemy, spawnLeft, spawnRotation);
-                    Instantiate(advEnemy, spawnRight, spawnRotation);
-                }
             }
+            yield return new WaitForSeconds(advWaveWait);
+            Quaternion spawnRotation2 = Quaternion.identity;
+            Instantiate(advEnemy, spawnLeft, spawnRotation2);
+            Instantiate(advEnemy, spawnRight, spawnRotation2);
             yield return new WaitForSeconds(waveWait);
             wave++;
             if (wave == waveCount)

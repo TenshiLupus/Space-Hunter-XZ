@@ -994,6 +994,7 @@ MonoBehaviour:
   waveIncrease: 2
   spawnWait: 0.5
   startWait: 1
+  advWaveWait: 2
   waveWait: 4
   scoreText: {fileID: 764705081}
   gameOverText: {fileID: 1910297001}
