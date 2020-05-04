@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 6643457246797610977}
   - component: {fileID: 3016207156751108125}
   - component: {fileID: 9057117418918625966}
-  - component: {fileID: 4560179839356538995}
   - component: {fileID: 3288260119622426511}
   - component: {fileID: 6083096783678257737}
+  - component: {fileID: 7254835634186708571}
   m_Layer: 0
   m_Name: PowerUpShield
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,18 +96,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4560179839356538995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4417594177318449628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf502f969a86dd488e10f9bff6aff6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3288260119622426511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,3 +125,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7254835634186708571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4417594177318449628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970a826edb7886e4d88f122fdac13b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
