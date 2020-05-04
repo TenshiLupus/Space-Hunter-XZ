@@ -6,13 +6,16 @@ public class DestroyByContact : MonoBehaviour
 {
     public GameObject explosion;
     public GameObject playerExplosion;
+    public GameObject shieldExplosion;
     public int scoreValue;
+
+
     private GameController gameController;
 
     void Start()
     {
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
-        if(gameControllerObject != null)
+        if (gameControllerObject != null)
         {
             gameController = gameControllerObject.GetComponent<GameController>();
         }
@@ -32,9 +35,9 @@ public class DestroyByContact : MonoBehaviour
             Instantiate(explosion, transform.position, transform.rotation);
         }
         if (other.CompareTag("Shield")) {
-            Instantiate(playerExplosion, transform.position, transform.rotation);
+            Instantiate(shieldExplosion, transform.position, transform.rotation);
             other.gameObject.SetActive(false);
-            Destroy(this);
+            Destroy(gameObject);
             other.GetComponentInParent<CapsuleCollider>().enabled = true;
             return;
         }

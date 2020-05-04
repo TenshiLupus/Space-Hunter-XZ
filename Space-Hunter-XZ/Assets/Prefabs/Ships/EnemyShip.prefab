@@ -146,6 +146,8 @@ MonoBehaviour:
     type: 3}
   playerExplosion: {fileID: 4513939599972435781, guid: 56ec46f3ef32bfd4f857a2a53110157a,
     type: 3}
+  shieldExplosion: {fileID: 9145354182860747553, guid: 8c128d334f5545348a926cf960e1641f,
+    type: 3}
   scoreValue: 50
 --- !u!114 &2449523490670655638
 MonoBehaviour:

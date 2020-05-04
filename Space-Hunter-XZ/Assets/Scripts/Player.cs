@@ -7,10 +7,9 @@ public class Player : MonoBehaviour
 
     public GameObject shot;
     public Transform shotSpawn;
-    private AudioSource audioSource;
     public float fireRate;
 
-
+    private AudioSource audioSource;
     private float nextFire;
 
     void Start()
