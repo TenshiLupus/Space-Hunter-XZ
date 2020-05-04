@@ -34,7 +34,7 @@ public class DestroyByContact : MonoBehaviour
         if (other.CompareTag("Shield")) {
             Instantiate(playerExplosion, transform.position, transform.rotation);
             other.gameObject.SetActive(false);
-            Destroy(gameObject);
+            Destroy(this);
             other.GetComponentInParent<CapsuleCollider>().enabled = true;
             return;
         }
