@@ -978,7 +978,12 @@ MonoBehaviour:
   - {fileID: 2988689001804474899, guid: 645d1a0c69b6bff4790fb589f20c5736, type: 3}
   - {fileID: 4304709477903241398, guid: 0fb489606c056e94680dfa09db8a8d77, type: 3}
   - {fileID: 2776963630197528710, guid: e05a7dc83c340b84da28e923cd2499dc, type: 3}
+  - {fileID: 2988689001804474899, guid: 645d1a0c69b6bff4790fb589f20c5736, type: 3}
+  - {fileID: 4304709477903241398, guid: 0fb489606c056e94680dfa09db8a8d77, type: 3}
+  - {fileID: 2776963630197528710, guid: e05a7dc83c340b84da28e923cd2499dc, type: 3}
   - {fileID: 2449523490670655637, guid: 4c8caa7a85cdad142ba434bed62f41a7, type: 3}
+  - {fileID: 2449523490670655637, guid: 4c8caa7a85cdad142ba434bed62f41a7, type: 3}
+  - {fileID: 4417594177318449628, guid: d3a99374cc0f5094e9f409a33c0d9588, type: 3}
   spawnValues: {x: 2.4, y: 10, z: 0}
   hazardCount: 7
   waveCount: 2

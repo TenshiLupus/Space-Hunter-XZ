@@ -31,6 +31,12 @@ public class DestroyByContact : MonoBehaviour
         {
             Instantiate(explosion, transform.position, transform.rotation);
         }
+        if (other.CompareTag("Shield")) {
+            Instantiate(playerExplosion, transform.position, transform.rotation);
+            other.gameObject.SetActive(false);
+            Destroy(gameObject);
+            return;
+        }
         if (other.CompareTag("Hazard"))
         {
             Instantiate(explosion, transform.position, transform.rotation);
