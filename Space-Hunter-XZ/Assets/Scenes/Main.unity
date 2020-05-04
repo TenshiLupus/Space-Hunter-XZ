@@ -990,7 +990,7 @@ MonoBehaviour:
   waveIncrease: 2
   spawnWait: 0.5
   startWait: 1
-  waveWait: 4
+  waveWait: 2
   scoreText: {fileID: 764705081}
   gameOverText: {fileID: 1910297001}
   restartButton: {fileID: 340727139}
