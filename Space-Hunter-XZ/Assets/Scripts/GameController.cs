@@ -7,16 +7,12 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public GameObject[] hazards;
-    public GameObject advEnemy;
     public Vector3 spawnValues;
-    public Vector3 spawnLeft;
-    public Vector3 spawnRight;
     public int hazardCount;
     public int waveCount;
     public int waveIncrease;
     public float spawnWait;
     public float startWait;
-    public float advWaveWait;
     public float waveWait;
     
     public Text scoreText;
@@ -52,14 +48,7 @@ public class GameController : MonoBehaviour
                     yield return new WaitForSeconds(spawnWait);
                 }
             }
-            yield return new WaitForSeconds(advWaveWait);
-            if (gameOver == false)
-            {
-                Quaternion spawnRotation2 = Quaternion.identity;
-                Instantiate(advEnemy, spawnLeft, spawnRotation2);
-                Instantiate(advEnemy, spawnRight, spawnRotation2);
-                yield return new WaitForSeconds(waveWait);
-            }
+            yield return new WaitForSeconds(waveWait);
             wave++;
             if (wave == waveCount)
             {
