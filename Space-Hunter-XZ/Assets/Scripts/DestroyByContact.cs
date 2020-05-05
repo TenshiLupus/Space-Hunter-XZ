@@ -45,20 +45,21 @@ public class DestroyByContact : MonoBehaviour
             other.GetComponentInParent<CapsuleCollider>().enabled = true;
             return;
         }
+        
         if (other.CompareTag("Hazard"))
         {
             Instantiate(explosion, transform.position, transform.rotation);
         }
         if (other.CompareTag("Player"))
         {
-            if(gameController.GetLife()<1){
+            if(gameController.GetLife()==0){
             Instantiate(playerExplosion, transform.position, transform.rotation);
             gameController.GameOver();
             }
-            else if(gameController.GetLife()>=1){
+            else if(gameController.GetLife()>0){ 
                 gameController.TakeLife();
                 Instantiate(playerExplosion, transform.position, transform.rotation);
-                player.transform.position = new Vector3(0, 0, 0);
+                return;
             }
         }
         gameController.AddScore(scoreValue);

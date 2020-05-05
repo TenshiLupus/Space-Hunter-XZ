@@ -12,7 +12,7 @@ public class PowerUpActions : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+//        player = GameObject.FindWithTag("Player").GetComponent<Player>();
         controller = GameObject.FindWithTag("PowerUpController").GetComponent<PowerUpController>();
 
     }

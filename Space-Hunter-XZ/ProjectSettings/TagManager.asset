@@ -9,6 +9,7 @@ TagManager:
   - Hazard
   - Shield
   - PowerUpController
+  - Life
   layers:
   - Default
   - TransparentFX

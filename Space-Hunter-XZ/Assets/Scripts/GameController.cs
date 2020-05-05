@@ -29,8 +29,9 @@ public class GameController : MonoBehaviour
     private int score;
     private int wave;
 
-    private int lifeCounter=1;
+    private int lifeCounter=0;
     private Text lifeText;
+    public AudioClip HPUp;
 
     private void Start()
     {
