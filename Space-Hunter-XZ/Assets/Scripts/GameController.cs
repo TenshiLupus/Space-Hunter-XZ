@@ -29,6 +29,9 @@ public class GameController : MonoBehaviour
     private int score;
     private int wave;
 
+    private int lifeCounter=1;
+    private Text lifeText;
+
     private void Start()
     {
         powerUpController = GameObject.FindWithTag("PowerUpController").GetComponent<PowerUpController>();
@@ -38,6 +41,12 @@ public class GameController : MonoBehaviour
         wave = 1;
         UpdateScore();
         StartCoroutine(SpawnWaves());
+        lifeText = GameObject.Find("LifeNumber").GetComponent<Text>();
+
+    }
+
+    private void Update() {
+    lifeText.text="x " + lifeCounter;    
     }
     IEnumerator SpawnWaves()
     {
@@ -117,6 +126,18 @@ public class GameController : MonoBehaviour
         gameOverText.text = "Game Over!";
         gameOver = true;
 
+    }
+
+    public void GiveLife(){
+        lifeCounter++;
+    }
+
+    public void TakeLife(){
+        lifeCounter--;
+    }
+
+    public int GetLife(){
+        return lifeCounter;
     }
 
     

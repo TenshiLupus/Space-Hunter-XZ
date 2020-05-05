@@ -9,12 +9,13 @@ public class DestroyByContact : MonoBehaviour
     public GameObject shieldExplosion;
     public int scoreValue;
 
-
     private GameController gameController;
     private PowerUpController powerUpController;
+    private GameObject player;
 
     void Start()
     {
+        player = GameObject.Find("Player");
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
         powerUpController = GameObject.FindWithTag("PowerUpController").GetComponent<PowerUpController>();
         if (gameControllerObject != null)
@@ -50,8 +51,15 @@ public class DestroyByContact : MonoBehaviour
         }
         if (other.CompareTag("Player"))
         {
+            if(gameController.GetLife()<1){
             Instantiate(playerExplosion, transform.position, transform.rotation);
             gameController.GameOver();
+            }
+            else if(gameController.GetLife()>=1){
+                gameController.TakeLife();
+                Instantiate(playerExplosion, transform.position, transform.rotation);
+                player.transform.position = new Vector3(0, 0, 0);
+            }
         }
         gameController.AddScore(scoreValue);
         Destroy(other.gameObject);
