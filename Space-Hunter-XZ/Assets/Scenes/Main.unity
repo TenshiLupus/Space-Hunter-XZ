@@ -981,16 +981,17 @@ MonoBehaviour:
   - {fileID: 2449523490670655637, guid: 4c8caa7a85cdad142ba434bed62f41a7, type: 3}
   - {fileID: 5089070219954922067, guid: c3cb147f89816c74094de695ae534dc2, type: 3}
   - {fileID: 4417594177318449628, guid: d3a99374cc0f5094e9f409a33c0d9588, type: 3}
-  advEnemy: {fileID: 0}
+  advEnemy: {fileID: 4848272029584880089, guid: 35ab3412efe550945a46ce095eb2de31,
+    type: 3}
   spawnValues: {x: 2.4, y: 10, z: 0}
-  spawnLeft: {x: 0, y: 0, z: 0}
-  spawnRight: {x: 0, y: 0, z: 0}
+  spawnLeft: {x: -4, y: 5, z: 0}
+  spawnRight: {x: 4, y: 5, z: 0}
   hazardCount: 7
   waveCount: 2
   waveIncrease: 2
   spawnWait: 0.5
   startWait: 1
-  advWaveWait: 0
+  advWaveWait: 2
   waveWait: 2
   scoreText: {fileID: 764705081}
   gameOverText: {fileID: 1910297001}

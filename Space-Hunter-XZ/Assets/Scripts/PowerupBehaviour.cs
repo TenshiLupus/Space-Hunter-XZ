@@ -16,7 +16,7 @@ public class PowerupBehaviour : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if(other.gameObject.tag == "Player"){
+        if(other.gameObject.tag == "Player" || other.gameObject.tag == "Shield"){
             ActivatePowerup();
             gameObject.SetActive(false);
             Invoke("Delete", powerup.duration +1);
