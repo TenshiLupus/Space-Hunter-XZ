@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     }
              void OnTriggerEnter(Collider other)
          {
-            if (other.tag == "Hazard")
+            if (other.tag == "Hazard" || other.tag == "Enemy" )
             {
               StartCoroutine(Flasher()); //VERY IMPORTANT!  You 'must' start coroutines with this code.
             }
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     for (int i = 0; i < 5; i++)
     {
     Color tempColor = GetComponent<Renderer>().material.color;
-    GetComponent<Renderer>().material.color = Color.white;
+    GetComponent<Renderer>().material.color = Color.black;
     yield return new WaitForSeconds(.1f);
     GetComponent<Renderer>().material.color = tempColor; 
     yield return new WaitForSeconds(.1f);
