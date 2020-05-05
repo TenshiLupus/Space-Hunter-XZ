@@ -23,7 +23,7 @@ public class ShipMove : MonoBehaviour {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             direction = (mousePosition - transform.position).normalized;
             rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);
-            rb.rotation = Quaternion.Euler(0.0f, rb.velocity.x * -tilt, 0.0f);
+            rb.rotation = Quaternion.Euler(0.0f, Mathf.Clamp(rb.velocity.x * -tilt, -45f, 45f), 0.0f);
         }
         else {
             rb.velocity = Vector2.zero;
