@@ -21,7 +21,7 @@ public class DragFingerOffset : MonoBehaviour
     private void Update(){
 
         if (Input.touchCount>0){
-            
+
             Touch touch = Input.GetTouch(0);
 
             Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
@@ -35,15 +35,15 @@ public class DragFingerOffset : MonoBehaviour
                     deltaX = touchPos.x - transform.position.x;
                     deltaY = touchPos.y - transform.position.y;
                     break;
-                
+
                 case TouchPhase.Moved:
-                    rigidbody.velocity = new Vector3(touchPos.x-deltaX, touchPos.y - deltaY, 0)* moveSpeed;
+                    rigidbody.velocity = new Vector2(Mathf.Clamp(touchPos.x-deltaX, boundary.xMin, boundary.xMax),Mathf.Clamp(touchPos.y - deltaY, boundary.yMin, boundary.yMax))* moveSpeed;
                     break;
 
                 case TouchPhase.Ended:
                     rigidbody.velocity = Vector2.zero;
                     break;
-            }    
+            }
         }
     }
     private void FixedUpdate()
