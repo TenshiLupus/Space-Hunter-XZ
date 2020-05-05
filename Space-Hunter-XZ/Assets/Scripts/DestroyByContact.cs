@@ -50,8 +50,8 @@ public class DestroyByContact : MonoBehaviour
         }
         if (other.CompareTag("Player"))
         {
-            //Instantiate(playerExplosion, transform.position, transform.rotation);
-            //gameController.GameOver();
+            Instantiate(playerExplosion, transform.position, transform.rotation);
+            gameController.GameOver();
             return;
         }
         gameController.AddScore(scoreValue);
