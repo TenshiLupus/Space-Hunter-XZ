@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AdaptScreenResolution : MonoBehaviour{
+public class AdaptiveScreenResolution : MonoBehaviour{
     public bool maintainWidth=true;
     
     [Range(-1,1)]
