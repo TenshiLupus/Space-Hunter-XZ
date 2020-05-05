@@ -10,7 +10,7 @@ public class AdvEnemy : MonoBehaviour
     private float timer;
     void Start()
     {
-        timer = Random.Range(0.9f, 1.05f);
+        timer = Random.Range(0.8f, 1.05f);
         if (GetComponent<Transform>().position.x < 0)
         {
             GetComponent<Rigidbody>().velocity = transform.right * speed;
