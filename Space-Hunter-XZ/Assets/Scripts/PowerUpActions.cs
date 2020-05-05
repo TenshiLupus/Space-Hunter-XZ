@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PowerUpActions : MonoBehaviour
 {
+    public GameObject laserPickUp;
+
     [SerializeField]
     private Player player;
     private PowerUpController controller;
@@ -18,6 +20,7 @@ public class PowerUpActions : MonoBehaviour
     public void HighSpeedStartAction(){
         player.fireRate /= 2;
         controller.laserUpActive = true;
+        Instantiate(laserPickUp, transform.position, transform.rotation);
     }
 
     public void HighSpeedEndAction(){
