@@ -23,12 +23,15 @@ public class GameController : MonoBehaviour
     public Text gameOverText;
     public GameObject restartButton;
 
+    private PowerUpController powerUpController;
+
     private bool gameOver;
     private int score;
     private int wave;
 
     private void Start()
     {
+        powerUpController = GameObject.FindWithTag("PowerUpController").GetComponent<PowerUpController>();
         gameOver = false; ;
         gameOverText.text = "";
         score = 0;
@@ -42,24 +45,41 @@ public class GameController : MonoBehaviour
         while (true)
         {
             int hazardsIndex;
-            bool shieldSpawned = false;
+            bool powerUpSpawned = false;
             for (int i = 0; i < hazardCount; i++)
             {
                 if (gameOver == false)
                 {
                     hazardsIndex = Random.Range(0, hazards.Length);
                     GameObject hazard;
-                    if (shieldSpawned)
+                    if (powerUpSpawned)
                     {
-                        hazard = hazards[Random.Range(0, hazards.Length - 1)];
+                        hazardsIndex = Random.Range(0, hazards.Length -2);
+                    }
+                    if (!powerUpSpawned && !powerUpController.shieldUpActive && powerUpController.laserUpActive)
+                    {
+                        hazardsIndex = Random.Range(0, hazards.Length);
+                        if (hazardsIndex == 4)
+                        {
+                            hazardsIndex = 5;
+                        }
+                    }
+                    if (!powerUpSpawned && powerUpController.shieldUpActive && !powerUpController.laserUpActive)
+                    {
+                        hazardsIndex = Random.Range(0, hazards.Length - 1);
+                    }
+                    if (!powerUpSpawned && powerUpController.shieldUpActive && powerUpController.laserUpActive)
+                    {
+                        hazardsIndex = Random.Range(0, hazards.Length - 2);
                     }
                     else
                     {
                         hazard = hazards[hazardsIndex];
                     }
-                    if (hazardsIndex == 8)
+                    hazard = hazards[hazardsIndex];
+                    if (hazardsIndex == 4 || hazardsIndex == 5)
                     {
-                        shieldSpawned = true;
+                        powerUpSpawned = true;
                     }
                     Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
                     Quaternion spawnRotation = Quaternion.identity;

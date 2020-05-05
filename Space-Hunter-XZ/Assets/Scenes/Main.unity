@@ -309,7 +309,7 @@ Transform:
   m_Children:
   - {fileID: 787113296}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &237985154
 MonoBehaviour:
@@ -978,18 +978,19 @@ MonoBehaviour:
   - {fileID: 2988689001804474899, guid: 645d1a0c69b6bff4790fb589f20c5736, type: 3}
   - {fileID: 4304709477903241398, guid: 0fb489606c056e94680dfa09db8a8d77, type: 3}
   - {fileID: 2776963630197528710, guid: e05a7dc83c340b84da28e923cd2499dc, type: 3}
-  - {fileID: 2988689001804474899, guid: 645d1a0c69b6bff4790fb589f20c5736, type: 3}
-  - {fileID: 4304709477903241398, guid: 0fb489606c056e94680dfa09db8a8d77, type: 3}
-  - {fileID: 2776963630197528710, guid: e05a7dc83c340b84da28e923cd2499dc, type: 3}
   - {fileID: 2449523490670655637, guid: 4c8caa7a85cdad142ba434bed62f41a7, type: 3}
-  - {fileID: 2449523490670655637, guid: 4c8caa7a85cdad142ba434bed62f41a7, type: 3}
+  - {fileID: 5089070219954922067, guid: c3cb147f89816c74094de695ae534dc2, type: 3}
   - {fileID: 4417594177318449628, guid: d3a99374cc0f5094e9f409a33c0d9588, type: 3}
+  advEnemy: {fileID: 0}
   spawnValues: {x: 2.4, y: 10, z: 0}
+  spawnLeft: {x: 0, y: 0, z: 0}
+  spawnRight: {x: 0, y: 0, z: 0}
   hazardCount: 7
   waveCount: 2
   waveIncrease: 2
   spawnWait: 0.5
   startWait: 1
+  advWaveWait: 0
   waveWait: 2
   scoreText: {fileID: 764705081}
   gameOverText: {fileID: 1910297001}
@@ -1033,6 +1034,54 @@ MonoBehaviour:
     yMax: 8
   moveSpeed: 10
   tilt: 15
+--- !u!1 &1236545587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1236545589}
+  - component: {fileID: 1236545588}
+  m_Layer: 0
+  m_Name: PowerUpController
+  m_TagString: PowerUpController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1236545588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236545587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3ce55fa25173a4d967bbebd88be2cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupPrefab: {fileID: 5089070219954922067, guid: c3cb147f89816c74094de695ae534dc2,
+    type: 3}
+  powerups: []
+  shieldUpActive: 0
+  laserUpActive: 0
+--- !u!4 &1236545589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236545587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.926, z: -0.04554517}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1471608880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6863898626749181564, guid: 45cdbd64b747db44ca87dfff145a4044,
@@ -1339,7 +1388,7 @@ PrefabInstance:
     - target: {fileID: 4231340326590569085, guid: 0d24eaefbe6d1174c83e829c15424edf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4231340326590569085, guid: 0d24eaefbe6d1174c83e829c15424edf,
         type: 3}
@@ -1523,11 +1572,6 @@ PrefabInstance:
       objectReference: {fileID: 1471608880}
     - target: {fileID: 6358554632792035462, guid: 45cdbd64b747db44ca87dfff145a4044,
         type: 3}
-      propertyPath: fireRate
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6358554632792035462, guid: 45cdbd64b747db44ca87dfff145a4044,
-        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -1535,6 +1579,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.00343
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176062536660106229, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45cdbd64b747db44ca87dfff145a4044, type: 3}

@@ -8,6 +8,8 @@ public class PowerUpController : MonoBehaviour
 
     public List<Powerup> powerups;
     public Dictionary<Powerup, float> activePowerups = new Dictionary<Powerup, float>();
+    public bool shieldUpActive;
+    public bool laserUpActive;
 
     private List<Powerup> keys = new List<Powerup>();
 
@@ -20,13 +22,16 @@ public class PowerUpController : MonoBehaviour
         if(activePowerups.Count > 0){
 
             foreach(Powerup powerUp in keys){
-                if(activePowerups[powerUp]> 0){
+                if (activePowerups[powerUp] > 0)
+                {
                     activePowerups[powerUp] -= Time.deltaTime;
                 }
-                else changed = true;
-                activePowerups.Remove(powerUp);
-
-                powerUp.End();
+                else
+                {
+                    powerUp.End();
+                    changed = true;
+                    activePowerups.Remove(powerUp);
+                }
             }
         }
 

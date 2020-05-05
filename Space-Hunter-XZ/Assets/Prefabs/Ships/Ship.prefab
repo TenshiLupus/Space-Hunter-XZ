@@ -150,8 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shot: {fileID: 3037575737332633199, guid: 1412f0078f7b38141928ba5c54946952, type: 3}
   shotSpawn: {fileID: 6863898626749181564}
-  shieldDischarge: {fileID: 8300000, guid: 6374a331a72a1314e8c0bad57876f373, type: 3}
-  fireRate: 0.5
+  fireRate: 0.6
 --- !u!54 &-450269221892674379
 Rigidbody:
   m_ObjectHideFlags: 0
