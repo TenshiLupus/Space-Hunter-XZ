@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
 
     private int lifeCounter=1;
     private Text lifeText;
+    public AudioClip HPUp;
 
     private void Start()
     {

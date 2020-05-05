@@ -40,11 +40,12 @@ public class DestroyByContact : MonoBehaviour
         if (other.CompareTag("Shield")) {
             Instantiate(shieldExplosion, transform.position, transform.rotation);
             powerUpController.shieldUpActive = false;
-            other.gameObject.SetActive(false);
             Destroy(gameObject);
             other.GetComponentInParent<CapsuleCollider>().enabled = true;
+            other.gameObject.SetActive(false);
             return;
         }
+        
         if (other.CompareTag("Hazard"))
         {
             Instantiate(explosion, transform.position, transform.rotation);
@@ -55,10 +56,9 @@ public class DestroyByContact : MonoBehaviour
             Instantiate(playerExplosion, transform.position, transform.rotation);
             gameController.GameOver();
             }
-            else if(gameController.GetLife()>=1){
+            else if(gameController.GetLife()>=1){ 
                 gameController.TakeLife();
                 Instantiate(playerExplosion, transform.position, transform.rotation);
-                player.transform.position = new Vector3(0, 0, 0);
             }
         }
         gameController.AddScore(scoreValue);
