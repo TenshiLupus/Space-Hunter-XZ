@@ -98,7 +98,14 @@ public class GameController : MonoBehaviour
                     yield return new WaitForSeconds(spawnWait);
                 }
             }
-            yield return new WaitForSeconds(waveWait);
+            yield return new WaitForSeconds(advWaveWait);
+            if (gameOver == false)
+            {
+                Quaternion spawnRotation2 = Quaternion.identity;
+                Instantiate(advEnemy, new Vector3(spawnLeft.x, spawnLeft.y + Random.Range(-2, 2), spawnLeft.z), spawnRotation2);
+                Instantiate(advEnemy, new Vector3(spawnRight.x, spawnRight.y + Random.Range(-2, 2), spawnRight.z), spawnRotation2);
+                yield return new WaitForSeconds(waveWait);
+            }
             wave++;
             if (wave == waveCount)
             {

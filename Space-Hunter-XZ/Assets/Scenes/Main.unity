@@ -1097,13 +1097,13 @@ MonoBehaviour:
   spawnValues: {x: 2.4, y: 10, z: 0}
   spawnLeft: {x: -4, y: 5, z: 0}
   spawnRight: {x: 4, y: 5, z: 0}
-  hazardCount: 5
-  waveCount: 2
-  waveIncrease: 2
+  hazardCount: 2
+  waveCount: 0
+  waveIncrease: 0
   spawnWait: 0.5
   startWait: 1
   advWaveWait: 2
-  waveWait: 4
+  waveWait: 2
   scoreText: {fileID: 764705081}
   gameOverText: {fileID: 1910297001}
   restartButton: {fileID: 340727139}
