@@ -98,14 +98,7 @@ public class GameController : MonoBehaviour
                     yield return new WaitForSeconds(spawnWait);
                 }
             }
-            yield return new WaitForSeconds(advWaveWait);
-            if (gameOver == false)
-            {
-                Quaternion spawnRotation2 = Quaternion.identity;
-                Instantiate(advEnemy, spawnLeft, spawnRotation2);
-                Instantiate(advEnemy, spawnRight, spawnRotation2);
-                yield return new WaitForSeconds(waveWait);
-            }
+            yield return new WaitForSeconds(waveWait);
             wave++;
             if (wave == waveCount)
             {
