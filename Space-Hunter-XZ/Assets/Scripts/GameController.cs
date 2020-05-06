@@ -21,9 +21,14 @@ public class GameController : MonoBehaviour
 
     public Text scoreText;
     public Text gameOverText;
+    public Text playText;
+    public Text exitText;
     public GameObject restartButton;
 
     public GameObject backToMenu;
+
+    public GameObject english;
+    public GameObject swedish;
 
     private PowerUpController powerUpController;
 
@@ -31,13 +36,16 @@ public class GameController : MonoBehaviour
     private int score;
     private int wave;
 
-    private int lifeCounter=0;
+    private int lifeCounter = 0;
     private Text lifeText;
+
+    private string textScore = "Score: ";
+    private string textGameOver = "Game Over!";
 
     private void Start()
     {
         powerUpController = GameObject.FindWithTag("PowerUpController").GetComponent<PowerUpController>();
-        gameOver = false; ;
+        gameOver = false; 
         gameOverText.text = "";
         score = 0;
         wave = 1;
@@ -109,6 +117,8 @@ public class GameController : MonoBehaviour
             {
                 restartButton.SetActive(true);
                 backToMenu.SetActive(true);
+                english.SetActive(true);
+                swedish.SetActive(true);
                 break;
             }
         }
@@ -121,12 +131,13 @@ public class GameController : MonoBehaviour
     }
     void UpdateScore()
     {
-        scoreText.text = "Score: " + score; 
+        scoreText.text = textScore + score; 
+        
     }
 
     public void GameOver()
     {
-        gameOverText.text = "Game Over!";
+        gameOverText.text = textGameOver;
         gameOver = true;
 
     }
@@ -147,10 +158,13 @@ public class GameController : MonoBehaviour
     public void MainScene(){
         SceneManager.LoadScene("Main");
         restartButton.SetActive(false);
+        english.SetActive(false);
+        swedish.SetActive(false);      
     }
 
     public void Menuscene(){
         SceneManager.LoadScene("MainMenu");
         backToMenu.SetActive(false);
     }
+
 }
