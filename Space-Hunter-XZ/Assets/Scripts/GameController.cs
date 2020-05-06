@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
     public Text gameOverText;
     public GameObject restartButton;
 
+    public GameObject backToMenu;
+
     private PowerUpController powerUpController;
 
     private bool gameOver;
@@ -113,6 +115,7 @@ public class GameController : MonoBehaviour
             if (gameOver)
             {
                 restartButton.SetActive(true);
+                backToMenu.SetActive(true);
                 break;
             }
         }
@@ -148,9 +151,13 @@ public class GameController : MonoBehaviour
     }
 
     
-    public void NextScene()
-    {
+    public void MainScene(){
         SceneManager.LoadScene("Main");
         restartButton.SetActive(false);
+    }
+
+    public void Menuscene(){
+        SceneManager.LoadScene("MainMenu");
+        backToMenu.SetActive(false);
     }
 }
