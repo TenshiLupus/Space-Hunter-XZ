@@ -109,7 +109,6 @@ public class Translator : MonoBehaviour
 
      public void ChangeMainTextEnglish(){
         scoreText.text = "SCORE: ";
-        gameOverText.text = "GAME OVER!";
         gameOverText.text = "PAUSED";
         menuButtonText.text = "MENU";
         continueText.text = "CONTINUE";
@@ -120,7 +119,6 @@ public class Translator : MonoBehaviour
 
     public void ChangeMainTextSwedish(){
         scoreText.text = "POÄNG";
-        gameOverText.text = "SLUT";
         pausedText.text = "PAUSAD";
         menuButtonText.text = "MENY";
         continueText.text = "FORTSÄTTA";

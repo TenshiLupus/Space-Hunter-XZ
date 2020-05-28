@@ -174,7 +174,10 @@ public class GameController : MonoBehaviour
         StartCoroutine(AudioController.FadeIn(audioSource, 0.5f));
         audioSource.Stop();
         audioSource.PlayOneShot(gameOverSound, 1f);
-        gameOverText.text = "GAME OVER!";
+        if (PlayerPrefs.GetString("Language").Equals("English"))
+            gameOverText.text = "GAME OVER!";
+        else if (PlayerPrefs.GetString("Language").Equals("Swedish"))
+            gameOverText.text = "SPEL SLUT";
         menuButton.SetActive(false);
         scoreObject.SetActive(false);
         lifeSystem.SetActive(false);
