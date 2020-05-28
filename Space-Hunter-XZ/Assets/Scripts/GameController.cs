@@ -163,7 +163,10 @@ public class GameController : MonoBehaviour
         {
             PlayerPrefs.SetInt("score", score);
         }
+        if(PlayerPrefs.GetString("Language").Equals("English"))
         scoreText.text = "SCORE: " + score;
+        else if(PlayerPrefs.GetString("Language").Equals("Swedish"))
+        scoreText.text = "POÄNG: " + score;
     }
 
     public void GameOver()

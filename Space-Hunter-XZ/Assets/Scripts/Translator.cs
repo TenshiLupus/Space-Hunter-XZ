@@ -22,6 +22,7 @@ public class Translator : MonoBehaviour
     public Text creditsMusicText;
     public Text pausedText;
     public Text continueText;
+    public Text menuButtonText;
 
     private string selectedLanguage;
     private Scene scene;
@@ -109,6 +110,9 @@ public class Translator : MonoBehaviour
      public void ChangeMainTextEnglish(){
         scoreText.text = "SCORE: ";
         gameOverText.text = "GAME OVER!";
+        gameOverText.text = "PAUSED";
+        menuButtonText.text = "MENU";
+        continueText.text = "CONTINUE";
         rButtonText.text = "RESTART";
         bmButtonText.text = "MAIN MENU";
         SaveData("English");
@@ -117,6 +121,9 @@ public class Translator : MonoBehaviour
     public void ChangeMainTextSwedish(){
         scoreText.text = "POÄNG";
         gameOverText.text = "SLUT";
+        pausedText.text = "PAUSAD";
+        menuButtonText.text = "MENY";
+        continueText.text = "FORTSÄTTA";
         rButtonText.text = "STARTA OM";
         bmButtonText.text = "HUVUD MENY";
         SaveData("Swedish");
