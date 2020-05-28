@@ -226,6 +226,7 @@ public class GameController : MonoBehaviour
     }
 
     public void Menuscene(){
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("MainMenu");
         backToMenu.SetActive(false);
     }

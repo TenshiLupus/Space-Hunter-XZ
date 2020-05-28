@@ -27,7 +27,6 @@ public class MenuController : MonoBehaviour
     {
         scoreText.text = "" + PlayerPrefs.GetInt("score");
         Invoke("FadeInMenu", 0.5f);
-
     }
 
     private void FadeInMenu()
