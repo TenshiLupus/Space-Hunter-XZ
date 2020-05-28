@@ -1365,6 +1365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 829287237}
   - component: {fileID: 829287236}
+  - component: {fileID: 829287238}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: GameController
@@ -1432,6 +1433,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &829287238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829287235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a4ad2e36560ea4181e3e777d99d951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  credits: {fileID: 0}
+  creditsButtonText: {fileID: 0}
+  creditBackButtonText: {fileID: 0}
+  highScoreButtonText: {fileID: 0}
+  highScoreButtonBackText: {fileID: 0}
+  highScoreText: {fileID: 0}
+  scoreText: {fileID: 764705081}
+  resetScoreButtonText: {fileID: 0}
+  gameOverText: {fileID: 1910297001}
+  startText: {fileID: 0}
+  exitText: {fileID: 0}
+  rButtonText: {fileID: 213384762}
+  bmButtonText: {fileID: 676253125}
+  creditsMusicText: {fileID: 0}
+  pausedText: {fileID: 613445738}
+  continueText: {fileID: 9300342}
 --- !u!4 &1042194042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5953171543075628702, guid: 45cdbd64b747db44ca87dfff145a4044,
@@ -2073,7 +2102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1910297000
 RectTransform:
   m_ObjectHideFlags: 0

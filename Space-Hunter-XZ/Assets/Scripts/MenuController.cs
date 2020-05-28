@@ -18,6 +18,7 @@ public class MenuController : MonoBehaviour
     public GameObject scoreBackButton;
     public GameObject yesNoDialog;
     public CanvasGroup canvasGroup;
+    private string languageSelected; 
 
     public float elapsedTime;
     public float fadeTime;
