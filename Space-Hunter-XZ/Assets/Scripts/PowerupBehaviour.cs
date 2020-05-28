@@ -5,6 +5,8 @@ using UnityEngine;
 public class PowerupBehaviour : MonoBehaviour
 {
     public PowerUpController controller;
+    public AudioClip audioClip;
+
     [SerializeField]
     private Powerup powerup;
 
