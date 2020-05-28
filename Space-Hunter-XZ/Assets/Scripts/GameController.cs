@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip gameOverSound;
     public GameObject[] hazards;
     public GameObject advEnemy;
     public Vector3 spawnValues;
@@ -21,14 +23,23 @@ public class GameController : MonoBehaviour
 
     public Text scoreText;
     public Text gameOverText;
+    public GameObject scoreObject;
+    public GameObject lifeSystem
+        ;
+    public GameObject pausedText;
+    public GameObject menuButton;
+    public GameObject continueButton;
     public GameObject restartButton;
-
     public GameObject backToMenu;
+    public CanvasGroup canvasGroup;
 
     private PowerUpController powerUpController;
 
+    public int score;
+    public float elapsedTime;
+    public float fadeTime;
+
     private bool gameOver;
-    private int score;
     private int wave;
 
     private int lifeCounter=0;
@@ -43,8 +54,28 @@ public class GameController : MonoBehaviour
         wave = 1;
         UpdateScore();
         StartCoroutine(SpawnWaves());
+        StartCoroutine(AudioController.FadeIn(audioSource, 2.5f));
         lifeText = GameObject.Find("LifeNumber").GetComponent<Text>();
+        Invoke("FadeIn", 1f);
 
+    }
+
+    private void FadeIn()
+    {
+        StartCoroutine(DoFadeIn());
+    }
+
+    IEnumerator DoFadeIn()
+    {
+        while (canvasGroup.alpha < 1)
+        {
+
+            elapsedTime += Time.deltaTime;
+            canvasGroup.alpha = Mathf.Clamp01(0.0f + (elapsedTime / fadeTime));
+            yield return null;
+        }
+
+        yield return null;
     }
 
     private void Update() {
@@ -98,7 +129,14 @@ public class GameController : MonoBehaviour
                     yield return new WaitForSeconds(spawnWait);
                 }
             }
-            yield return new WaitForSeconds(waveWait);
+            yield return new WaitForSeconds(advWaveWait);
+            if (gameOver == false)
+            {
+                Quaternion spawnRotation2 = Quaternion.identity;
+                Instantiate(advEnemy, new Vector3(spawnLeft.x, spawnLeft.y + Random.Range(-2, 2), spawnLeft.z), spawnRotation2);
+                Instantiate(advEnemy, new Vector3(spawnRight.x, spawnRight.y + Random.Range(-2, 2), spawnRight.z), spawnRotation2);
+                yield return new WaitForSeconds(waveWait);
+            }
             wave++;
             if (wave == waveCount)
             {
@@ -121,12 +159,22 @@ public class GameController : MonoBehaviour
     }
     void UpdateScore()
     {
-        scoreText.text = "Score: " + score; 
+        if (score > PlayerPrefs.GetInt("score"))
+        {
+            PlayerPrefs.SetInt("score", score);
+        }
+        scoreText.text = "SCORE: " + score;
     }
 
     public void GameOver()
     {
-        gameOverText.text = "Game Over!";
+        StartCoroutine(AudioController.FadeIn(audioSource, 0.5f));
+        audioSource.Stop();
+        audioSource.PlayOneShot(gameOverSound, 1f);
+        gameOverText.text = "GAME OVER!";
+        menuButton.SetActive(false);
+        scoreObject.SetActive(false);
+        lifeSystem.SetActive(false);
         gameOver = true;
 
     }
@@ -143,7 +191,35 @@ public class GameController : MonoBehaviour
         return lifeCounter;
     }
 
-    
+    public void Awake()
+    {
+        Time.timeScale = 1;
+    }
+    public void PauseGame()
+    {
+        pausedText.SetActive(true);
+        continueButton.SetActive(true);
+        restartButton.SetActive(true);
+        backToMenu.SetActive(true);
+        menuButton.SetActive(false);
+        scoreObject.SetActive(false);
+        lifeSystem.SetActive(false);
+        Time.timeScale = 0.0f;
+        //Disable scripts that still work while timescale is set to 0
+    }
+    public void ContinueGame()
+    {
+        pausedText.SetActive(false);
+        continueButton.SetActive(false);
+        restartButton.SetActive(false);
+        backToMenu.SetActive(false);
+        menuButton.SetActive(true);
+        scoreObject.SetActive(true);
+        lifeSystem.SetActive(true);
+        Time.timeScale = 1.0f;
+        //enable the scripts again
+    }
+
     public void MainScene(){
         SceneManager.LoadScene("Main");
         restartButton.SetActive(false);
