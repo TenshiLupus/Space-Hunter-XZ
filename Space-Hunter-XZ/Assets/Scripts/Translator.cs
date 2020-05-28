@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class Translator : MonoBehaviour
 {
 
-    public Text highScoreText;
-    public Text creditsText;
-    public Text creditBackText;
+    public Text credits;
+    public Text creditsButtonText;
+    public Text creditBackButtonText;
     public Text highScoreButtonText;
+    public Text highScoreButtonBackText;
+    public Text highScoreText;
     public Text scoreText;
-    public Text gameOverText;
     public Text resetScoreButtonText;
+    public Text gameOverText;
     public Text startText;
     public Text exitText;
     public Text rButtonText;
