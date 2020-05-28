@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
     public float advWaveWait;
     public float waveWait;
 
-    public Text scoreText;
+    public Text scorePoints;
     public Text gameOverText;
     public GameObject scoreObject;
     public GameObject lifeSystem
@@ -163,10 +163,11 @@ public class GameController : MonoBehaviour
         {
             PlayerPrefs.SetInt("score", score);
         }
-        if(PlayerPrefs.GetString("Language").Equals("English"))
-        scoreText.text = "SCORE: " + score;
-        else if(PlayerPrefs.GetString("Language").Equals("Swedish"))
-        scoreText.text = "POÄNG: " + score;
+        if (PlayerPrefs.GetString("Language").Equals("English")) {
+            scorePoints.text = "" + score;
+        }
+        else if (PlayerPrefs.GetString("Language").Equals("Swedish"))
+            scorePoints.text = "" + score;
     }
 
     public void GameOver()
@@ -174,10 +175,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(AudioController.FadeIn(audioSource, 0.5f));
         audioSource.Stop();
         audioSource.PlayOneShot(gameOverSound, 1f);
-        if (PlayerPrefs.GetString("Language").Equals("English"))
-            gameOverText.text = "GAME OVER!";
-        else if (PlayerPrefs.GetString("Language").Equals("Swedish"))
-            gameOverText.text = "SPEL SLUT";
+        gameOverText.text = "GAME OVER!";
         menuButton.SetActive(false);
         scoreObject.SetActive(false);
         lifeSystem.SetActive(false);
@@ -203,13 +201,13 @@ public class GameController : MonoBehaviour
     }
     public void PauseGame()
     {
-        pausedText.SetActive(true);
-        continueButton.SetActive(true);
-        restartButton.SetActive(true);
         backToMenu.SetActive(true);
         menuButton.SetActive(false);
         scoreObject.SetActive(false);
         lifeSystem.SetActive(false);
+        pausedText.SetActive(true);
+        continueButton.SetActive(true);
+        restartButton.SetActive(true);
         Time.timeScale = 0.0f;
         //Disable scripts that still work while timescale is set to 0
     }

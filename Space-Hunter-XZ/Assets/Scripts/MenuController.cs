@@ -6,17 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    public GameObject creditsButton;
-    public GameObject highScoreButton;
-    public GameObject startButton;
-    public GameObject exitButton;
-    public GameObject credits;
-    public GameObject creditsBackButton;
-    public Text scoreText;
-    public GameObject highScoreText;
-    public GameObject resetScoreButton;
-    public GameObject scoreBackButton;
+    public GameObject mainMenu;
+    public GameObject creditsMenu;
+
+    public GameObject highScoreMenu;
+    public GameObject optionsMenu;
+    public GameObject languageMenu;
+    public GameObject translator;
+    public GameObject gameModeMenu;
     public GameObject yesNoDialog;
+
+    public Text scoreText;
+
     public CanvasGroup canvasGroup;
     private string languageSelected; 
 
@@ -54,29 +55,19 @@ public class MenuController : MonoBehaviour
 
     public void YesOrNo()
     {
-        creditsButton.SetActive(false);
-        highScoreButton.SetActive(false);
-        startButton.SetActive(false);
-        exitButton.SetActive(false);
-        highScoreText.SetActive(false);
-        resetScoreButton.SetActive(false);
-        scoreBackButton.SetActive(false);
+        highScoreMenu.SetActive(false);
         yesNoDialog.SetActive(true);
     }
 
     public void No()
     {
-        highScoreText.SetActive(true);
-        resetScoreButton.SetActive(true);
-        scoreBackButton.SetActive(true);
+        highScoreMenu.SetActive(true);
         yesNoDialog.SetActive(false);
     }
     public void Yes()
     {
         ResetScore();
-        highScoreText.SetActive(true);
-        resetScoreButton.SetActive(true);
-        scoreBackButton.SetActive(true);
+        highScoreMenu.SetActive(true);
         yesNoDialog.SetActive(false);
         
     }
@@ -88,45 +79,77 @@ public class MenuController : MonoBehaviour
     }
     public void HideHighScore()
     {
-        creditsButton.SetActive(true);
-        highScoreButton.SetActive(true);
-        startButton.SetActive(true);
-        exitButton.SetActive(true);
-        highScoreText.SetActive(false);
-        resetScoreButton.SetActive(false);
-        scoreBackButton.SetActive(false);
+        highScoreMenu.SetActive(false);
+        mainMenu.SetActive(true);
     }
     
     public void ShowHighScore()
     {
-        creditsButton.SetActive(false);
-        highScoreButton.SetActive(false);
-        startButton.SetActive(false);
-        exitButton.SetActive(false);
-        highScoreText.SetActive(true);
-        resetScoreButton.SetActive(true);
-        scoreBackButton.SetActive(true);
+        mainMenu.SetActive(false);
+        highScoreMenu.SetActive(true);
     }
     public void ShowCredits()
     {
-        creditsButton.SetActive(false);
-        highScoreButton.SetActive(false);
-        startButton.SetActive(false);
-        exitButton.SetActive(false);
-        credits.SetActive(true);
-        creditsBackButton.SetActive(true);
+        mainMenu.SetActive(false);
+        creditsMenu.SetActive(true);
 
     }
 
     public void HideCredits()
     {
-        creditsButton.SetActive(true);
-        highScoreButton.SetActive(true);
-        startButton.SetActive(true);
-        exitButton.SetActive(true);
-        credits.SetActive(false);
-        creditsBackButton.SetActive(false);
+        creditsMenu.SetActive(false);
+        mainMenu.SetActive(true);
 
+    }
+
+    public void LoadOptionsMenu ()
+    {
+        mainMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+    }
+
+    public void CloseOptionsMenu ()
+    {
+        optionsMenu.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+
+    public void LoadLanguageMenu()
+    {
+        optionsMenu.SetActive(false);
+        languageMenu.SetActive(true);
+    }
+
+    public void ChangeToEnglish()
+    {
+        translator.GetComponent<Translator>().ChangeMenuTextEnglish();
+        languageMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+    }
+
+    public void ChangeToSwedish()
+    {
+        translator.GetComponent<Translator>().ChangeMenuTextSwedish();
+        languageMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+    }
+
+    public void LoadGameModeMenu()
+    {
+        optionsMenu.SetActive(false);
+        gameModeMenu.SetActive(true);
+    }
+
+    public void ChangeToNormal ()
+    {
+        gameModeMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+    }
+
+    public void ChangeToHard()
+    {
+        gameModeMenu.SetActive(false);
+        optionsMenu.SetActive(true);
     }
 
     public void QuitGame()

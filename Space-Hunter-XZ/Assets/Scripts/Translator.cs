@@ -75,7 +75,7 @@ public class Translator : MonoBehaviour
         if (currentScene.Equals("MainMenu"))
         {
             credits.text = "GAME DEVELOPMENT:\n\n\n ANGEL CARDENAS MARTINEZ\n JACOB WIK\n SAMUEL SEGAWA";
-            creditsMusicText.text = "MUSIC\n\n THREE CHAIN LINKS\n threechainlinks.bandcamp.com\n ERIC MATYAS\n www.soundimage.org";
+            creditsMusicText.text = "MUSIC:\n\n THREE CHAIN LINKS\n threechainlinks.bandcamp.com\n ERIC MATYAS\n www.soundimage.org";
             creditsButtonText.text = "CREDITS";
             highScoreButtonText.text = "HIGH SCORE";
             startText.text = "START GAME";
@@ -91,25 +91,23 @@ public class Translator : MonoBehaviour
 
     public void ChangeMenuTextSwedish(){
         if (currentScene.Equals("MainMenu")){
-            credits.text = "SPEL UTVECKLING:\n\n\n ANGEL CARDENAS MARTINEZ\n JACOB WIK\n SAMUEL SEGAWA";
-            creditsMusicText.text = "MUSIC\n\n THREE CHAIN LINKS\n threechainlinks.bandcamp.com\n ERIC MATYAS\n www.soundimage.org";
+            credits.text = "SPELUTVECKLING:\n\n\n ANGEL CARDENAS MARTINEZ\n JACOB WIK\n SAMUEL SEGAWA";
+            creditsMusicText.text = "MUSIK:\n\n THREE CHAIN LINKS\n threechainlinks.bandcamp.com\n ERIC MATYAS\n www.soundimage.org";
             creditsButtonText.text = "MEDVERKANDE";
             highScoreButtonText.text = "HÖGSTA POÄNG";
             startText.text = "STARTA SPEL";
             exitText.text = "AVSLUTA";
             scoreText.text = "POÄNG: ";
             creditBackButtonText.text = "TILLBAKA";
-            highScoreText.text = "HÖSTA POÄNG";
-            resetScoreButtonText.text = "STARTA OM";
+            highScoreText.text = "HÖGSTA POÄNG";
+            resetScoreButtonText.text = "NOLLSTÄLL";
             highScoreButtonBackText.text = "TILLBAKA";
             SaveData("Swedish");
-            Debug.Log("Ändrad");
         }
     }
 
      public void ChangeMainTextEnglish(){
-        scoreText.text = "SCORE: ";
-        gameOverText.text = "PAUSED";
+        scoreText.text = "SCORE:";
         menuButtonText.text = "MENU";
         continueText.text = "CONTINUE";
         rButtonText.text = "RESTART";
@@ -118,13 +116,11 @@ public class Translator : MonoBehaviour
     }
 
     public void ChangeMainTextSwedish(){
-        scoreText.text = "POÄNG";
-        pausedText.text = "PAUSAD";
+        scoreText.text = "POÄNG:";
         menuButtonText.text = "MENY";
-        continueText.text = "FORTSÄTTA";
+        continueText.text = "FORTSÄTT";
         rButtonText.text = "STARTA OM";
-        bmButtonText.text = "HUVUD MENY";
+        bmButtonText.text = "HUVUDMENY";
         SaveData("Swedish");
-        Debug.Log("Ändrad");
     }
 }

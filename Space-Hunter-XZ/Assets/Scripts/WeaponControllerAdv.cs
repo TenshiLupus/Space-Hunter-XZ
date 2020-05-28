@@ -36,14 +36,17 @@ public class WeaponControllerAdv : MonoBehaviour
     {
         yield return new WaitForSeconds(fireRate);
 
-        Vector2 direction = target.transform.position - transform.position;
-        direction.Normalize();
+        if (target != null)
+        {
+            Vector2 direction = target.transform.position - transform.position;
+            direction.Normalize();
 
-        GameObject bulletClone;
-        audioSource.Play();
-        bulletClone = Instantiate(bolt, shootPoint.transform.position, shootPoint.transform.rotation) as GameObject;
-        bulletClone.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
-        bulletTimer = 0;
+            GameObject bulletClone;
+            audioSource.Play();
+            bulletClone = Instantiate(bolt, shootPoint.transform.position, shootPoint.transform.rotation) as GameObject;
+            bulletClone.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
+            bulletTimer = 0;
+        }
 
     }
 }
