@@ -14,8 +14,11 @@ public class WeaponControllerAdv : MonoBehaviour
     public Transform target;
     public Transform shootPoint;
 
+    private AudioSource audioSource;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         target = GameObject.FindWithTag("Player").transform;
         Invoke("StartAttack",0.3f);
     }
@@ -37,6 +40,7 @@ public class WeaponControllerAdv : MonoBehaviour
         direction.Normalize();
 
         GameObject bulletClone;
+        audioSource.Play();
         bulletClone = Instantiate(bolt, shootPoint.transform.position, shootPoint.transform.rotation) as GameObject;
         bulletClone.GetComponent<Rigidbody>().velocity = direction * bulletSpeed;
         bulletTimer = 0;
