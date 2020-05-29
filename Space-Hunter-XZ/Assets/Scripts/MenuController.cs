@@ -15,6 +15,10 @@ public class MenuController : MonoBehaviour
     public GameObject translator;
     public GameObject gameModeMenu;
     public GameObject yesNoDialog;
+    public GameObject englishArrow;
+    public GameObject swedishArrow;
+    public GameObject normalArrow;
+    public GameObject hardArrow;
 
     public Text scoreText;
 
@@ -118,11 +122,22 @@ public class MenuController : MonoBehaviour
     {
         optionsMenu.SetActive(false);
         languageMenu.SetActive(true);
+        if (PlayerPrefs.GetString("Language") == "English")
+        {
+            englishArrow.SetActive(true);
+        }
+        if (PlayerPrefs.GetString("Language") == "Swedish")
+        {
+            swedishArrow.SetActive(true);
+        }
+
     }
 
     public void ChangeToEnglish()
     {
         translator.GetComponent<Translator>().ChangeMenuTextEnglish();
+        swedishArrow.SetActive(false);
+        englishArrow.SetActive(true);
         languageMenu.SetActive(false);
         optionsMenu.SetActive(true);
     }
@@ -130,6 +145,8 @@ public class MenuController : MonoBehaviour
     public void ChangeToSwedish()
     {
         translator.GetComponent<Translator>().ChangeMenuTextSwedish();
+        englishArrow.SetActive(false);
+        swedishArrow.SetActive(true);
         languageMenu.SetActive(false);
         optionsMenu.SetActive(true);
     }
@@ -137,6 +154,14 @@ public class MenuController : MonoBehaviour
     public void LoadGameModeMenu()
     {
         optionsMenu.SetActive(false);
+        if (PlayerPrefs.GetString("GameMode") == "Normal")
+        {
+            normalArrow.SetActive(true);
+        }
+        if (PlayerPrefs.GetString("GameMode") == "Hard")
+        {
+            hardArrow.SetActive(true);
+        }
         gameModeMenu.SetActive(true);
     }
 
@@ -144,6 +169,8 @@ public class MenuController : MonoBehaviour
     {
         PlayerPrefs.SetString("GameMode", "Normal");
         PlayerPrefs.Save();
+        hardArrow.SetActive(false);
+        normalArrow.SetActive(true);
         gameModeMenu.SetActive(false);
         optionsMenu.SetActive(true);
     }
@@ -152,6 +179,8 @@ public class MenuController : MonoBehaviour
     {
         PlayerPrefs.SetString("GameMode", "Hard");
         PlayerPrefs.Save();
+        normalArrow.SetActive(false);
+        hardArrow.SetActive(true);
         gameModeMenu.SetActive(false);
         optionsMenu.SetActive(true);
     }

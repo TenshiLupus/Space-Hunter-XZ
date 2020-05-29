@@ -228,7 +228,7 @@ Transform:
   - {fileID: 368137608}
   - {fileID: 1805126386}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &213384760
 GameObject:
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 237985151}
   - component: {fileID: 237985154}
   m_Layer: 0
-  m_Name: Background
+  m_Name: Gas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -380,13 +380,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237985149}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 1.52}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.0187708, y: 3.2777472, z: 3.5125031}
   m_LocalScale: {x: 6, y: 12, z: 1}
   m_Children:
   - {fileID: 787113296}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1450856843}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &237985154
 MonoBehaviour:
@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 310788071}
   - component: {fileID: 310788070}
   m_Layer: 0
-  m_Name: Galaxy
+  m_Name: Deep Stars Scroll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1305,7 +1305,7 @@ GameObject:
   - component: {fileID: 787113299}
   - component: {fileID: 787113298}
   m_Layer: 0
-  m_Name: Background (1)
+  m_Name: Gas Scroll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1472,7 +1472,7 @@ RectTransform:
   - {fileID: 1487167693}
   - {fileID: 2030763005}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1541,12 +1541,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812657724}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.0187708, y: 3.2777472, z: 1.9925032}
   m_LocalScale: {x: 6, y: 12, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1450856843}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &829287235
 GameObject:
@@ -1636,7 +1636,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &829287238
 MonoBehaviour:
@@ -1719,7 +1719,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1290872173
 GameObject:
@@ -1847,7 +1847,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1290872176
 MonoBehaviour:
@@ -1861,6 +1861,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6282b9f86dc0446b770a7ce25252be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1450856842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1450856843}
+  m_Layer: 0
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1450856843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450856842}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0187708, y: 0.7222529, z: -1.9925032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 237985153}
+  - {fileID: 1943057158}
+  - {fileID: 812657727}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1471608880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6863898626749181564, guid: 45cdbd64b747db44ca87dfff145a4044,
@@ -2289,7 +2322,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1910296999
 GameObject:
@@ -2381,7 +2414,7 @@ GameObject:
   - component: {fileID: 1943057156}
   - component: {fileID: 1943057155}
   m_Layer: 0
-  m_Name: Galaxy
+  m_Name: Deep Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2456,12 +2489,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943057154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 1.62}
+  m_LocalPosition: {x: -1.0187708, y: 3.2777472, z: 3.612503}
   m_LocalScale: {x: 6, y: 12, z: 1}
   m_Children:
   - {fileID: 310788069}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1450856843}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2001138644
 GameObject:
@@ -2831,7 +2864,7 @@ PrefabInstance:
     - target: {fileID: 4231340326590569085, guid: 0d24eaefbe6d1174c83e829c15424edf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4231340326590569085, guid: 0d24eaefbe6d1174c83e829c15424edf,
         type: 3}
@@ -3012,7 +3045,7 @@ PrefabInstance:
     - target: {fileID: 5953171543075628702, guid: 45cdbd64b747db44ca87dfff145a4044,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5953171543075628702, guid: 45cdbd64b747db44ca87dfff145a4044,
         type: 3}
