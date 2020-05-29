@@ -8,6 +8,7 @@ public class DestroyByContact : MonoBehaviour
     public GameObject playerExplosion;
     public GameObject shieldExplosion;
     public int scoreValue;
+    public int health;
 
     private GameController gameController;
     private PowerUpController powerUpController;
@@ -61,8 +62,15 @@ public class DestroyByContact : MonoBehaviour
                 player.transform.position = new Vector3(0, 0, 0);
             }
         }
-        gameController.AddScore(scoreValue);
         Destroy(other.gameObject);
-        Destroy(gameObject);
+        if (health <= 1)
+        {
+            gameController.AddScore(scoreValue);
+            Destroy(gameObject);
+        }
+        else
+        {
+            health -= 1;
+        }
     }
 }

@@ -10,8 +10,8 @@ public class Player : MonoBehaviour
     public Transform shotSpawn;
     public float fireRate;
 
+    private Coroutine shootCoroutine;
     private AudioSource audioSource;
-    private float nextFire;
     private bool isReady;
 
     void Start()
@@ -20,19 +20,29 @@ public class Player : MonoBehaviour
         Invoke("SetReady", 2f);
     }
 
+    IEnumerator Shoot ()
+    {
+        while (true)
+        {
+            if (isReady && gameController.canShoot)
+            {
+                Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                audioSource.Play();
+                yield return new WaitForSeconds(0.15f);
+                Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                audioSource.Play();
+                yield return new WaitForSeconds(0.15f);
+                Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                audioSource.Play();
+            }
+            yield return new WaitForSeconds(fireRate);
+        }
+    }
+
     private void SetReady()
     {
         audioSource.volume = 0.2f;
         isReady = true;
-    }
-
-    void Update()
-    {
-        if(gameController.canShoot && Time.time>nextFire && isReady){
-            nextFire = Time.time + fireRate;
-            Instantiate (shot, shotSpawn.position, shotSpawn.rotation );
-            audioSource.Play();
-        }
-
+        shootCoroutine = StartCoroutine(Shoot());
     }
 }
