@@ -27,6 +27,9 @@ public class Translator : MonoBehaviour
     public Text languageButtonText;
     public Text gameModeButtonText;
     public Text optionsBackButtonText;
+    public GameObject optionsButton;
+
+    private float rectWidth;
 
 
     private string selectedLanguage;
@@ -94,6 +97,9 @@ public class Translator : MonoBehaviour
             gameModeButtonText.text = "GAME MODE";
             optionsBackButtonText.text = "BACK";
             optionsButtonText.text = "OPTIONS";
+            RectTransform transform = optionsButton.GetComponent<RectTransform>();
+            transform.sizeDelta = new Vector2(500, 95);
+
             SaveData("English");
         }
     }
@@ -115,6 +121,8 @@ public class Translator : MonoBehaviour
             gameModeButtonText.text = "SVÅRIGHET";
             optionsBackButtonText.text = "TILLBAKA";
             optionsButtonText.text = "INSTÄLLNINGAR";
+            RectTransform transform = optionsButton.GetComponent<RectTransform>();
+            transform.sizeDelta = new Vector2(800, 95);
             SaveData("Swedish");
         }
     }
