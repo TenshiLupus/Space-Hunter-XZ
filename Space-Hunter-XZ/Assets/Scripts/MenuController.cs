@@ -175,7 +175,6 @@ public class MenuController : MonoBehaviour
 
     public void ChangeToNormal ()
     {
-        Debug.Log("Normal");
         PlayerPrefs.SetString("GameMode", "Normal");
         PlayerPrefs.Save();
         hardArrow.SetActive(false);
@@ -186,7 +185,6 @@ public class MenuController : MonoBehaviour
 
     public void ChangeToHard()
     {
-        Debug.Log("Hard");
         PlayerPrefs.SetString("GameMode", "Hard");
         PlayerPrefs.Save();
         normalArrow.SetActive(false);
