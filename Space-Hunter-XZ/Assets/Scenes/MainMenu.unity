@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 376827156}
   - component: {fileID: 376827155}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Game Mode Butto Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1938,9 +1938,13 @@ MonoBehaviour:
   rButtonText: {fileID: 0}
   bmButtonText: {fileID: 0}
   creditsMusicText: {fileID: 621936624}
+  optionsButtonText: {fileID: 1660042213}
   pausedText: {fileID: 0}
   continueText: {fileID: 0}
   menuButtonText: {fileID: 0}
+  languageButtonText: {fileID: 2147044925}
+  gameModeButtonText: {fileID: 376827155}
+  optionsBackButtonText: {fileID: 1853166014}
 --- !u!4 &513858929
 Transform:
   m_ObjectHideFlags: 0
@@ -5322,7 +5326,7 @@ GameObject:
   - component: {fileID: 1853166015}
   - component: {fileID: 1853166014}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Options Back Button Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6174,7 +6178,7 @@ GameObject:
   - component: {fileID: 2147044926}
   - component: {fileID: 2147044925}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Language Button Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

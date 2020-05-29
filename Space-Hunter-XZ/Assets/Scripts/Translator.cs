@@ -20,9 +20,14 @@ public class Translator : MonoBehaviour
     public Text rButtonText;
     public Text bmButtonText;
     public Text creditsMusicText;
+    public Text optionsButtonText;
     public Text pausedText;
     public Text continueText;
     public Text menuButtonText;
+    public Text languageButtonText;
+    public Text gameModeButtonText;
+    public Text optionsBackButtonText;
+
 
     private string selectedLanguage;
     private Scene scene;
@@ -85,6 +90,10 @@ public class Translator : MonoBehaviour
             highScoreText.text = "TOP SCORE";
             resetScoreButtonText.text = "RESET";
             highScoreButtonBackText.text = "BACK";
+            languageButtonText.text = "LANGUAGE";
+            gameModeButtonText.text = "GAME MODE";
+            optionsBackButtonText.text = "BACK";
+            optionsButtonText.text = "OPTIONS";
             SaveData("English");
         }
     }
@@ -102,6 +111,10 @@ public class Translator : MonoBehaviour
             highScoreText.text = "HÖGSTA POÄNG";
             resetScoreButtonText.text = "NOLLSTÄLL";
             highScoreButtonBackText.text = "TILLBAKA";
+            languageButtonText.text = "SPRÅK";
+            gameModeButtonText.text = "SVÅRIGHET";
+            optionsBackButtonText.text = "TILLBAKA";
+            optionsButtonText.text = "INSTÄLLNINGAR";
             SaveData("Swedish");
         }
     }
