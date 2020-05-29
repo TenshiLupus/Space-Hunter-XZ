@@ -31,6 +31,14 @@ public class MenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!PlayerPrefs.HasKey("Language"))
+        {
+            PlayerPrefs.SetString("Language", "English");
+        }
+        if (!PlayerPrefs.HasKey("GameMode"))
+        {
+            PlayerPrefs.SetString("GameMode", "Normal");
+        }
         scoreText.text = "" + PlayerPrefs.GetInt("score");
         Invoke("FadeInMenu", 0.5f);
     }
