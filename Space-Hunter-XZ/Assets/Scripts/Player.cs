@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
+    public GameController gameController;
     public GameObject shot;
     public Transform shotSpawn;
     public float fireRate;
@@ -27,7 +28,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(Time.time>nextFire && isReady){
+        if(gameController.canShoot && Time.time>nextFire && isReady){
             nextFire = Time.time + fireRate;
             Instantiate (shot, shotSpawn.position, shotSpawn.rotation );
             audioSource.Play();

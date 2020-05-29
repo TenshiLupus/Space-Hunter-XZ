@@ -142,12 +142,16 @@ public class MenuController : MonoBehaviour
 
     public void ChangeToNormal ()
     {
+        PlayerPrefs.SetString("GameMode", "Normal");
+        PlayerPrefs.Save();
         gameModeMenu.SetActive(false);
         optionsMenu.SetActive(true);
     }
 
     public void ChangeToHard()
     {
+        PlayerPrefs.SetString("GameMode", "Hard");
+        PlayerPrefs.Save();
         gameModeMenu.SetActive(false);
         optionsMenu.SetActive(true);
     }

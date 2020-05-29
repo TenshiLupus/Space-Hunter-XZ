@@ -9,13 +9,19 @@ public class GameController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip gameOverSound;
     public GameObject[] hazards;
+    public GameObject[] hazardsHard;
     public GameObject advEnemy;
+    public GameObject advEnemyHard;
     public Vector3 spawnValues;
     public Vector3 spawnLeft;
     public Vector3 spawnRight;
+    public int score;
     public int hazardCount;
-    public int waveCount;
+    public int waves;
     public int waveIncrease;
+    public int wavesBeforeBreak;
+    public int breakTime;
+    public bool canShoot;
     public float spawnWait;
     public float startWait;
     public float advWaveWait;
@@ -34,13 +40,16 @@ public class GameController : MonoBehaviour
     public CanvasGroup canvasGroup;
 
     private PowerUpController powerUpController;
+    private Coroutine waveCoroutine;
 
-    public int score;
     public float elapsedTime;
     public float fadeTime;
 
     private bool gameOver;
-    private int wave;
+    private bool hardMode;
+    private bool twoAdvWaves;
+    private int waveCounter;
+    private int breakCounter;
 
     private int lifeCounter=0;
     private Text lifeText;
@@ -48,12 +57,22 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         powerUpController = GameObject.FindWithTag("PowerUpController").GetComponent<PowerUpController>();
+        if (PlayerPrefs.GetString("GameMode") == "Hard")
+        {
+            hardMode = true;
+        } else
+        {
+            hardMode = false;
+        }
         gameOver = false; ;
         gameOverText.text = "";
         score = 0;
-        wave = 1;
+        waveCounter = 0;
+        breakCounter = 0;
+        twoAdvWaves = false;
+        canShoot = true;
         UpdateScore();
-        StartCoroutine(SpawnWaves());
+        waveCoroutine = StartCoroutine(SpawnWaves());
         StartCoroutine(AudioController.FadeIn(audioSource, 2.5f));
         lifeText = GameObject.Find("LifeNumber").GetComponent<Text>();
         Invoke("FadeIn", 1f);
@@ -110,15 +129,12 @@ public class GameController : MonoBehaviour
                     {
                         hazardsIndex = Random.Range(0, hazards.Length - 1);
                     }
-                    if (!powerUpSpawned && powerUpController.shieldUpActive && powerUpController.laserUpActive)
-                    {
+                    if (!powerUpSpawned && powerUpController.shieldUpActive && powerUpController.laserUpActive) {
                         hazardsIndex = Random.Range(0, hazards.Length - 2);
+                    } else {
+                        if (hardMode) { hazard = hazardsHard[hazardsIndex]; } else { hazard = hazards[hazardsIndex]; }
                     }
-                    else
-                    {
-                        hazard = hazards[hazardsIndex];
-                    }
-                    hazard = hazards[hazardsIndex];
+                    if (hardMode) { hazard = hazardsHard[hazardsIndex]; } else { hazard = hazards[hazardsIndex]; }
                     if (hazardsIndex == 4 || hazardsIndex == 5)
                     {
                         powerUpSpawned = true;
@@ -130,18 +146,35 @@ public class GameController : MonoBehaviour
                 }
             }
             yield return new WaitForSeconds(advWaveWait);
+            breakCounter++;
             if (gameOver == false)
             {
+                GameObject sideEnemy;
+                if (hardMode) { sideEnemy = advEnemyHard; } else { sideEnemy = advEnemy; }
                 Quaternion spawnRotation2 = Quaternion.identity;
-                Instantiate(advEnemy, new Vector3(spawnLeft.x, spawnLeft.y + Random.Range(-2, 2), spawnLeft.z), spawnRotation2);
-                Instantiate(advEnemy, new Vector3(spawnRight.x, spawnRight.y + Random.Range(-2, 2), spawnRight.z), spawnRotation2);
+                Instantiate(sideEnemy, new Vector3(spawnLeft.x, spawnLeft.y + Random.Range(-2, 2), spawnLeft.z), spawnRotation2);
+                Instantiate(sideEnemy, new Vector3(spawnRight.x, spawnRight.y + Random.Range(-2, 2), spawnRight.z), spawnRotation2);
+                if (breakCounter == wavesBeforeBreak)
+                {
+                    yield return new WaitForSeconds(2);
+                    Instantiate(sideEnemy, new Vector3(spawnLeft.x, spawnLeft.y + Random.Range(-2, 2), spawnLeft.z), spawnRotation2);
+                    Instantiate(sideEnemy, new Vector3(spawnRight.x, spawnRight.y + Random.Range(-2, 2), spawnRight.z), spawnRotation2);
+
+                }
                 yield return new WaitForSeconds(waveWait);
             }
-            wave++;
-            if (wave == waveCount)
+            if (gameOver == false && breakCounter == wavesBeforeBreak)
+            {
+                canShoot = false;
+                yield return new WaitForSeconds(breakTime);
+                canShoot = true;
+                breakCounter = 0;
+            }
+            waveCounter++;
+            if (waveCounter == waves)
             {
                 hazardCount += waveIncrease;
-                wave = 0;
+                waveCounter = 0;
             }
             if (gameOver)
             {
@@ -182,6 +215,11 @@ public class GameController : MonoBehaviour
         gameOver = true;
 
     }
+    void DestroyAllObjects()
+    {
+
+    }
+
 
     public void GiveLife(){
         lifeCounter++;

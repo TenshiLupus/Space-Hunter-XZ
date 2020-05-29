@@ -6,6 +6,7 @@ public class AdvEnemy : MonoBehaviour
 {
     public float speed;
     public float tilt;
+    public float waitTime;
 
     private float currentTime;
     private float timer;
@@ -32,7 +33,7 @@ public class AdvEnemy : MonoBehaviour
         {
             GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
-        if (currentTime > 2)
+        if (currentTime > waitTime)
         {
             GetComponent<Rigidbody>().velocity = transform.up * -speed * 1.5f;
         }

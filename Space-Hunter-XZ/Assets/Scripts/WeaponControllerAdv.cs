@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class WeaponControllerAdv : MonoBehaviour
 {
-
-    public float distance;
     public float fireRate;
     public float bulletSpeed = 100;
     public float bulletTimer;
