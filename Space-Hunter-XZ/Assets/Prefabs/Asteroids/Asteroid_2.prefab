@@ -117,7 +117,6 @@ MonoBehaviour:
   shieldExplosion: {fileID: 9145354182860747553, guid: 8c128d334f5545348a926cf960e1641f,
     type: 3}
   scoreValue: 25
-  health: 2
 --- !u!114 &1406270615708483980
 MonoBehaviour:
   m_ObjectHideFlags: 0
