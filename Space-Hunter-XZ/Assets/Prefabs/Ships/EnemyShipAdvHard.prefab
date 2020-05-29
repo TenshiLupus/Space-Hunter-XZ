@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 1
-  bulletSpeed: 10
+  bulletSpeed: 15
   bulletTimer: 0
   bolt: {fileID: 3345069191229124996, guid: e06cbbcb264bdf245b8c5022192b6038, type: 3}
   target: {fileID: 0}
