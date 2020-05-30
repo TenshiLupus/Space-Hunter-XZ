@@ -28,10 +28,10 @@ public class Player : MonoBehaviour
             {
                 Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
                 audioSource.Play();
-                yield return new WaitForSeconds(0.15f);
+                yield return new WaitForSeconds(0.1f);
                 Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
                 audioSource.Play();
-                yield return new WaitForSeconds(0.15f);
+                yield return new WaitForSeconds(0.1f);
                 Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
                 audioSource.Play();
             }

@@ -791,7 +791,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.9528302, g: 0.6826509, b: 0.40899786, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1581,16 +1581,16 @@ MonoBehaviour:
   audioSource: {fileID: 1290872174}
   gameOverSound: {fileID: 8300000, guid: 9ad2a459aba2c2a40ac72daac6a31023, type: 3}
   hazards:
-  - {fileID: 2988689001804474899, guid: 645d1a0c69b6bff4790fb589f20c5736, type: 3}
-  - {fileID: 4304709477903241398, guid: 0fb489606c056e94680dfa09db8a8d77, type: 3}
-  - {fileID: 2776963630197528710, guid: e05a7dc83c340b84da28e923cd2499dc, type: 3}
+  - {fileID: 8856818603158250029, guid: 645d1a0c69b6bff4790fb589f20c5736, type: 3}
+  - {fileID: 8844426546164520493, guid: 0fb489606c056e94680dfa09db8a8d77, type: 3}
+  - {fileID: 6322808085373666452, guid: e05a7dc83c340b84da28e923cd2499dc, type: 3}
   - {fileID: 3239253038667778829, guid: 4c8caa7a85cdad142ba434bed62f41a7, type: 3}
   - {fileID: 5089070219954922067, guid: c3cb147f89816c74094de695ae534dc2, type: 3}
   - {fileID: 4417594177318449628, guid: d3a99374cc0f5094e9f409a33c0d9588, type: 3}
   hazardsHard:
-  - {fileID: 2988689001804474899, guid: 645d1a0c69b6bff4790fb589f20c5736, type: 3}
-  - {fileID: 4304709477903241398, guid: 0fb489606c056e94680dfa09db8a8d77, type: 3}
-  - {fileID: 2776963630197528710, guid: e05a7dc83c340b84da28e923cd2499dc, type: 3}
+  - {fileID: 8856818603158250029, guid: 645d1a0c69b6bff4790fb589f20c5736, type: 3}
+  - {fileID: 8844426546164520493, guid: 0fb489606c056e94680dfa09db8a8d77, type: 3}
+  - {fileID: 6322808085373666452, guid: e05a7dc83c340b84da28e923cd2499dc, type: 3}
   - {fileID: 1141133433274644773, guid: 89a7368f683fdf746ad07fc5df0a0455, type: 3}
   - {fileID: 5089070219954922067, guid: c3cb147f89816c74094de695ae534dc2, type: 3}
   - {fileID: 4417594177318449628, guid: d3a99374cc0f5094e9f409a33c0d9588, type: 3}
@@ -2207,7 +2207,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.68316126, g: 0.7399336, b: 0.9528302, a: 1}
-  m_Intensity: 1.22
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
