@@ -41,4 +41,13 @@ public class PowerUpActions : MonoBehaviour
         gameController.advancedWeapon = false;
         controller.AdvWeaponActive = false;
     }
+    public void LifeStartAction()
+    {
+        gameController.lifeCounter += 1;
+    }
+
+    public void LifeEndAction()
+    {
+
+    }
 }

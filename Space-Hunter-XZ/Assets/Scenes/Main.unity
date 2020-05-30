@@ -1060,6 +1060,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515996927}
   m_CullTransparentMesh: 0
+--- !u!1 &531333470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8558361815692368466, guid: 45cdbd64b747db44ca87dfff145a4044,
+    type: 3}
+  m_PrefabInstance: {fileID: 8292895571536279568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &613445736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,6 +1593,7 @@ MonoBehaviour:
   - {fileID: 3239253038667778829, guid: 4c8caa7a85cdad142ba434bed62f41a7, type: 3}
   - {fileID: 5089070219954922067, guid: c3cb147f89816c74094de695ae534dc2, type: 3}
   - {fileID: 4417594177318449628, guid: d3a99374cc0f5094e9f409a33c0d9588, type: 3}
+  - {fileID: 1809675087963228243, guid: 41bab9601427e814f9ddedb94f0db4fc, type: 3}
   hazardsHard:
   - {fileID: 8856818603158250029, guid: 645d1a0c69b6bff4790fb589f20c5736, type: 3}
   - {fileID: 8844426546164520493, guid: 0fb489606c056e94680dfa09db8a8d77, type: 3}
@@ -1594,6 +1601,7 @@ MonoBehaviour:
   - {fileID: 1141133433274644773, guid: 89a7368f683fdf746ad07fc5df0a0455, type: 3}
   - {fileID: 5089070219954922067, guid: c3cb147f89816c74094de695ae534dc2, type: 3}
   - {fileID: 4417594177318449628, guid: d3a99374cc0f5094e9f409a33c0d9588, type: 3}
+  - {fileID: 1809675087963228243, guid: 41bab9601427e814f9ddedb94f0db4fc, type: 3}
   advEnemy: {fileID: 6968024296803713173, guid: 35ab3412efe550945a46ce095eb2de31,
     type: 3}
   advEnemyHard: {fileID: 2815267009620056982, guid: 10813eed374c1fb489d569e2406c5582,
@@ -1601,6 +1609,7 @@ MonoBehaviour:
   spawnValues: {x: 2.4, y: 10, z: 0}
   spawnLeft: {x: -4, y: 5, z: 0}
   spawnRight: {x: 4, y: 5, z: 0}
+  lifeCounter: 0
   score: 0
   hazardCount: 5
   waves: 2
@@ -3156,6 +3165,11 @@ PrefabInstance:
       propertyPath: shotSpawnRight
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6358554632792035462, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: engine
+      value: 
+      objectReference: {fileID: 531333470}
     - target: {fileID: 6863898626749181564, guid: 45cdbd64b747db44ca87dfff145a4044,
         type: 3}
       propertyPath: m_LocalPosition.y

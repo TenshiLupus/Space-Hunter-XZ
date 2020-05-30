@@ -8,15 +8,18 @@ public class Player : MonoBehaviour
     public GameController gameController;
     public GameObject shot;
     public GameObject shotAdv;
+    public GameObject engine;
     public Transform shotSpawn;
     public float fireRate;
 
     private Coroutine shootCoroutine;
     private AudioSource audioSource;
+    private Renderer renderer;
     private bool isReady;
 
     void Start()
     {
+        renderer = GetComponent<MeshRenderer>();
         audioSource = GetComponent<AudioSource>();
         Invoke("SetReady", 2f);
     }
@@ -56,5 +59,26 @@ public class Player : MonoBehaviour
         audioSource.volume = 0.2f;
         isReady = true;
         shootCoroutine = StartCoroutine(Shoot());
+    }
+
+    public void Respawn()
+    {
+        gameController.canShoot = false;
+        transform.position = new Vector3(0, 0, 0);
+        transform.rotation = new Quaternion(0, 0, 0, 0);
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        renderer.enabled = false;
+        engine.SetActive(false);
+        GetComponent<ShipMove>().enabled = false;
+        GetComponent<CapsuleCollider>().enabled = false;
+        Invoke("Reactivate", 1f);
+    }
+    public void Reactivate()
+    {
+        gameController.canShoot = true;
+        renderer.enabled = true;
+        engine.SetActive(true);
+        GetComponent<ShipMove>().enabled = true;
+        GetComponent<CapsuleCollider>().enabled = true;
     }
 }

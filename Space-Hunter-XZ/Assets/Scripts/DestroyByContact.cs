@@ -19,9 +19,11 @@ public class DestroyByContact : MonoBehaviour
     private PowerUpController powerUpController;
     private GameObject player;
 
+    private bool respawn;
+
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindWithTag("Player");
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
         powerUpController = GameObject.FindWithTag("PowerUpController").GetComponent<PowerUpController>();
         if (gameControllerObject != null)
@@ -32,6 +34,7 @@ public class DestroyByContact : MonoBehaviour
         {
             Debug.Log("Cannot Find 'GameController' script");
         }
+        respawn = false;
     }
     void OnTriggerEnter(Collider other)
     {
@@ -57,19 +60,23 @@ public class DestroyByContact : MonoBehaviour
         }
         if (other.CompareTag("Player"))
         {
-            if(gameController.GetLife()<1){
+            if(gameController.lifeCounter < 1){
                 Instantiate(playerExplosion, transform.position, transform.rotation);
                 gameController.GameOver();
                 health = 0;
             }
-            else if(gameController.GetLife()>=1){
+            else if(gameController.lifeCounter >=1){
                 gameController.TakeLife();
                 Instantiate(playerExplosion, transform.position, transform.rotation);
-                player.transform.position = new Vector3(0, 0, 0);
+                player.GetComponent<Player>().Respawn();
                 health = 0;
+                respawn = true;
             }
         }
-         Destroy(other.gameObject);
+        if (!respawn)
+        {
+            Destroy(other.gameObject);
+        }
         if (health <= 1 && renderer != null)
         {
             renderer.material = materialHighlight;
@@ -81,7 +88,7 @@ public class DestroyByContact : MonoBehaviour
         {
             renderer.material = materialHighlight;
             health -= 1;
-            Invoke("ResetShader", 0.1f);
+            Invoke("ResetColor", 0.1f);
         }
         if (renderer == null)
         {
@@ -101,7 +108,7 @@ public class DestroyByContact : MonoBehaviour
         }
         Destroy(gameObject);
     }
-    public void ResetShader()
+    public void ResetColor()
     {
         this.GetComponent<MeshRenderer>().material = materialNormal;
     }

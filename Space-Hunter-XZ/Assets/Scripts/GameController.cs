@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     public Vector3 spawnValues;
     public Vector3 spawnLeft;
     public Vector3 spawnRight;
+    public int lifeCounter;
     public int score;
     public int hazardCount;
     public int waves;
@@ -28,6 +29,7 @@ public class GameController : MonoBehaviour
     public float advWaveWait;
     public float waveWait;
 
+    private Text lifeText;
     public Text scorePoints;
     public Text gameOverText;
     public GameObject scoreObject;
@@ -51,9 +53,6 @@ public class GameController : MonoBehaviour
     private int waveCounter;
     private int breakCounter;
 
-    private int lifeCounter=0;
-    private Text lifeText;
-
     private void Start()
     {
         powerUpController = GameObject.FindWithTag("PowerUpController").GetComponent<PowerUpController>();
@@ -66,6 +65,7 @@ public class GameController : MonoBehaviour
         }
         gameOver = false; ;
         gameOverText.text = "";
+        lifeCounter = 0;
         score = 0;
         waveCounter = 0;
         breakCounter = 0;
@@ -115,7 +115,7 @@ public class GameController : MonoBehaviour
                     GameObject hazard;
                     if (powerUpSpawned)
                     {
-                        hazardsIndex = Random.Range(0, hazards.Length -2);
+                        hazardsIndex = Random.Range(0, hazards.Length -3);
                     }
                     if (!powerUpSpawned && !powerUpController.shieldUpActive && powerUpController.laserUpActive)
                     {
@@ -127,10 +127,10 @@ public class GameController : MonoBehaviour
                     }
                     if (!powerUpSpawned && powerUpController.shieldUpActive && !powerUpController.laserUpActive)
                     {
-                        hazardsIndex = Random.Range(0, hazards.Length - 1);
+                        hazardsIndex = Random.Range(0, hazards.Length - 2);
                     }
                     if (!powerUpSpawned && powerUpController.shieldUpActive && powerUpController.laserUpActive) {
-                        hazardsIndex = Random.Range(0, hazards.Length - 2);
+                        hazardsIndex = Random.Range(0, hazards.Length - 3);
                     } else {
                         if (hardMode) { hazard = hazardsHard[hazardsIndex]; } else { hazard = hazards[hazardsIndex]; }
                     }
