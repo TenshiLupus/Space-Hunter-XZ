@@ -11,6 +11,7 @@ TagManager:
   - PowerUpController
   - Wall
   - AttackRange
+  - EnemyAdv
   layers:
   - Default
   - TransparentFX

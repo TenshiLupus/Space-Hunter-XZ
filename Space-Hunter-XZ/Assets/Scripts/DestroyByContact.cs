@@ -8,6 +8,7 @@ public class DestroyByContact : MonoBehaviour
     public GameObject explosionSmall;
     public GameObject playerExplosion;
     public GameObject shieldExplosion;
+    public GameObject advancedWeapon;
     public Renderer renderer;
     public Material materialNormal;
     public Material materialHighlight;
@@ -34,7 +35,7 @@ public class DestroyByContact : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Boundary") || other.CompareTag("Enemy") || other.CompareTag("Wall"))
+        if (other.CompareTag("Boundary") || other.CompareTag("Enemy") || other.CompareTag("EnemyAdv") || other.CompareTag("Wall"))
         {
             return;
         } 
@@ -94,6 +95,10 @@ public class DestroyByContact : MonoBehaviour
     }
     public void Destroy()
     {
+        if (gameObject.CompareTag("EnemyAdv") && !gameController.advancedWeapon)
+        {
+            Instantiate(advancedWeapon, transform.position, transform.rotation);
+        }
         Destroy(gameObject);
     }
     public void ResetShader()
