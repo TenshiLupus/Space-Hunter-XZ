@@ -94,8 +94,8 @@ public class Translator : MonoBehaviour
     public void ChangeMenuTextEnglish(){
         if (currentScene.Equals("MainMenu"))
         {
-            credits.text = "GAME DEVELOPMENT:\n\n\n ANGEL CARDENAS MARTINEZ\n JACOB WIK\n SAMUEL SEGAWA";
-            creditsMusicText.text = "MUSIC:\n\n THREE CHAIN LINKS\n threechainlinks.bandcamp.com\n ERIC MATYAS\n www.soundimage.org";
+            credits.text = "GAME DEVELOPMENT";
+            creditsMusicText.text = "MUSIC";
             creditsButtonText.text = "CREDITS";
             highScoreButtonText.text = "HIGH SCORE";
             startText.text = "START GAME";
@@ -133,7 +133,7 @@ public class Translator : MonoBehaviour
     public void ChangeMenuTextSwedish(){
         if (currentScene.Equals("MainMenu")){
             credits.text = "SPELUTVECKLING";
-            creditsMusicText.text = "MUSIK:\n\n THREE CHAIN LINKS\n threechainlinks.bandcamp.com\n ERIC MATYAS\n www.soundimage.org";
+            creditsMusicText.text = "MUSIK";
             creditsButtonText.text = "MEDVERKANDE";
             highScoreButtonText.text = "HÖGSTA POÄNG";
             startText.text = "STARTA SPEL";
@@ -154,9 +154,9 @@ public class Translator : MonoBehaviour
             optionsButtonText.text = "INSTÄLLNINGAR";
             optionsButtonText.resizeTextForBestFit = true;
             RectTransform transformCredits = creditsButton.GetComponent<RectTransform>();
-            transformCredits.sizeDelta = new Vector2(430, 95);
+            transformCredits.sizeDelta = new Vector2(700, 95);
             RectTransform transformScore = highScoreButton.GetComponent<RectTransform>();
-            transformScore.sizeDelta = new Vector2(550, 95);
+            transformScore.sizeDelta = new Vector2(694, 95);
             RectTransform transformStart = startButton.GetComponent<RectTransform>();
             transformStart.sizeDelta = new Vector2(780, 95);
             RectTransform transformOptions = optionsButton.GetComponent<RectTransform>();
@@ -172,7 +172,7 @@ public class Translator : MonoBehaviour
         if (currentScene.Equals("MainMenu"))
         {
             credits.text = "開発者";
-            creditsMusicText.text = "音楽:\n\n THREE CHAIN LINKS\n threechainlinks.bandcamp.com\n ERIC MATYAS\n www.soundimage.org";
+            creditsMusicText.text = "音楽";
             creditsButtonText.text = "創作";
             highScoreButtonText.text = "点数";
             startText.text = "開始";
