@@ -7,6 +7,9 @@ public class DestroyByContact : MonoBehaviour
     public GameObject explosion;
     public GameObject playerExplosion;
     public GameObject shieldExplosion;
+    public Renderer renderer;
+    public Material materialNormal;
+    public Material materialHighlight;
     public int scoreValue;
     public int health;
 
@@ -63,14 +66,29 @@ public class DestroyByContact : MonoBehaviour
             }
         }
         Destroy(other.gameObject);
-        if (health <= 1)
+        if (health <= 1 && renderer != null)
         {
+            renderer.material = materialHighlight;
             gameController.AddScore(scoreValue);
+            Invoke("Destroy", 0.1f);
+        }
+        if (health > 1 && renderer != null)
+        {
+            renderer.material = materialHighlight;
+            health -= 1;
+            Invoke("ResetShader", 0.1f);
+        }
+        if (renderer == null)
+        {
             Destroy(gameObject);
         }
-        else
-        {
-            health -= 1;
-        }
+    }
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+    public void ResetShader()
+    {
+        this.GetComponent<MeshRenderer>().material = materialNormal;
     }
 }

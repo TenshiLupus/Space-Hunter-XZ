@@ -134,7 +134,11 @@ MonoBehaviour:
     type: 3}
   shieldExplosion: {fileID: 9145354182860747553, guid: 8c128d334f5545348a926cf960e1641f,
     type: 3}
+  renderer: {fileID: 4552295216527552330}
+  materialNormal: {fileID: 2100000, guid: b5cfa9bd280a29647ba6497c8b42a905, type: 2}
+  materialHighlight: {fileID: 2100000, guid: b1a262b4ed28dc74e899507c7c2136f9, type: 2}
   scoreValue: 50
+  health: 0
 --- !u!114 &2815267009620056976
 MonoBehaviour:
   m_ObjectHideFlags: 0
