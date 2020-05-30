@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
         GetComponent<CapsuleCollider>().enabled = false;
         Invoke("Reactivate", 1f);
     }
-    private void Reactivate()
+    public void Reactivate()
     {
         gameController.canShoot = true;
         renderer.enabled = true;

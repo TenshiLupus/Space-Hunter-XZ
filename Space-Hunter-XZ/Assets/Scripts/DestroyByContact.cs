@@ -105,7 +105,7 @@ public class DestroyByContact : MonoBehaviour
         if (gameObject.CompareTag("EnemyAdv") && gameController.advancedWeaponReady)
         {
             gameController.StartWeaponSpawnTimer();
-            Instantiate(advancedWeapon, transform.position, transform.rotation);
+            Instantiate(advancedWeapon, transform.position, new Quaternion(0,0,0,0));
         }
         Destroy(gameObject);
     }
