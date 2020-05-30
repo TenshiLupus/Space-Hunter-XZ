@@ -40,7 +40,7 @@ public class DestroyByContact : MonoBehaviour
         } 
         if (explosion != null)
         {
-            Instantiate(explosionSmall, transform.position, transform.rotation);
+            Instantiate(explosionSmall, new Vector3(transform.position.x, transform.position.y-0.3f, transform.position.z), transform.rotation);
         }
         if (other.CompareTag("Shield")) {
             Instantiate(shieldExplosion, transform.position, transform.rotation);
