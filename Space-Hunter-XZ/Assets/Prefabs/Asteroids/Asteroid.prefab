@@ -72,7 +72,7 @@ MonoBehaviour:
   shieldExplosion: {fileID: 9145354182860747553, guid: 8c128d334f5545348a926cf960e1641f,
     type: 3}
   renderer: {fileID: 2790760467895192840}
-  materialNormal: {fileID: 2100000, guid: d2f17f69bdae49046887e4ec04ac8c38, type: 2}
+  materialNormal: {fileID: 2100000, guid: bf5313750df95fa44bc7eda2f07e7693, type: 2}
   materialHighlight: {fileID: 2100000, guid: 08e4c74a226805948a3eac58cc2f227a, type: 2}
   scoreValue: 25
   health: 2
@@ -123,7 +123,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d2f17f69bdae49046887e4ec04ac8c38, type: 2}
+  - {fileID: 2100000, guid: bf5313750df95fa44bc7eda2f07e7693, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -151,7 +151,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2988689001804474899}
-  m_Mesh: {fileID: 7702779526387289552, guid: 32c9f210b53bd9e4e8c923f6faf0a5f0, type: 3}
+  m_Mesh: {fileID: 2540817853737639666, guid: abee124005dd86548a7cd4049432e3e2, type: 3}
 --- !u!64 &5638501599690417702
 MeshCollider:
   m_ObjectHideFlags: 0
