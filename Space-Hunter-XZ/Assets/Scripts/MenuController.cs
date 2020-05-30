@@ -17,6 +17,7 @@ public class MenuController : MonoBehaviour
     public GameObject yesNoDialog;
     public GameObject englishArrow;
     public GameObject swedishArrow;
+    public GameObject japaneseArrow;
     public GameObject normalArrow;
     public GameObject hardArrow;
 
@@ -145,6 +146,7 @@ public class MenuController : MonoBehaviour
     {
         translator.GetComponent<Translator>().ChangeMenuTextEnglish();
         swedishArrow.SetActive(false);
+        japaneseArrow.SetActive(false);
         englishArrow.SetActive(true);
         languageMenu.SetActive(false);
         optionsMenu.SetActive(true);
@@ -154,7 +156,18 @@ public class MenuController : MonoBehaviour
     {
         translator.GetComponent<Translator>().ChangeMenuTextSwedish();
         englishArrow.SetActive(false);
+        japaneseArrow.SetActive(false);
         swedishArrow.SetActive(true);
+        languageMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+    }
+
+    public void ChangeToJapanese()
+    {
+        translator.GetComponent<Translator>().ChangeMenuTextJapanese();
+        englishArrow.SetActive(false);
+        swedishArrow.SetActive(false);
+        japaneseArrow.SetActive(true);
         languageMenu.SetActive(false);
         optionsMenu.SetActive(true);
     }

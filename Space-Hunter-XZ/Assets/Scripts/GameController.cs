@@ -196,11 +196,7 @@ public class GameController : MonoBehaviour
         {
             PlayerPrefs.SetInt("score", score);
         }
-        if (PlayerPrefs.GetString("Language").Equals("English")) {
-            scorePoints.text = "" + score;
-        }
-        else if (PlayerPrefs.GetString("Language").Equals("Swedish"))
-            scorePoints.text = "" + score;
+         scorePoints.text = "" + score;
     }
 
     public void GameOver()

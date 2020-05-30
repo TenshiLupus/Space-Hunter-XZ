@@ -13,6 +13,7 @@ public class Translator : MonoBehaviour
     public Text highScoreButtonBackText;
     public Text highScoreText;
     public Text scoreText;
+    public Text scorePoints;
     public Text resetScoreButtonText;
     public Text gameOverText;
     public Text startText;
@@ -26,8 +27,15 @@ public class Translator : MonoBehaviour
     public Text menuButtonText;
     public Text languageButtonText;
     public Text gameModeButtonText;
+    public Text normalButtonText;
+    public Text hardButtonText;
     public Text optionsBackButtonText;
+    public GameObject creditsButton;
+    public GameObject highScoreButton;
+    public GameObject startButton;
     public GameObject optionsButton;
+    public GameObject exitButton;
+
 
     private float rectWidth;
 
@@ -63,12 +71,16 @@ public class Translator : MonoBehaviour
             else if (selectedLanguage.Equals("Swedish"))
             {
                 ChangeMainTextSwedish();
+            } else if (selectedLanguage.Equals("Japanese"))
+            {
+                ChangeMainTextJapanese();
             }
         }
         else if (currentScene.Equals("MainMenu"))
         {
             if (selectedLanguage.Equals("English")) ChangeMenuTextEnglish();
             else if (selectedLanguage.Equals("Swedish")) ChangeMenuTextSwedish();
+            else if (selectedLanguage.Equals("Japanese")) ChangeMenuTextJapanese();
         }
     }
 
@@ -94,11 +106,25 @@ public class Translator : MonoBehaviour
             resetScoreButtonText.text = "RESET";
             highScoreButtonBackText.text = "BACK";
             languageButtonText.text = "LANGUAGE";
+            languageButtonText.fontSize = 55;
             gameModeButtonText.text = "GAME MODE";
+            gameModeButtonText.fontSize = 55;
+            normalButtonText.text = "NORMAL";
+            hardButtonText.text = "HARD";
             optionsBackButtonText.text = "BACK";
+            optionsBackButtonText.fontSize = 55;
             optionsButtonText.text = "OPTIONS";
-            RectTransform transform = optionsButton.GetComponent<RectTransform>();
-            transform.sizeDelta = new Vector2(500, 95);
+            optionsButtonText.resizeTextForBestFit = true;
+            RectTransform transformCredits = creditsButton.GetComponent<RectTransform>();
+            transformCredits.sizeDelta = new Vector2(430, 95);
+            RectTransform transformScore = highScoreButton.GetComponent<RectTransform>();
+            transformScore.sizeDelta = new Vector2(550, 95);
+            RectTransform transformStart = startButton.GetComponent<RectTransform>();
+            transformStart.sizeDelta = new Vector2(780, 95);
+            RectTransform transformOptions = optionsButton.GetComponent<RectTransform>();
+            transformOptions.sizeDelta = new Vector2(500, 95);
+            RectTransform transformExit = exitButton.GetComponent<RectTransform>();
+            transformExit.sizeDelta = new Vector2(550, 95);
 
             SaveData("English");
         }
@@ -118,17 +144,74 @@ public class Translator : MonoBehaviour
             resetScoreButtonText.text = "NOLLSTÄLL";
             highScoreButtonBackText.text = "TILLBAKA";
             languageButtonText.text = "SPRÅK";
+            languageButtonText.fontSize = 55;
             gameModeButtonText.text = "SVÅRIGHET";
+            gameModeButtonText.fontSize = 55;
+            normalButtonText.text = "NORMAL";
+            hardButtonText.text = "SVÅR";
             optionsBackButtonText.text = "TILLBAKA";
+            optionsBackButtonText.fontSize = 55;
             optionsButtonText.text = "INSTÄLLNINGAR";
-            RectTransform transform = optionsButton.GetComponent<RectTransform>();
-            transform.sizeDelta = new Vector2(800, 95);
+            optionsButtonText.resizeTextForBestFit = true;
+            RectTransform transformCredits = creditsButton.GetComponent<RectTransform>();
+            transformCredits.sizeDelta = new Vector2(430, 95);
+            RectTransform transformScore = highScoreButton.GetComponent<RectTransform>();
+            transformScore.sizeDelta = new Vector2(550, 95);
+            RectTransform transformStart = startButton.GetComponent<RectTransform>();
+            transformStart.sizeDelta = new Vector2(780, 95);
+            RectTransform transformOptions = optionsButton.GetComponent<RectTransform>();
+            transformOptions.sizeDelta = new Vector2(800, 95);
+            RectTransform transformExit = exitButton.GetComponent<RectTransform>();
+            transformExit.sizeDelta = new Vector2(550, 95);
             SaveData("Swedish");
         }
     }
 
-     public void ChangeMainTextEnglish(){
+    public void ChangeMenuTextJapanese()
+    {
+        if (currentScene.Equals("MainMenu"))
+        {
+            credits.text = "開発者:\n\n\n ANGEL CARDENAS MARTINEZ\n JACOB WIK\n SAMUEL SEGAWA";
+            creditsMusicText.text = "音楽:\n\n THREE CHAIN LINKS\n threechainlinks.bandcamp.com\n ERIC MATYAS\n www.soundimage.org";
+            creditsButtonText.text = "創作";
+            highScoreButtonText.text = "点数";
+            startText.text = "開始";
+            exitText.text = "出口";
+            scoreText.text = "点数: ";
+            creditBackButtonText.text = "帰";
+            highScoreText.text = "最高点";
+            resetScoreButtonText.text = "再設定";
+            highScoreButtonBackText.text = "帰";
+            languageButtonText.text = "言葉";
+            languageButtonText.fontSize = 65;
+            gameModeButtonText.text = "難易度";
+            gameModeButtonText.fontSize = 65;
+            normalButtonText.text = "初級";
+            hardButtonText.text = "上級";
+            optionsBackButtonText.text = "帰";
+            optionsBackButtonText.fontSize = 65;
+            optionsButtonText.text = "設定";
+            optionsButtonText.fontSize = 80;
+            optionsButtonText.resizeTextForBestFit = false;
+            RectTransform transformCredits = creditsButton.GetComponent<RectTransform>();
+            transformCredits.sizeDelta = new Vector2(550, 95);
+            RectTransform transformScore = highScoreButton.GetComponent<RectTransform>();
+            transformScore.sizeDelta = new Vector2(550, 95);
+            RectTransform transformStart = startButton.GetComponent<RectTransform>();
+            transformStart.sizeDelta = new Vector2(550, 95);
+            RectTransform transformOptions = optionsButton.GetComponent<RectTransform>();
+            transformOptions.sizeDelta = new Vector2(550, 95);
+            RectTransform transformExit = exitButton.GetComponent<RectTransform>();
+            transformExit.sizeDelta = new Vector2(550, 95);
+            SaveData("Japanese");
+        }
+    }
+
+
+    public void ChangeMainTextEnglish(){
         scoreText.text = "SCORE:";
+        RectTransform transform = scorePoints.GetComponent<RectTransform>();
+        transform.anchoredPosition = new Vector2(-104, 890);
         menuButtonText.text = "MENU";
         continueText.text = "CONTINUE";
         rButtonText.text = "RESTART";
@@ -138,10 +221,24 @@ public class Translator : MonoBehaviour
 
     public void ChangeMainTextSwedish(){
         scoreText.text = "POÄNG:";
+        RectTransform transform = scorePoints.GetComponent<RectTransform>();
+        transform.anchoredPosition = new Vector2(-104, 890);
         menuButtonText.text = "MENY";
         continueText.text = "FORTSÄTT";
         rButtonText.text = "STARTA OM";
         bmButtonText.text = "HUVUDMENY";
         SaveData("Swedish");
+    }
+
+    public void ChangeMainTextJapanese()
+    {
+        scoreText.text = "点数:";
+        RectTransform transform = scorePoints.GetComponent<RectTransform>();
+        transform.anchoredPosition = new Vector2(-310, 890);
+        menuButtonText.text = "メニュー";
+        continueText.text = "続く";
+        rButtonText.text = "再起動";
+        bmButtonText.text = "出口";
+        SaveData("Japanese");
     }
 }

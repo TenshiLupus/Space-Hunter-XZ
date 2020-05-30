@@ -1603,7 +1603,7 @@ MonoBehaviour:
   spawnRight: {x: 4, y: 5, z: 0}
   score: 0
   hazardCount: 5
-  waves: 0
+  waves: 2
   waveIncrease: 2
   wavesBeforeBreak: 2
   breakTime: 2
@@ -1657,6 +1657,7 @@ MonoBehaviour:
   highScoreButtonBackText: {fileID: 0}
   highScoreText: {fileID: 0}
   scoreText: {fileID: 494777231}
+  scorePoints: {fileID: 764705081}
   resetScoreButtonText: {fileID: 0}
   gameOverText: {fileID: 1910297001}
   startText: {fileID: 0}
@@ -1664,9 +1665,20 @@ MonoBehaviour:
   rButtonText: {fileID: 213384762}
   bmButtonText: {fileID: 676253125}
   creditsMusicText: {fileID: 0}
+  optionsButtonText: {fileID: 0}
   pausedText: {fileID: 613445738}
   continueText: {fileID: 9300342}
   menuButtonText: {fileID: 1692781223}
+  languageButtonText: {fileID: 0}
+  gameModeButtonText: {fileID: 0}
+  normalButtonText: {fileID: 0}
+  hardButtonText: {fileID: 0}
+  optionsBackButtonText: {fileID: 0}
+  creditsButton: {fileID: 0}
+  highScoreButton: {fileID: 0}
+  startButton: {fileID: 0}
+  optionsButton: {fileID: 0}
+  exitButton: {fileID: 0}
 --- !u!4 &1042194042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5953171543075628702, guid: 45cdbd64b747db44ca87dfff145a4044,
