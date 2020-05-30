@@ -57,13 +57,15 @@ public class DestroyByContact : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             if(gameController.GetLife()<1){
-            Instantiate(playerExplosion, transform.position, transform.rotation);
-            gameController.GameOver();
+                Instantiate(playerExplosion, transform.position, transform.rotation);
+                gameController.GameOver();
+                health = 0;
             }
             else if(gameController.GetLife()>=1){
                 gameController.TakeLife();
                 Instantiate(playerExplosion, transform.position, transform.rotation);
                 player.transform.position = new Vector3(0, 0, 0);
+                health = 0;
             }
         }
          Destroy(other.gameObject);
