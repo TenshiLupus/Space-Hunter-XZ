@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
     public int breakTime;
     public bool canShoot;
     public bool advancedWeapon;
+    public bool advancedWeaponReady;
     public float spawnWait;
     public float startWait;
     public float advWaveWait;
@@ -71,6 +72,7 @@ public class GameController : MonoBehaviour
         breakCounter = 0;
         canShoot = true;
         advancedWeapon = false;
+        advancedWeaponReady = true;
         UpdateScore();
         waveCoroutine = StartCoroutine(SpawnWaves());
         StartCoroutine(AudioController.FadeIn(audioSource, 2.5f));
@@ -183,6 +185,17 @@ public class GameController : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void StartWeaponSpawnTimer()
+    {
+        advancedWeaponReady = false;
+        Invoke("EnableWeaponSpawn", 4f);
+    }
+
+    public void EnableWeaponSpawn()
+    {
+        advancedWeaponReady = true;
     }
 
     public void AddScore(int newScoreValue)

@@ -60,12 +60,12 @@ public class DestroyByContact : MonoBehaviour
         }
         if (other.CompareTag("Player"))
         {
-            if(gameController.lifeCounter < 1){
+            if(gameController.GetLife() < 1){
                 Instantiate(playerExplosion, transform.position, transform.rotation);
                 gameController.GameOver();
                 health = 0;
             }
-            else if(gameController.lifeCounter >=1){
+            else if(gameController.GetLife() >=1){
                 gameController.TakeLife();
                 Instantiate(playerExplosion, transform.position, transform.rotation);
                 player.GetComponent<Player>().Respawn();
@@ -102,8 +102,9 @@ public class DestroyByContact : MonoBehaviour
     }
     public void Destroy()
     {
-        if (gameObject.CompareTag("EnemyAdv") && !gameController.advancedWeapon)
+        if (gameObject.CompareTag("EnemyAdv") && gameController.advancedWeaponReady)
         {
+            gameController.StartWeaponSpawnTimer();
             Instantiate(advancedWeapon, transform.position, transform.rotation);
         }
         Destroy(gameObject);
