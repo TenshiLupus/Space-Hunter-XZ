@@ -130,6 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 4090127073253334256, guid: 01b8cb57c091bcc439306fe85b572173,
     type: 3}
+  explosionSmall: {fileID: 2707573390947968070, guid: 233f5791277a5c746822ad81ba414014,
+    type: 3}
   playerExplosion: {fileID: 4513939599972435781, guid: 56ec46f3ef32bfd4f857a2a53110157a,
     type: 3}
   shieldExplosion: {fileID: 9145354182860747553, guid: 8c128d334f5545348a926cf960e1641f,

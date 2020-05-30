@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyByContact : MonoBehaviour
 {
     public GameObject explosion;
+    public GameObject explosionSmall;
     public GameObject playerExplosion;
     public GameObject shieldExplosion;
     public Renderer renderer;
@@ -39,7 +40,7 @@ public class DestroyByContact : MonoBehaviour
         } 
         if (explosion != null)
         {
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(explosionSmall, transform.position, transform.rotation);
         }
         if (other.CompareTag("Shield")) {
             Instantiate(shieldExplosion, transform.position, transform.rotation);
@@ -71,6 +72,7 @@ public class DestroyByContact : MonoBehaviour
             renderer.material = materialHighlight;
             gameController.AddScore(scoreValue);
             Invoke("Destroy", 0.1f);
+            Invoke("Explosion", 0.1f);
         }
         if (health > 1 && renderer != null)
         {
@@ -82,6 +84,11 @@ public class DestroyByContact : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void Explosion()
+    {
+        Instantiate(explosion, transform.position, transform.rotation);
     }
     public void Destroy()
     {
