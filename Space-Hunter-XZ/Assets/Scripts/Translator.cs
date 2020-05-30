@@ -132,7 +132,7 @@ public class Translator : MonoBehaviour
 
     public void ChangeMenuTextSwedish(){
         if (currentScene.Equals("MainMenu")){
-            credits.text = "SPELUTVECKLING:\n\n\n ANGEL CARDENAS MARTINEZ\n JACOB WIK\n SAMUEL SEGAWA";
+            credits.text = "SPELUTVECKLING";
             creditsMusicText.text = "MUSIK:\n\n THREE CHAIN LINKS\n threechainlinks.bandcamp.com\n ERIC MATYAS\n www.soundimage.org";
             creditsButtonText.text = "MEDVERKANDE";
             highScoreButtonText.text = "HÖGSTA POÄNG";
@@ -171,7 +171,7 @@ public class Translator : MonoBehaviour
     {
         if (currentScene.Equals("MainMenu"))
         {
-            credits.text = "開発者:\n\n\n ANGEL CARDENAS MARTINEZ\n JACOB WIK\n SAMUEL SEGAWA";
+            credits.text = "開発者";
             creditsMusicText.text = "音楽:\n\n THREE CHAIN LINKS\n threechainlinks.bandcamp.com\n ERIC MATYAS\n www.soundimage.org";
             creditsButtonText.text = "創作";
             highScoreButtonText.text = "点数";
