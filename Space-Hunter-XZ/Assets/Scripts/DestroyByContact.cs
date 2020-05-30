@@ -66,7 +66,7 @@ public class DestroyByContact : MonoBehaviour
                 player.transform.position = new Vector3(0, 0, 0);
             }
         }
-        Destroy(other.gameObject);
+         Destroy(other.gameObject);
         if (health <= 1 && renderer != null)
         {
             renderer.material = materialHighlight;

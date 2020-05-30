@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AdvEnemy : MonoBehaviour
 {
-    public float speed;
+    public float speedSide;
+    public float speedDown;
     public float tilt;
     public float waitTime;
 
@@ -17,11 +18,11 @@ public class AdvEnemy : MonoBehaviour
         timer = Random.Range(0.75f, 1.05f);
         if (GetComponent<Transform>().position.x < 0)
         {
-            GetComponent<Rigidbody>().velocity = transform.right * speed;
+            GetComponent<Rigidbody>().velocity = transform.right * speedSide;
         }
         else if (GetComponent<Transform>().position.x > 0)
         {
-            GetComponent<Rigidbody>().velocity = transform.right * -speed;
+            GetComponent<Rigidbody>().velocity = transform.right * -speedSide;
         }
     }
 
@@ -35,7 +36,7 @@ public class AdvEnemy : MonoBehaviour
         }
         if (currentTime > waitTime)
         {
-            GetComponent<Rigidbody>().velocity = transform.up * -speed * 1.5f;
+            GetComponent<Rigidbody>().velocity = transform.up * -speedDown;
         }
     }
 

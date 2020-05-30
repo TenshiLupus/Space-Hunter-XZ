@@ -47,7 +47,6 @@ public class GameController : MonoBehaviour
 
     private bool gameOver;
     private bool hardMode;
-    private bool twoAdvWaves;
     private int waveCounter;
     private int breakCounter;
 
@@ -69,7 +68,6 @@ public class GameController : MonoBehaviour
         score = 0;
         waveCounter = 0;
         breakCounter = 0;
-        twoAdvWaves = false;
         canShoot = true;
         UpdateScore();
         waveCoroutine = StartCoroutine(SpawnWaves());
@@ -107,7 +105,7 @@ public class GameController : MonoBehaviour
         {
             int hazardsIndex;
             bool powerUpSpawned = false;
-            for (int i = 0; i < hazardCount; i++)
+            for (int i = 0; i < hazardCount; i++) // initiate first part of wave with random hazards
             {
                 if (gameOver == false)
                 {
@@ -145,16 +143,16 @@ public class GameController : MonoBehaviour
                     yield return new WaitForSeconds(spawnWait);
                 }
             }
-            yield return new WaitForSeconds(advWaveWait);
+            yield return new WaitForSeconds(advWaveWait); // wait before second part of wave
             breakCounter++;
-            if (gameOver == false)
+            if (gameOver == false) // initiate second part of wave
             {
                 GameObject sideEnemy;
                 if (hardMode) { sideEnemy = advEnemyHard; } else { sideEnemy = advEnemy; }
                 Quaternion spawnRotation2 = Quaternion.identity;
                 Instantiate(sideEnemy, new Vector3(spawnLeft.x, spawnLeft.y + Random.Range(-2, 2), spawnLeft.z), spawnRotation2);
                 Instantiate(sideEnemy, new Vector3(spawnRight.x, spawnRight.y + Random.Range(-2, 2), spawnRight.z), spawnRotation2);
-                if (breakCounter == wavesBeforeBreak)
+                if (breakCounter == wavesBeforeBreak) // spawns extra 2 enemies for second part of wave every other wave
                 {
                     yield return new WaitForSeconds(2);
                     Instantiate(sideEnemy, new Vector3(spawnLeft.x, spawnLeft.y + Random.Range(-2, 2), spawnLeft.z), spawnRotation2);
@@ -163,7 +161,7 @@ public class GameController : MonoBehaviour
                 }
                 yield return new WaitForSeconds(waveWait);
             }
-            if (gameOver == false && breakCounter == wavesBeforeBreak)
+            if (gameOver == false && breakCounter == wavesBeforeBreak) // a short break for the player before next waves
             {
                 canShoot = false;
                 yield return new WaitForSeconds(breakTime);
@@ -171,7 +169,7 @@ public class GameController : MonoBehaviour
                 breakCounter = 0;
             }
             waveCounter++;
-            if (waveCounter == waves)
+            if (waveCounter == waves) // after set amount of waves = increases amount of random hazards in first part of wave
             {
                 hazardCount += waveIncrease;
                 waveCounter = 0;
