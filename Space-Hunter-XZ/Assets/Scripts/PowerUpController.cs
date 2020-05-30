@@ -10,6 +10,7 @@ public class PowerUpController : MonoBehaviour
     public Dictionary<Powerup, float> activePowerups = new Dictionary<Powerup, float>();
     public bool shieldUpActive;
     public bool laserUpActive;
+    public bool AdvWeaponActive;
 
     private List<Powerup> keys = new List<Powerup>();
 

@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     public int wavesBeforeBreak;
     public int breakTime;
     public bool canShoot;
+    public bool advancedWeapon;
     public float spawnWait;
     public float startWait;
     public float advWaveWait;
@@ -69,6 +70,7 @@ public class GameController : MonoBehaviour
         waveCounter = 0;
         breakCounter = 0;
         canShoot = true;
+        advancedWeapon = false;
         UpdateScore();
         waveCoroutine = StartCoroutine(SpawnWaves());
         StartCoroutine(AudioController.FadeIn(audioSource, 2.5f));

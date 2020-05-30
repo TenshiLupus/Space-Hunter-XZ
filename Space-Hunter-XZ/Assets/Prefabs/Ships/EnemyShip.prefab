@@ -156,7 +156,7 @@ MonoBehaviour:
   materialNormal: {fileID: 2100000, guid: b5cfa9bd280a29647ba6497c8b42a905, type: 2}
   materialHighlight: {fileID: 2100000, guid: b1a262b4ed28dc74e899507c7c2136f9, type: 2}
   scoreValue: 50
-  health: 0
+  health: 2
 --- !u!114 &3239253038667778830
 MonoBehaviour:
   m_ObjectHideFlags: 0

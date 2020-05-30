@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 
     public GameController gameController;
     public GameObject shot;
+    public GameObject shotAdv;
     public Transform shotSpawn;
     public float fireRate;
 
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
-            if (isReady && gameController.canShoot)
+            if (isReady && gameController.canShoot && !gameController.advancedWeapon)
             {
                 Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
                 audioSource.Play();
@@ -33,6 +34,17 @@ public class Player : MonoBehaviour
                 audioSource.Play();
                 yield return new WaitForSeconds(0.1f);
                 Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                audioSource.Play();
+            }
+            if (isReady && gameController.canShoot && gameController.advancedWeapon)
+            {
+                Instantiate(shotAdv, shotSpawn.position, shotSpawn.rotation);
+                audioSource.Play();
+                yield return new WaitForSeconds(0.1f);
+                Instantiate(shotAdv, shotSpawn.position, shotSpawn.rotation);
+                audioSource.Play();
+                yield return new WaitForSeconds(0.1f);
+                Instantiate(shotAdv, shotSpawn.position, shotSpawn.rotation);
                 audioSource.Play();
             }
             yield return new WaitForSeconds(fireRate);

@@ -1608,6 +1608,7 @@ MonoBehaviour:
   wavesBeforeBreak: 2
   breakTime: 2
   canShoot: 0
+  advancedWeapon: 0
   spawnWait: 0.5
   startWait: 1
   advWaveWait: 2
@@ -1719,6 +1720,7 @@ MonoBehaviour:
   powerups: []
   shieldUpActive: 0
   laserUpActive: 0
+  AdvWeaponActive: 0
 --- !u!4 &1236545589
 Transform:
   m_ObjectHideFlags: 0
@@ -2957,6 +2959,26 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 377548738965613011, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 377548738965613011, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0028
+      objectReference: {fileID: 0}
+    - target: {fileID: 377548738965613011, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00163
+      objectReference: {fileID: 0}
+    - target: {fileID: 610986850051957043, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: m_Name
+      value: Shot Spawn Left
+      objectReference: {fileID: 0}
     - target: {fileID: 1343345299098046209, guid: 45cdbd64b747db44ca87dfff145a4044,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -3124,6 +3146,16 @@ PrefabInstance:
       propertyPath: fireRate
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 6358554632792035462, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: shotSpawnLeft
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358554632792035462, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: shotSpawnRight
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6863898626749181564, guid: 45cdbd64b747db44ca87dfff145a4044,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -3163,6 +3195,21 @@ PrefabInstance:
         type: 3}
       propertyPath: tilt
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337299328712926060, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337299328712926060, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0028
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337299328712926060, guid: 45cdbd64b747db44ca87dfff145a4044,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00163
       objectReference: {fileID: 0}
     - target: {fileID: 8558361815007500146, guid: 45cdbd64b747db44ca87dfff145a4044,
         type: 3}
