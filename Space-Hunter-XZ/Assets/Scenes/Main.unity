@@ -1337,6 +1337,7 @@ GameObject:
   - component: {fileID: 809058111}
   - component: {fileID: 809058110}
   - component: {fileID: 809058114}
+  - component: {fileID: 809058115}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1377,7 +1378,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -1444,6 +1445,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &809058115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809058109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860ddaeff6e27d5459a85e2150970e28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &812657724
 GameObject:
   m_ObjectHideFlags: 0
@@ -2674,7 +2687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: -27.099731}
+  m_AnchoredPosition: {x: 650, y: 1550.9003}
   m_SizeDelta: {x: 294.56, y: 111.4}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &2030763006
