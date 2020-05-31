@@ -131,7 +131,7 @@ public class GameController : MonoBehaviour
                     }
                     if (hazardsIndex == 6 && lifeHasSpawned)
                     {
-                        hazardsIndex = Random.Range(0, 6);
+                        hazardsIndex = Random.Range(0, 5);
                     }
                     if (!powerUpSpawned && powerUpController.shieldUpActive && !powerUpController.laserUpActive)
                     {
