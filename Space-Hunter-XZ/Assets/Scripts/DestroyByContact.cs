@@ -64,14 +64,14 @@ public class DestroyByContact : MonoBehaviour
         {
             if(gameController.GetLife() < 1){
                 Instantiate(playerExplosion, transform.position, transform.rotation);
-                Handheld.Vibrate();
+                //Handheld.Vibrate();
                 gameController.GameOver();
                 health = 0;
             }
             else if(gameController.GetLife() >=1){
                 gameController.TakeLife();
                 Instantiate(playerExplosion, transform.position, transform.rotation);
-                Handheld.Vibrate();
+                //Handheld.Vibrate();
                 player.GetComponent<Player>().Respawn();
                 health = 0;
                 playerDied = true;

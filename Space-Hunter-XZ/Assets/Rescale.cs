@@ -30,8 +30,6 @@ public class Rescale : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Screen width " + Screen.width);
-        Debug.Log("Camera 2 : " + Camera.main.orthographicSize * 2f);
         //changes = Screen.width 
     }
 
