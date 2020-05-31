@@ -45,8 +45,12 @@ public class PowerUpController : MonoBehaviour
         if (keys.Contains(powerUp)) {
             if (PlayerPrefs.GetString("GameMode") == "Hard")
             {
-                activePowerups[powerUp] += powerUp.duration;
-            } else { activePowerups[powerUp] = powerUp.duration; }
+                activePowerups[powerUp] = powerUp.duration;
+            } 
+            if (PlayerPrefs.GetString("GameMode") == "Normal")
+            {
+                activePowerups[powerUp] = powerUp.duration; 
+            }
         } else
         {
             powerUp.Start();
