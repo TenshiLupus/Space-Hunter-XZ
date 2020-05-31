@@ -42,14 +42,16 @@ public class PowerUpController : MonoBehaviour
     }
 
     public void ActivatePowerup (Powerup powerUp){
-        if(!activePowerups.ContainsKey(powerUp)){
+        if (keys.Contains(powerUp)) {
+            if (PlayerPrefs.GetString("GameMode") == "Hard")
+            {
+                activePowerups[powerUp] += powerUp.duration;
+            } else { activePowerups[powerUp] = powerUp.duration; }
+        } else
+        {
             powerUp.Start();
             activePowerups.Add(powerUp, powerUp.duration);
         }
-        else{
-            activePowerups[powerUp] += powerUp.duration;
-        }
-
         keys = new List<Powerup>(activePowerups.Keys);
     }
 

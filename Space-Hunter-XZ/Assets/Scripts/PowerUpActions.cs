@@ -43,7 +43,7 @@ public class PowerUpActions : MonoBehaviour
     }
     public void LifeStartAction()
     {
-        gameController.lifeCounter += 1;
+        gameController.GiveLife();
     }
 
     public void LifeEndAction()

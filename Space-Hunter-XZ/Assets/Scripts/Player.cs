@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private Coroutine shootCoroutine;
     private AudioSource audioSource;
     private Renderer renderer;
+    private Quaternion quaternion;
     private bool isReady;
 
     void Start()
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
         renderer = GetComponent<MeshRenderer>();
         audioSource = GetComponent<AudioSource>();
         Invoke("SetReady", 2f);
+        quaternion = new Quaternion(0, 0, 0, 0);
     }
 
     IEnumerator Shoot ()
@@ -30,25 +32,37 @@ public class Player : MonoBehaviour
         {
             if (isReady && gameController.canShoot && !gameController.advancedWeapon)
             {
-                Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                Instantiate(shot, shotSpawn.position, quaternion);
                 audioSource.Play();
                 yield return new WaitForSeconds(0.1f);
-                Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-                audioSource.Play();
-                yield return new WaitForSeconds(0.1f);
-                Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-                audioSource.Play();
+                if (gameController.canShoot) 
+                {
+                    Instantiate(shot, shotSpawn.position, quaternion);
+                    audioSource.Play();
+                    yield return new WaitForSeconds(0.1f);
+                }
+                if (gameController.canShoot)
+                {
+                    Instantiate(shot, shotSpawn.position, quaternion);
+                    audioSource.Play();
+                }
             }
             if (isReady && gameController.canShoot && gameController.advancedWeapon)
             {
-                Instantiate(shotAdv, shotSpawn.position, shotSpawn.rotation);
+                Instantiate(shotAdv, shotSpawn.position, quaternion);
                 audioSource.Play();
                 yield return new WaitForSeconds(0.1f);
-                Instantiate(shotAdv, shotSpawn.position, shotSpawn.rotation);
-                audioSource.Play();
-                yield return new WaitForSeconds(0.1f);
-                Instantiate(shotAdv, shotSpawn.position, shotSpawn.rotation);
-                audioSource.Play();
+                if (gameController.canShoot)
+                {
+                    Instantiate(shotAdv, shotSpawn.position, quaternion);
+                    audioSource.Play();
+                    yield return new WaitForSeconds(0.1f);
+                }
+                if (gameController.canShoot)
+                {
+                    Instantiate(shotAdv, shotSpawn.position, quaternion);
+                    audioSource.Play();
+                }
             }
             yield return new WaitForSeconds(fireRate);
         }

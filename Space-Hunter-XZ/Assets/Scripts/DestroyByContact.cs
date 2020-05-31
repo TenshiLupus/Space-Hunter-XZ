@@ -20,6 +20,7 @@ public class DestroyByContact : MonoBehaviour
     private GameObject player;
 
     private bool respawn;
+    private bool playerDied;
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class DestroyByContact : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
+        playerDied = false;
         if (other.CompareTag("Boundary") || other.CompareTag("Enemy") || other.CompareTag("EnemyAdv") || other.CompareTag("Wall"))
         {
             return;
@@ -70,6 +72,7 @@ public class DestroyByContact : MonoBehaviour
                 Instantiate(playerExplosion, transform.position, transform.rotation);
                 player.GetComponent<Player>().Respawn();
                 health = 0;
+                playerDied = true;
                 respawn = true;
             }
         }
@@ -80,7 +83,6 @@ public class DestroyByContact : MonoBehaviour
         if (health <= 1 && renderer != null)
         {
             renderer.material = materialHighlight;
-            gameController.AddScore(scoreValue);
             Invoke("Destroy", 0.1f);
             Invoke("Explosion", 0.1f);
         }
@@ -105,8 +107,13 @@ public class DestroyByContact : MonoBehaviour
         if (gameObject.CompareTag("EnemyAdv") && gameController.advancedWeaponReady)
         {
             gameController.StartWeaponSpawnTimer();
-            Instantiate(advancedWeapon, transform.position, new Quaternion(0,0,0,0));
+            if (!playerDied) {
+                Instantiate(advancedWeapon, transform.position, new Quaternion(0, 0, 0, 0));
+            }
         }
+        if (!playerDied) {
+                gameController.AddScore(scoreValue);
+            }
         Destroy(gameObject);
     }
     public void ResetColor()

@@ -16,7 +16,9 @@ public class GameController : MonoBehaviour
     public Vector3 spawnLeft;
     public Vector3 spawnRight;
     public int lifeCounter;
+    public int lifeScore;
     public int score;
+    public int scoreHardMultiplier;
     public int hazardCount;
     public int waves;
     public int waveIncrease;
@@ -66,7 +68,6 @@ public class GameController : MonoBehaviour
         }
         gameOver = false; ;
         gameOverText.text = "";
-        lifeCounter = 0;
         score = 0;
         waveCounter = 0;
         breakCounter = 0;
@@ -109,11 +110,12 @@ public class GameController : MonoBehaviour
         {
             int hazardsIndex;
             bool powerUpSpawned = false;
+            bool lifeHasSpawned = false;
             for (int i = 0; i < hazardCount; i++) // initiate first part of wave with random hazards
             {
                 if (gameOver == false)
                 {
-                    hazardsIndex = Random.Range(0, hazards.Length);
+                    hazardsIndex = Random.Range(0, hazards.Length -1);
                     GameObject hazard;
                     if (powerUpSpawned)
                     {
@@ -126,6 +128,10 @@ public class GameController : MonoBehaviour
                         {
                             hazardsIndex = 5;
                         }
+                    }
+                    if (hazardsIndex == 6 && lifeHasSpawned)
+                    {
+                        hazardsIndex = Random.Range(0, 6);
                     }
                     if (!powerUpSpawned && powerUpController.shieldUpActive && !powerUpController.laserUpActive)
                     {
@@ -141,6 +147,10 @@ public class GameController : MonoBehaviour
                     {
                         powerUpSpawned = true;
                     }
+                    if (hazardsIndex == 6)
+                    {
+                        lifeHasSpawned = true;
+                    }
                     Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
                     Quaternion spawnRotation = Quaternion.identity;
                     Instantiate(hazard, spawnPosition, spawnRotation);
@@ -153,14 +163,14 @@ public class GameController : MonoBehaviour
             {
                 GameObject sideEnemy;
                 if (hardMode) { sideEnemy = advEnemyHard; } else { sideEnemy = advEnemy; }
-                Quaternion spawnRotation2 = Quaternion.identity;
-                Instantiate(sideEnemy, new Vector3(spawnLeft.x, spawnLeft.y + Random.Range(-2, 2), spawnLeft.z), spawnRotation2);
-                Instantiate(sideEnemy, new Vector3(spawnRight.x, spawnRight.y + Random.Range(-2, 2), spawnRight.z), spawnRotation2);
-                if (breakCounter == wavesBeforeBreak) // spawns extra 2 enemies for second part of wave every other wave
+                Quaternion spawnRotation = Quaternion.identity;
+                Instantiate(sideEnemy, new Vector3(spawnLeft.x, spawnLeft.y + Random.Range(-2, 2), spawnLeft.z), spawnRotation);
+                Instantiate(sideEnemy, new Vector3(spawnRight.x, spawnRight.y + Random.Range(-2, 2), spawnRight.z), spawnRotation);
+                if (breakCounter == wavesBeforeBreak && !gameOver) // spawns extra 2 enemies for second part of wave every other wave
                 {
                     yield return new WaitForSeconds(2);
-                    Instantiate(sideEnemy, new Vector3(spawnLeft.x, spawnLeft.y + Random.Range(-2, 2), spawnLeft.z), spawnRotation2);
-                    Instantiate(sideEnemy, new Vector3(spawnRight.x, spawnRight.y + Random.Range(-2, 2), spawnRight.z), spawnRotation2);
+                    Instantiate(sideEnemy, new Vector3(spawnLeft.x, spawnLeft.y + Random.Range(-2, 2), spawnLeft.z), spawnRotation);
+                    Instantiate(sideEnemy, new Vector3(spawnRight.x, spawnRight.y + Random.Range(-2, 2), spawnRight.z), spawnRotation);
 
                 }
                 yield return new WaitForSeconds(waveWait);
@@ -200,7 +210,13 @@ public class GameController : MonoBehaviour
 
     public void AddScore(int newScoreValue)
     {
-        score += newScoreValue;
+        if (PlayerPrefs.GetString("GameMode") == "Hard")
+        {
+            score += newScoreValue * scoreHardMultiplier;
+        } else
+        {
+            score += newScoreValue;
+        }
         UpdateScore();
     }
     void UpdateScore()
@@ -219,10 +235,8 @@ public class GameController : MonoBehaviour
         audioSource.PlayOneShot(gameOverSound, 1f);
         gameOverText.text = "GAME OVER!";
         menuButton.SetActive(false);
-        scoreObject.SetActive(false);
         lifeSystem.SetActive(false);
         gameOver = true;
-
     }
     void DestroyAllObjects()
     {
@@ -231,7 +245,12 @@ public class GameController : MonoBehaviour
 
 
     public void GiveLife(){
-        lifeCounter++;
+        if (lifeCounter < 4)
+            lifeCounter++;
+        else {
+            score += lifeScore;
+            UpdateScore();
+        }
     }
 
     public void TakeLife(){

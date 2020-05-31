@@ -32,4 +32,25 @@ public class Powerup
         if (startAction != null)
             startAction.Invoke();
     }
+    public override bool Equals(System.Object obj)
+    {
+        if (obj == null)
+            return false;
+        Powerup p = obj as Powerup;
+        if ((System.Object)p == null)
+            return false;
+        return name == p.name;
+    }
+    public bool Equals(Powerup p)
+    {
+        if ((object)p == null)
+            return false;
+        return name == p.name;
+    }
+
+
+    public override int GetHashCode()
+    {
+        return name.GetHashCode();
+    }
 }
