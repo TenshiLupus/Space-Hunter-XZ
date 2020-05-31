@@ -145,6 +145,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca55c3f18178ff42a2d696374fcc678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xMin: -2.4
+  xMax: 2.4
+  yMin: -4.2
+  yMax: 4
 --- !u!114 &7422025681070477259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,6 +183,7 @@ MonoBehaviour:
   gameController: {fileID: 0}
   shot: {fileID: 3037575737332633199, guid: 1412f0078f7b38141928ba5c54946952, type: 3}
   shotAdv: {fileID: 9114137075331720776, guid: 872fb52787d1f71458244fe28995eb26, type: 3}
+  engine: {fileID: 0}
   shotSpawn: {fileID: 6863898626749181564}
   fireRate: 0.6
 --- !u!54 &-450269221892674379

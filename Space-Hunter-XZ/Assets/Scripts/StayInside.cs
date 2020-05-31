@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class StayInside : MonoBehaviour {
 
+	public float xMin;
+	public float xMax;
+	public float yMin;
+	public float yMax;
 	// Update is called once per frame
 	void Update () {
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -2.4f, 2.4f),
-            Mathf.Clamp(transform.position.y, -4.2f, 4f), transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, xMin, xMax),
+            Mathf.Clamp(transform.position.y, yMin, yMax), transform.position.z);
 	}
 }
