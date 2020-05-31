@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyBoltRotation : MonoBehaviour
 {
+    public GameObject interfaceObject;
+    public GameObject background;
     // Start is called before the first frame update
     void Start()
     {
