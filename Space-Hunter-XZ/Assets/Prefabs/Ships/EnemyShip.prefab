@@ -196,8 +196,8 @@ MonoBehaviour:
   boundary:
     xMin: -2.3
     xMax: 2.3
-    yMin: -3
-    yMax: 12
+    yMin: -7
+    yMax: 8
 --- !u!82 &3239253038667778828
 AudioSource:
   m_ObjectHideFlags: 0

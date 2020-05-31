@@ -152,6 +152,7 @@ MonoBehaviour:
     type: 3}
   shieldExplosion: {fileID: 9145354182860747553, guid: 8c128d334f5545348a926cf960e1641f,
     type: 3}
+  advancedWeapon: {fileID: 0}
   renderer: {fileID: 1723410549250330105}
   materialNormal: {fileID: 2100000, guid: b5cfa9bd280a29647ba6497c8b42a905, type: 2}
   materialHighlight: {fileID: 2100000, guid: b1a262b4ed28dc74e899507c7c2136f9, type: 2}
@@ -195,8 +196,8 @@ MonoBehaviour:
   boundary:
     xMin: -2.3
     xMax: 2.3
-    yMin: -3
-    yMax: 12
+    yMin: -7
+    yMax: 8
 --- !u!82 &1141133433274644772
 AudioSource:
   m_ObjectHideFlags: 0
