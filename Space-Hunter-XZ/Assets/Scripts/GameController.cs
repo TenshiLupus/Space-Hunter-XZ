@@ -269,7 +269,6 @@ public class GameController : MonoBehaviour
     {
         backToMenu.SetActive(true);
         menuButton.SetActive(false);
-        scoreObject.SetActive(false);
         lifeSystem.SetActive(false);
         pausedText.SetActive(true);
         continueButton.SetActive(true);

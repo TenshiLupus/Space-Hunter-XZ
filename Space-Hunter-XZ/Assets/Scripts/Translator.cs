@@ -210,8 +210,6 @@ public class Translator : MonoBehaviour
 
     public void ChangeMainTextEnglish(){
         scoreText.text = "SCORE:";
-        RectTransform transform = scorePoints.GetComponent<RectTransform>();
-        transform.anchoredPosition = new Vector2(-104, 890);
         menuButtonText.text = "MENU";
         continueText.text = "CONTINUE";
         rButtonText.text = "RESTART";
@@ -221,8 +219,6 @@ public class Translator : MonoBehaviour
 
     public void ChangeMainTextSwedish(){
         scoreText.text = "POÄNG:";
-        RectTransform transform = scorePoints.GetComponent<RectTransform>();
-        transform.anchoredPosition = new Vector2(-104, 890);
         menuButtonText.text = "MENY";
         continueText.text = "FORTSÄTT";
         rButtonText.text = "STARTA OM";
@@ -233,8 +229,6 @@ public class Translator : MonoBehaviour
     public void ChangeMainTextJapanese()
     {
         scoreText.text = "点数:";
-        RectTransform transform = scorePoints.GetComponent<RectTransform>();
-        transform.anchoredPosition = new Vector2(-310, 890);
         menuButtonText.text = "メニュー";
         continueText.text = "続く";
         rButtonText.text = "再起動";

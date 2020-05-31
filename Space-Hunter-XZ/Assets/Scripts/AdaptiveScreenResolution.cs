@@ -15,6 +15,7 @@ public class AdaptiveScreenResolution : MonoBehaviour{
     // Start is called before the first frame update
     void Start()
     {
+        Screen.SetResolution(540, 960, false);
         CameraPos = Camera.main.transform.position;
         defaultHeight = Camera.main.orthographicSize;
         defaultWidth = Camera.main.orthographicSize * Camera.main.aspect;

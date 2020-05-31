@@ -61,7 +61,12 @@ public class MenuController : MonoBehaviour
 
         yield return null;
     }
-    public void Changelevel(int i)
+
+    public void StartGame(int i)
+    {
+        ChangeLevel(i);
+    }
+    public void ChangeLevel(int i)
     {
         SceneManager.LoadScene(i);
     }
