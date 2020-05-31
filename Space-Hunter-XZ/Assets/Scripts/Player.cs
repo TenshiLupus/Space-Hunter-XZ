@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
     {
         gameController.canShoot = false;
         gameController.advancedWeapon = false;
-        transform.position = new Vector3(0, 0, 0);
+        transform.position = new Vector3(0, -4, 0);
         transform.rotation = new Quaternion(0, 0, 0, 0);
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         renderer.enabled = false;

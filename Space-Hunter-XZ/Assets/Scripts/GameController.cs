@@ -274,7 +274,6 @@ public class GameController : MonoBehaviour
         continueButton.SetActive(true);
         restartButton.SetActive(true);
         Time.timeScale = 0.0f;
-        //Disable scripts that still work while timescale is set to 0
     }
     public void ContinueGame()
     {
@@ -285,7 +284,6 @@ public class GameController : MonoBehaviour
         menuButton.SetActive(true);
         lifeSystem.SetActive(true);
         Time.timeScale = 1.0f;
-        //enable the scripts again
     }
 
     public void MainScene(){
