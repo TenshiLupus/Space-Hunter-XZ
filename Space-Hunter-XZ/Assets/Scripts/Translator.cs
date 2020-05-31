@@ -176,19 +176,19 @@ public class Translator : MonoBehaviour
             creditsButtonText.text = "創作";
             highScoreButtonText.text = "点数";
             startText.text = "開始";
-            exitText.text = "出口";
+            exitText.text = "終";
             scoreText.text = "点数: ";
-            creditBackButtonText.text = "帰";
+            creditBackButtonText.text = "戻る";
             highScoreText.text = "最高点";
             resetScoreButtonText.text = "再設定";
-            highScoreButtonBackText.text = "帰";
+            highScoreButtonBackText.text = "戻る";
             languageButtonText.text = "言葉";
             languageButtonText.fontSize = 65;
             gameModeButtonText.text = "難易度";
             gameModeButtonText.fontSize = 65;
             normalButtonText.text = "初級";
             hardButtonText.text = "上級";
-            optionsBackButtonText.text = "帰";
+            optionsBackButtonText.text = "戻る";
             optionsBackButtonText.fontSize = 65;
             optionsButtonText.text = "設定";
             optionsButtonText.fontSize = 80;
@@ -238,7 +238,7 @@ public class Translator : MonoBehaviour
         menuButtonText.text = "メニュー";
         continueText.text = "続く";
         rButtonText.text = "再起動";
-        bmButtonText.text = "出口";
+        bmButtonText.text = "終";
         SaveData("Japanese");
     }
 }
