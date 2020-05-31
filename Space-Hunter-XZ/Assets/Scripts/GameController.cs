@@ -283,7 +283,6 @@ public class GameController : MonoBehaviour
         restartButton.SetActive(false);
         backToMenu.SetActive(false);
         menuButton.SetActive(true);
-        scoreObject.SetActive(true);
         lifeSystem.SetActive(true);
         Time.timeScale = 1.0f;
         //enable the scripts again
