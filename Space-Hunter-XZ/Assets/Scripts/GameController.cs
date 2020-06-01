@@ -81,7 +81,6 @@ public class GameController : MonoBehaviour
         advancedWeaponReady = true;
         UpdateScore();
         scaleReference = GameObject.FindWithTag("ScaleReference").transform;
-        scaling = (scaleReference.position.x / 5.625f);
         waveCoroutine = StartCoroutine(SpawnWaves());
         StartCoroutine(AudioController.FadeIn(audioSource, 2.5f));
         lifeText = GameObject.Find("LifeNumber").GetComponent<Text>();
@@ -119,7 +118,7 @@ public class GameController : MonoBehaviour
             
             int hazardsIndex;
             bool powerUpSpawned = false;
-            for (int i = 0; i < hazardCount * (scaling); i++) // initiate first part of wave with random hazards
+            for (int i = 0; i < hazardCount; i++) // initiate first part of wave with random hazards
             {
                 if (gameOver == false)
                 {
