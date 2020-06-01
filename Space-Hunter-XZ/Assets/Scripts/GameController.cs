@@ -39,8 +39,7 @@ public class GameController : MonoBehaviour
     public Text scorePoints;
     public Text gameOverText;
     public GameObject scoreObject;
-    public GameObject lifeSystem
-        ;
+    public GameObject lifeSystem;
     public GameObject pausedText;
     public GameObject menuButton;
     public GameObject continueButton;
@@ -117,6 +116,7 @@ public class GameController : MonoBehaviour
             int hazardsIndex;
             bool powerUpSpawned = false;
             bool lifeHasSpawned = false;
+            bool bombHasSpawned = false;
             for (int i = 0; i < hazardCount * (scaling); i++) // initiate first part of wave with random hazards
             {
                 if (gameOver == false)
@@ -125,6 +125,8 @@ public class GameController : MonoBehaviour
                     GameObject hazard;
                     if (powerUpSpawned)
                     {
+                        hazardsIndex = Random.Range(0, hazards.Length -4);
+                        if (hazardsIndex != 6 || hazardsIndex !=7)
                         hazardsIndex = Random.Range(0, hazards.Length -3);
                     }
                     if (!powerUpSpawned && !powerUpController.shieldUpActive && powerUpController.laserUpActive)
@@ -141,10 +143,10 @@ public class GameController : MonoBehaviour
                     }
                     if (!powerUpSpawned && powerUpController.shieldUpActive && !powerUpController.laserUpActive)
                     {
-                        hazardsIndex = Random.Range(0, hazards.Length - 2);
+                        hazardsIndex = Random.Range(0, hazards.Length - 3);
                     }
                     if (!powerUpSpawned && powerUpController.shieldUpActive && powerUpController.laserUpActive) {
-                        hazardsIndex = Random.Range(0, hazards.Length - 3);
+                        hazardsIndex = Random.Range(0, hazards.Length - 4);
                     } else {
                         if (hardMode) { hazard = hazardsHard[hazardsIndex]; } else { hazard = hazards[hazardsIndex]; }
                     }
@@ -156,6 +158,9 @@ public class GameController : MonoBehaviour
                     if (hazardsIndex == 6)
                     {
                         lifeHasSpawned = true;
+                    }
+                    if(hazardsIndex == 7){
+                        bombHasSpawned = true;
                     }
                     Vector3 spawnPosition = new Vector3(Random.Range(-spawnPoint.transform.position.x, spawnPoint.transform.position.x), spawnPoint.transform.position.y, spawnPoint.transform.position.z);
                     Quaternion spawnRotation = Quaternion.identity;
@@ -244,11 +249,6 @@ public class GameController : MonoBehaviour
         lifeSystem.SetActive(false);
         gameOver = true;
     }
-    void DestroyAllObjects()
-    {
-
-    }
-
 
     public void GiveLife(){
         if (lifeCounter < 4)

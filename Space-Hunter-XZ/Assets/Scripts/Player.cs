@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public Transform shotSpawn;
     public float fireRate;
 
+    public float respawnTimer;
+
     private Coroutine shootCoroutine;
     private AudioSource audioSource;
     private Renderer renderer;

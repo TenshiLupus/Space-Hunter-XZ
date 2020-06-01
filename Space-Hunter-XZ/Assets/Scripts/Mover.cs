@@ -9,9 +9,4 @@ public class Mover : MonoBehaviour
         GetComponent<Rigidbody>().velocity = transform.up * speed;
     }
 
-        void DestroyObjectDelayed()
-    {
-        // Kills the game object in X seconds after loading the object
-        Destroy(gameObject, 1);
-    }
 }

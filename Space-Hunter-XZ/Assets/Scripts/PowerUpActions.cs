@@ -46,8 +46,4 @@ public class PowerUpActions : MonoBehaviour
         gameController.GiveLife();
     }
 
-    public void LifeEndAction()
-    {
-
-    }
 }
