@@ -209,7 +209,7 @@ public class Translator : MonoBehaviour
 
 
     public void ChangeMainTextEnglish(){
-        scoreText.text = "SCORE:";
+        scoreText.text = "SCORE";
         menuButtonText.text = "MENU";
         continueText.text = "CONTINUE";
         rButtonText.text = "RESTART";
@@ -218,7 +218,7 @@ public class Translator : MonoBehaviour
     }
 
     public void ChangeMainTextSwedish(){
-        scoreText.text = "POÄNG:";
+        scoreText.text = "POÄNG";
         menuButtonText.text = "MENY";
         continueText.text = "FORTSÄTT";
         rButtonText.text = "STARTA OM";
@@ -228,7 +228,7 @@ public class Translator : MonoBehaviour
 
     public void ChangeMainTextJapanese()
     {
-        scoreText.text = "点数:";
+        scoreText.text = "点数";
         menuButtonText.text = "メニュー";
         continueText.text = "続く";
         rButtonText.text = "再起動";

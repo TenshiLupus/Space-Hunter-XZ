@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AdvEnemy : MonoBehaviour
 {
+    public Transform scaleReference;
     public float speedSide;
     public float speedDown;
     public float tilt;
@@ -14,8 +15,14 @@ public class AdvEnemy : MonoBehaviour
     private Rigidbody rb;
     void Start()
     {
+        scaleReference = GameObject.FindWithTag("ScaleReference").transform;
         rb = GetComponent<Rigidbody>();
         timer = Random.Range(0.75f, 1.05f);
+        speedSide = speedSide * (scaleReference.position.x / 5.625f);
+        if (speedSide < 6)
+        {
+            speedSide = 6;
+        }
         if (GetComponent<Transform>().position.x < 0)
         {
             GetComponent<Rigidbody>().velocity = transform.right * speedSide;

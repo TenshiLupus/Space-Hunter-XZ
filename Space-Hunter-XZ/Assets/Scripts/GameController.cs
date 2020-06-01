@@ -8,13 +8,16 @@ public class GameController : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip gameOverSound;
+    public Transform scaleReference;
     public GameObject[] hazards;
     public GameObject[] hazardsHard;
     public GameObject advEnemy;
     public GameObject advEnemyHard;
-    public Vector3 spawnValues;
-    public Vector3 spawnLeft;
-    public Vector3 spawnRight;
+    public GameObject spawnPoint;
+    public GameObject spawnPointLeft;
+    public GameObject spawnPointRight;
+    public GameObject randomSide;
+    public float scaling;
     public int lifeCounter;
     public int lifeScore;
     public int score;
@@ -75,6 +78,8 @@ public class GameController : MonoBehaviour
         advancedWeapon = false;
         advancedWeaponReady = true;
         UpdateScore();
+        scaleReference = GameObject.FindWithTag("ScaleReference").transform;
+        scaling = (scaleReference.position.x / 5.625f);
         waveCoroutine = StartCoroutine(SpawnWaves());
         StartCoroutine(AudioController.FadeIn(audioSource, 2.5f));
         lifeText = GameObject.Find("LifeNumber").GetComponent<Text>();
@@ -108,10 +113,11 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(startWait);
         while (true)
         {
+            
             int hazardsIndex;
             bool powerUpSpawned = false;
             bool lifeHasSpawned = false;
-            for (int i = 0; i < hazardCount; i++) // initiate first part of wave with random hazards
+            for (int i = 0; i < hazardCount * (scaling); i++) // initiate first part of wave with random hazards
             {
                 if (gameOver == false)
                 {
@@ -151,7 +157,7 @@ public class GameController : MonoBehaviour
                     {
                         lifeHasSpawned = true;
                     }
-                    Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+                    Vector3 spawnPosition = new Vector3(Random.Range(-spawnPoint.transform.position.x, spawnPoint.transform.position.x), spawnPoint.transform.position.y, spawnPoint.transform.position.z);
                     Quaternion spawnRotation = Quaternion.identity;
                     Instantiate(hazard, spawnPosition, spawnRotation);
                     yield return new WaitForSeconds(spawnWait);
@@ -164,13 +170,13 @@ public class GameController : MonoBehaviour
                 GameObject sideEnemy;
                 if (hardMode) { sideEnemy = advEnemyHard; } else { sideEnemy = advEnemy; }
                 Quaternion spawnRotation = Quaternion.identity;
-                Instantiate(sideEnemy, new Vector3(spawnLeft.x, spawnLeft.y + Random.Range(-2, 2), spawnLeft.z), spawnRotation);
-                Instantiate(sideEnemy, new Vector3(spawnRight.x, spawnRight.y + Random.Range(-2, 2), spawnRight.z), spawnRotation);
+                Instantiate(sideEnemy, new Vector3(spawnPointLeft.transform.position.x, spawnPointLeft.transform.position.y + Random.Range(-2, 2), spawnPointLeft.transform.position.z), spawnRotation);
+                Instantiate(sideEnemy, new Vector3(spawnPointRight.transform.position.x, spawnPointRight.transform.position.y + Random.Range(-2, 2), spawnPointRight.transform.position.z), spawnRotation);
                 if (breakCounter == wavesBeforeBreak && !gameOver) // spawns extra 2 enemies for second part of wave every other wave
                 {
                     yield return new WaitForSeconds(2);
-                    Instantiate(sideEnemy, new Vector3(spawnLeft.x, spawnLeft.y + Random.Range(-2, 2), spawnLeft.z), spawnRotation);
-                    Instantiate(sideEnemy, new Vector3(spawnRight.x, spawnRight.y + Random.Range(-2, 2), spawnRight.z), spawnRotation);
+                    Instantiate(sideEnemy, new Vector3(spawnPointLeft.transform.position.x, spawnPointLeft.transform.position.y + Random.Range(-2, 2), spawnPointLeft.transform.position.z), spawnRotation);
+                Instantiate(sideEnemy, new Vector3(spawnPointRight.transform.position.x, spawnPointRight.transform.position.y + Random.Range(-2, 2), spawnPointRight.transform.position.z), spawnRotation);
 
                 }
                 yield return new WaitForSeconds(waveWait);

@@ -12,6 +12,7 @@ TagManager:
   - Wall
   - AttackRange
   - EnemyAdv
+  - ScaleReference
   layers:
   - Default
   - TransparentFX
