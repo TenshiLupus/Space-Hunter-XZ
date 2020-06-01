@@ -6,7 +6,6 @@ public class ExplosiveBarrel : MonoBehaviour
 {
     CapsuleCollider colCapsule;
     public GameObject explosionObject;
-    public GameObject waveObject;
 
     public GameController gameController;
 
@@ -42,7 +41,6 @@ public class ExplosiveBarrel : MonoBehaviour
     void Explode(){
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         Instantiate(explosionObject, transform.position, transform.rotation);
-        Instantiate(waveObject, transform.position, transform.rotation);
         foreach(Collider nearbyObject in colliders)
         {
 
