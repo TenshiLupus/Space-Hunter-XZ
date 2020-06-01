@@ -51,6 +51,7 @@ public class DestroyByContact : MonoBehaviour
         if (other.CompareTag("Shield")) {
             Instantiate(shieldExplosion, transform.position, transform.rotation);
             powerUpController.shieldUpActive = false;
+            Handheld.Vibrate();
             other.gameObject.SetActive(false);
             Destroy(gameObject);
             other.GetComponentInParent<CapsuleCollider>().enabled = true;
@@ -64,14 +65,14 @@ public class DestroyByContact : MonoBehaviour
         {
             if(gameController.GetLife() < 1){
                 Instantiate(playerExplosion, transform.position, transform.rotation);
-                //Handheld.Vibrate();
+                Handheld.Vibrate();
                 gameController.GameOver();
                 health = 0;
             }
             else if(gameController.GetLife() >=1){
                 gameController.TakeLife();
                 Instantiate(playerExplosion, transform.position, transform.rotation);
-                //Handheld.Vibrate();
+                Handheld.Vibrate();
                 player.GetComponent<Player>().Respawn();
                 health = 0;
                 playerDied = true;
