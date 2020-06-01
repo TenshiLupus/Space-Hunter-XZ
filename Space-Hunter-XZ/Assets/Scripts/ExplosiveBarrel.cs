@@ -50,9 +50,13 @@ public class ExplosiveBarrel : MonoBehaviour
                 gameController.GameOver();
             }
             GameObject other = nearbyObject.gameObject;
-            if (!other.CompareTag("Boundary"))
+            if (!other.CompareTag("Boundary") || !other.CompareTag("PowerUp"))
             {
                 Destroy(nearbyObject.transform.gameObject);
+            }
+            if (other.CompareTag("Enemy") || other.CompareTag("Hazard"))
+            {
+                other.GetComponent<DestroyByContact>().Explosion();
             }
         }
         Destroy(this);

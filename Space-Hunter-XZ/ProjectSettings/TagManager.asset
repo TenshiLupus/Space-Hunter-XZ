@@ -13,6 +13,8 @@ TagManager:
   - AttackRange
   - EnemyAdv
   - ScaleReference
+  - Bullet
+  - PowerUp
   layers:
   - Default
   - TransparentFX
