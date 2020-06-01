@@ -185,7 +185,8 @@ MonoBehaviour:
   shotAdv: {fileID: 9114137075331720776, guid: 872fb52787d1f71458244fe28995eb26, type: 3}
   engine: {fileID: 0}
   shotSpawn: {fileID: 6863898626749181564}
-  fireRate: 0.65
+  fireRate: 0.55
+  respawnTimer: 0
 --- !u!54 &-450269221892674379
 Rigidbody:
   m_ObjectHideFlags: 0

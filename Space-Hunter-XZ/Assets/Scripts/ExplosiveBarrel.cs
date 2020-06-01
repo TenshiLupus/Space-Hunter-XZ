@@ -47,8 +47,11 @@ public class ExplosiveBarrel : MonoBehaviour
             if(nearbyObject.CompareTag("Player")){
                 gameController.GameOver();
             }
-
-            Destroy(nearbyObject.transform.gameObject);
+            GameObject other = nearbyObject.gameObject;
+            if (!other.CompareTag("Boundary"))
+            {
+                Destroy(nearbyObject.transform.gameObject);
+            }
         }
         Destroy(this);
     }
