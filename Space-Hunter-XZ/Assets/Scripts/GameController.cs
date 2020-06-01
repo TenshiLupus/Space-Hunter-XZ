@@ -54,10 +54,12 @@ public class GameController : MonoBehaviour
     public float elapsedTime;
     public float fadeTime;
 
+    private bool lifeHasSpawned = false;
     private bool gameOver;
     private bool hardMode;
     private int waveCounter;
     private int breakCounter;
+
 
     private void Start()
     {
@@ -84,6 +86,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(AudioController.FadeIn(audioSource, 2.5f));
         lifeText = GameObject.Find("LifeNumber").GetComponent<Text>();
         Invoke("FadeIn", 1f);
+        LifeSpawnTimer();
 
     }
 
@@ -116,17 +119,12 @@ public class GameController : MonoBehaviour
             
             int hazardsIndex;
             bool powerUpSpawned = false;
-            bool lifeHasSpawned = false;
             for (int i = 0; i < hazardCount * (scaling); i++) // initiate first part of wave with random hazards
             {
                 if (gameOver == false)
                 {
                     hazardsIndex = Random.Range(0, hazards.Length -1);
                     GameObject hazard;
-                    if (powerUpSpawned)
-                    {
-                            hazardsIndex = Random.Range(0, hazards.Length - 4);
-                    }
                     if (!powerUpSpawned && !powerUpController.shieldUpActive && powerUpController.laserUpActive)
                     {
                         hazardsIndex = Random.Range(0, hazards.Length -1);
@@ -137,16 +135,31 @@ public class GameController : MonoBehaviour
                     }
                     if (hazardsIndex == 6 && lifeHasSpawned)
                     {
-                        hazardsIndex = Random.Range(0, 5);
+                        hazardsIndex = Random.Range(0, hazards.Length -1);
+                        if (hazardsIndex == 6)
+                        {
+                            hazardsIndex = 7;
+                        } if (powerUpSpawned)
+                        {
+                            if (hazardsIndex == 4 || hazardsIndex == 5)
+                            {
+                                hazardsIndex = 7;
+                            }
+                        }
                     }
                     if (!powerUpSpawned && powerUpController.shieldUpActive && !powerUpController.laserUpActive)
                     {
-                        hazardsIndex = Random.Range(0, hazards.Length - 2);
+                        hazardsIndex = Random.Range(0, 4);
                     }
                     if (!powerUpSpawned && powerUpController.shieldUpActive && powerUpController.laserUpActive) {
-                        hazardsIndex = Random.Range(0, hazards.Length - 4);
-                    } else {
-                        if (hardMode) { hazard = hazardsHard[hazardsIndex]; } else { hazard = hazards[hazardsIndex]; }
+                        hazardsIndex = 5;
+                    }
+                    if (powerUpSpawned)
+                    {
+                        if (hazardsIndex == 4 || hazardsIndex == 5)
+                        {
+                            hazardsIndex = 3;
+                        }
                     }
                     if (hardMode) { hazard = hazardsHard[hazardsIndex]; } else { hazard = hazards[hazardsIndex]; }
                     if (hazardsIndex == 4 || hazardsIndex == 5)
@@ -155,7 +168,7 @@ public class GameController : MonoBehaviour
                     }
                     if (hazardsIndex == 6)
                     {
-                        lifeHasSpawned = true;
+                        LifeSpawnTimer();
                     }
                     Vector3 spawnPosition = new Vector3(Random.Range(-spawnPoint.transform.position.x, spawnPoint.transform.position.x), spawnPoint.transform.position.y, spawnPoint.transform.position.z);
                     Quaternion spawnRotation = Quaternion.identity;
@@ -202,7 +215,16 @@ public class GameController : MonoBehaviour
             }
         }
     }
+    private void LifeSpawnTimer()
+    {
+        lifeHasSpawned = true;
+        Invoke("ResetLifeSpawnTimer", 30);
+    }
 
+    private void ResetLifeSpawnTimer ()
+    {
+        lifeHasSpawned = false;
+    }
     public void StartWeaponSpawnTimer()
     {
         advancedWeaponReady = false;
