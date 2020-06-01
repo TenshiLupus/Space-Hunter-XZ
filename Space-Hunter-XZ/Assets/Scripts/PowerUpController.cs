@@ -14,15 +14,19 @@ public class PowerUpController : MonoBehaviour
 
     private List<Powerup> keys = new List<Powerup>();
 
-    void Update() {
-        HandeActivePowerups();    
+    void Update()
+    {
+        HandeActivePowerups();
     }
-    public void HandeActivePowerups(){
+    public void HandeActivePowerups()
+    {
         bool changed = false;
 
-        if(activePowerups.Count > 0){
+        if (activePowerups.Count > 0)
+        {
 
-            foreach(Powerup powerUp in keys){
+            foreach (Powerup powerUp in keys)
+            {
                 if (activePowerups[powerUp] > 0)
                 {
                     activePowerups[powerUp] -= Time.deltaTime;
@@ -36,22 +40,28 @@ public class PowerUpController : MonoBehaviour
             }
         }
 
-        if(changed){
+        if (changed)
+        {
             keys = new List<Powerup>(activePowerups.Keys);
         }
     }
 
-    public void ActivatePowerup (Powerup powerUp){
-        if (keys.Contains(powerUp)) {
-            if (PlayerPrefs.GetString("GameMode") == "Hard")
-            {
-                activePowerups[powerUp] = powerUp.duration;
+    public void ActivatePowerup(Powerup powerUp)
+    {
+        if (keys.Contains(powerUp))
+        {
+            foreach (Powerup p in keys) {
+                if (p.name == powerUp.name)
+                {
+                    p.End();
+                }
             }
-            if (PlayerPrefs.GetString("GameMode") == "Normal")
-            {
-                activePowerups[powerUp] = powerUp.duration;
-            }
-        } else
+            activePowerups.Remove(powerUp);
+            keys.Remove(powerUp);
+            powerUp.Start();
+            activePowerups.Add(powerUp, powerUp.duration);
+        }
+        else
         {
             powerUp.Start();
             activePowerups.Add(powerUp, powerUp.duration);
@@ -59,7 +69,8 @@ public class PowerUpController : MonoBehaviour
         keys = new List<Powerup>(activePowerups.Keys);
     }
 
-    public GameObject SpawnPowerup(Powerup powerUp, Vector3 position){
+    public GameObject SpawnPowerup(Powerup powerUp, Vector3 position)
+    {
         GameObject powerupGameObject = Instantiate(powerupPrefab);
 
         var powerupBehaviour = powerupGameObject.GetComponent<PowerupBehaviour>();

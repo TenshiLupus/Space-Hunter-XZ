@@ -248,7 +248,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 8e2f8fa587ef8d441b421ab0677cfe2c, type: 3}
   powerup:
     name: LaserBooster
-    duration: 4
+    duration: 15
     startAction:
       m_PersistentCalls:
         m_Calls:

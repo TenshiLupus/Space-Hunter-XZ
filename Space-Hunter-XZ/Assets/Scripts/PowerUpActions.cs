@@ -19,13 +19,15 @@ public class PowerUpActions : MonoBehaviour
 
     }
 
-    public void HighSpeedStartAction(){
+    public void HighSpeedStartAction()
+    {
         player.fireRate /= 2;
         controller.laserUpActive = true;
         Instantiate(laserPickUp, transform.position, transform.rotation);
     }
 
-    public void HighSpeedEndAction(){
+    public void HighSpeedEndAction()
+    {
         player.fireRate *= 2;
         controller.laserUpActive = false;
     }
