@@ -7,9 +7,12 @@ public class ExplosiveBarrel : MonoBehaviour
     CapsuleCollider colCapsule;
     public GameObject explosionObject;
 
+    public GameController gameController;
+
      public float radius;
 
     private void Awake() {
+        gameController =  GameObject.FindWithTag("GameController").GetComponent<GameController>();
         colCapsule = GetComponent<CapsuleCollider>();
         Debug.Log("Bomb Spawned");
     }
@@ -40,9 +43,12 @@ public class ExplosiveBarrel : MonoBehaviour
         Instantiate(explosionObject, transform.position, transform.rotation);
         foreach(Collider nearbyObject in colliders)
         {
-            
+
+            if(nearbyObject.CompareTag("Player")){
+                gameController.GameOver();
+            }
+
             Destroy(nearbyObject.transform.gameObject);
-            
         }
         Destroy(this);
     }
