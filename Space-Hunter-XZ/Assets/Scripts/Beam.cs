@@ -9,9 +9,6 @@ public class Beam : MonoBehaviour
     public GameObject playerExplosion;
     public GameObject shieldExplosion;
 
-
-    private bool shipAlive;
-
     private GameController gameController;
     private PowerUpController powerUpController;
 
