@@ -112,7 +112,7 @@ public class ExplosiveBarrel : MonoBehaviour
                     other.GetComponent<Player>().Explosion();
                 }
             }
-            Handheld.Vibrate();
+            //Handheld.Vibrate();
         }
         Destroy(gameObject);
     }
