@@ -126,16 +126,20 @@ public class GameController : MonoBehaviour
                 {
                     hazardsIndex = Random.Range(0, hazards.Length -1);
                     GameObject hazard;
-                    if (!powerUpSpawned && !powerUpController.shieldUpActive && powerUpController.laserUpActive && hazardsIndex == 4)
+                    if (!powerUpSpawned && !powerUpController.shieldUpActive && powerUpController.laserUpActive)
                     {
-                        hazardsIndex = 5;
+                        hazardsIndex = Random.Range(0, hazards.Length -1);
+                        if (hazardsIndex == 4)
+                        {
+                            hazardsIndex = 7;
+                        }
                     }
                     if (hazardsIndex == 6 && lifeHasSpawned)
                     {
                         hazardsIndex = Random.Range(0, hazards.Length -1);
                         if (hazardsIndex == 6)
                         {
-                            hazardsIndex = 6;
+                            hazardsIndex = 7;
                         } if (powerUpSpawned)
                         {
                             if (hazardsIndex == 4 || hazardsIndex == 5)
@@ -144,9 +148,9 @@ public class GameController : MonoBehaviour
                             }
                         }
                     }
-                    if (!powerUpSpawned && powerUpController.shieldUpActive && !powerUpController.laserUpActive && hazardsIndex == 5)
+                    if (!powerUpSpawned && powerUpController.shieldUpActive && !powerUpController.laserUpActive)
                     {
-                        hazardsIndex = 4;
+                        hazardsIndex = Random.Range(0, 4);
                     }
                     if (!powerUpSpawned && powerUpController.shieldUpActive && powerUpController.laserUpActive) {
                         hazardsIndex = 7;
