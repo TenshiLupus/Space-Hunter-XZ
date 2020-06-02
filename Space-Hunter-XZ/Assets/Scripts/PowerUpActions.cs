@@ -36,6 +36,7 @@ public class PowerUpActions : MonoBehaviour
     {
         gameController.advancedWeapon = true;
         controller.AdvWeaponActive = true;
+        Instantiate(laserPickUp, transform.position, transform.rotation);
     }
 
     public void AdvWeaponEndAction()
@@ -45,6 +46,7 @@ public class PowerUpActions : MonoBehaviour
     }
     public void LifeStartAction()
     {
+        Instantiate(laserPickUp, transform.position, transform.rotation);
         gameController.GiveLife();
     }
 

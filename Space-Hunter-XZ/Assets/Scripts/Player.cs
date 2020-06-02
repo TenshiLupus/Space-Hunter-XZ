@@ -6,6 +6,9 @@ public class Player : MonoBehaviour
 {
 
     public GameController gameController;
+    public Material materialNormal;
+    public Material materialHighlight;
+    public GameObject playerExplosion;
     public GameObject shot;
     public GameObject shotAdv;
     public GameObject engine;
@@ -76,8 +79,40 @@ public class Player : MonoBehaviour
         isReady = true;
         shootCoroutine = StartCoroutine(Shoot());
     }
+    public void ChangeMaterial()
+    {
+        renderer.material = materialHighlight;
+    }
+    public void ResetMaterial()
+    {
+        renderer.material = materialNormal;
+    }
+    public void TriggerDestruction(bool dead)
+    {
+        ChangeMaterial();
+        Handheld.Vibrate();
+        Invoke("Explosion", 0.1f);
+        if (dead)
+        {
+            gameController.GameOver();
+            Invoke("Destroy", 0.1f);
+        } else
+        {
+            gameController.canShoot = false;
+            ResetMaterial();
+            Invoke("Respawn", 0.1f);
+        }
+    }
+    public void Explosion()
+    {
+        Instantiate(playerExplosion, transform.position, transform.rotation);
+    }
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
 
-    public void Respawn()
+        public void Respawn()
     {
         gameController.canShoot = false;
         gameController.advancedWeapon = false;

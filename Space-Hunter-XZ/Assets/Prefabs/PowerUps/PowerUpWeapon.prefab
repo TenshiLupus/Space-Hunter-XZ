@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42b168ebdd81624f8a5666f7e69f95f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserPickUp: {fileID: 5105026268675140333, guid: b793e46243dde9b4897508ea412b8d2e,
+  laserPickUp: {fileID: 8403836014030098261, guid: 2ff2dc6cafb48014c947aa57a6b53cfe,
     type: 3}
   player: {fileID: 0}
 --- !u!1 &3360351879915972502

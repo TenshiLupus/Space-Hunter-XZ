@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip startButtonSound;
+    public GameObject audioController;
     public GameObject mainMenu;
     public GameObject creditsMenu;
 
@@ -32,6 +35,7 @@ public class MenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = audioController.GetComponent<AudioSource>();
         Screen.orientation = ScreenOrientation.Portrait;
         if (!PlayerPrefs.HasKey("Language"))
         {
@@ -65,7 +69,8 @@ public class MenuController : MonoBehaviour
 
     public void StartGame(int i)
     {
-        ChangeLevel(i);
+        audioSource.PlayOneShot(startButtonSound,0.7f);
+        Invoke("ChangeLevel(i)", 1f);
     }
     public void ChangeLevel(int i)
     {

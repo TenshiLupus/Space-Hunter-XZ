@@ -117,6 +117,8 @@ public class GameController : MonoBehaviour
         {
             
             int hazardsIndex;
+            int barrelSpawned = 0;
+            int wavesBeforeBarrel = 0;
             bool powerUpSpawned = false;
             for (int i = 0; i < hazardCount; i++) // initiate first part of wave with random hazards
             {
@@ -124,34 +126,30 @@ public class GameController : MonoBehaviour
                 {
                     hazardsIndex = Random.Range(0, hazards.Length -1);
                     GameObject hazard;
-                    if (!powerUpSpawned && !powerUpController.shieldUpActive && powerUpController.laserUpActive)
+                    if (!powerUpSpawned && !powerUpController.shieldUpActive && powerUpController.laserUpActive && hazardsIndex == 4)
                     {
-                        hazardsIndex = Random.Range(0, hazards.Length -1);
-                        if (hazardsIndex == 3)
-                        {
-                            hazardsIndex = 4;
-                        }
+                        hazardsIndex = 5;
                     }
                     if (hazardsIndex == 6 && lifeHasSpawned)
                     {
                         hazardsIndex = Random.Range(0, hazards.Length -1);
                         if (hazardsIndex == 6)
                         {
-                            hazardsIndex = 7;
+                            hazardsIndex = 6;
                         } if (powerUpSpawned)
                         {
                             if (hazardsIndex == 4 || hazardsIndex == 5)
                             {
-                                hazardsIndex = 7;
+                                hazardsIndex = 3;
                             }
                         }
                     }
-                    if (!powerUpSpawned && powerUpController.shieldUpActive && !powerUpController.laserUpActive)
+                    if (!powerUpSpawned && powerUpController.shieldUpActive && !powerUpController.laserUpActive && hazardsIndex == 5)
                     {
-                        hazardsIndex = Random.Range(0, 4);
+                        hazardsIndex = 4;
                     }
                     if (!powerUpSpawned && powerUpController.shieldUpActive && powerUpController.laserUpActive) {
-                        hazardsIndex = 5;
+                        hazardsIndex = 7;
                     }
                     if (powerUpSpawned)
                     {
@@ -159,6 +157,14 @@ public class GameController : MonoBehaviour
                         {
                             hazardsIndex = 3;
                         }
+                    }
+                    if (barrelSpawned > 2)
+                    {
+                        hazardsIndex = Random.Range(0, hazards.Length - 2);
+                    }
+                    if (wavesBeforeBarrel == 5)
+                    {
+                        hazardsIndex = 7;
                     }
                     if (hardMode) { hazard = hazardsHard[hazardsIndex]; } else { hazard = hazards[hazardsIndex]; }
                     if (hazardsIndex == 4 || hazardsIndex == 5)
@@ -169,12 +175,19 @@ public class GameController : MonoBehaviour
                     {
                         LifeSpawnTimer();
                     }
+                    if (hazardsIndex == 7)
+                    {
+                        barrelSpawned++;
+                    }
+                    wavesBeforeBarrel++;
                     Vector3 spawnPosition = new Vector3(Random.Range(-spawnPoint.transform.position.x, spawnPoint.transform.position.x), spawnPoint.transform.position.y, spawnPoint.transform.position.z);
                     Quaternion spawnRotation = Quaternion.identity;
                     Instantiate(hazard, spawnPosition, spawnRotation);
                     yield return new WaitForSeconds(spawnWait);
                 }
             }
+            wavesBeforeBarrel = 0;
+            barrelSpawned = 0;
             yield return new WaitForSeconds(advWaveWait); // wait before second part of wave
             breakCounter++;
             if (gameOver == false) // initiate second part of wave

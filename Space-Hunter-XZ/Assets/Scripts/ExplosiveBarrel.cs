@@ -5,61 +5,116 @@ using UnityEngine;
 public class ExplosiveBarrel : MonoBehaviour
 {
     CapsuleCollider colCapsule;
-    public GameObject explosionObject;
+    public GameObject explosion;
+    public GameObject explosionLarge;
+    public GameObject explosionSmall;
     public GameObject waveObject;
+    public Renderer renderer;
+    public Material materialNormal;
+    public Material materialHighlight;
 
-    public GameController gameController;
+    private GameController gameController;
+    private PowerUpController powerUpController;
 
-     public float radius;
+    public float radius;
+    public int health;
 
+    private bool blowedUp;
+    
     private void Awake() {
+        powerUpController = GameObject.FindWithTag("PowerUpController").GetComponent<PowerUpController>();
         gameController =  GameObject.FindWithTag("GameController").GetComponent<GameController>();
         colCapsule = GetComponent<CapsuleCollider>();
-        Debug.Log("Bomb Spawned");
+        blowedUp = false;
     }
 
      void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Boundary") || other.CompareTag("Enemy") || other.CompareTag("Wall"))
+        if (other.CompareTag("Bullet") || other.CompareTag("EnemyBullet"))
         {
-            Debug.Log("Bomb Spawned");
-        } 
-        if (other.CompareTag("Bullet"))
+            if (!blowedUp  && health <= 1)
+            {
+                blowedUp = true;
+                ChangeMaterial();
+                Invoke("Destroy", 0.1f);
+                Invoke("Explode", 0.1f);
+            }
+            else if (health > 1)
+            {
+                Instantiate(explosionSmall, new Vector3(transform.position.x, transform.position.y - 0.3f, transform.position.z), transform.rotation);
+                ChangeMaterial();
+                health -= 1;
+                Invoke("ResetColor", 0.1f);
+                if (other.CompareTag("EnemyBullet"))
+                {
+                    Destroy(other.gameObject);
+                }
+            }
+        }
+        if (other.CompareTag("Enemy"))
+        {
+            blowedUp = true;
+            ChangeMaterial();
+            Invoke("Destroy", 0.1f);
+            Invoke("Explode", 0.1f);
+            Instantiate(explosion, transform.position, transform.rotation);
+            other.GetComponent<DestroyByContact>().TriggerDestruction();
+        }
+        if (other.CompareTag("Player") || other.CompareTag("Shield"))
         {
             Explode();
-            Debug.Log("Bullet hit by bomb");
-        }
-        if (other.CompareTag("Hazard"))
-        {
-            Debug.Log("Hazard hit by bomb");
-        }
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("player hit by bomb");
         }
      }
-    
+    private void ChangeMaterial()
+    {
+        renderer.material = materialHighlight;
+    }
+    public void ResetColor()
+    {
+        this.GetComponent<MeshRenderer>().material = materialNormal;
+    }
+
 
     void Explode(){
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
-        Instantiate(explosionObject, transform.position, transform.rotation);
-        Instantiate(waveObject, transform.position, transform.rotation);
+        Instantiate(explosionLarge, transform.position, transform.rotation);
+        //Instantiate(waveObject, transform.position, transform.rotation);
         foreach(Collider nearbyObject in colliders)
         {
-
-            if(nearbyObject.CompareTag("Player")){
-                gameController.GameOver();
-            }
             GameObject other = nearbyObject.gameObject;
-            if (!other.CompareTag("Boundary") || !other.CompareTag("PowerUp"))
-            {
-                Destroy(nearbyObject.transform.gameObject);
-            }
             if (other.CompareTag("Enemy") || other.CompareTag("Hazard"))
             {
-                other.GetComponent<DestroyByContact>().Explosion();
+                other.GetComponent<DestroyByContact>().Explosion(); 
+                other.GetComponent<DestroyByContact>().TriggerDestruction();
             }
+            if (other.CompareTag("ExplosiveBarrel") && !other == this)
+            {
+                other.GetComponent<ExplosiveBarrel>().Explode();
+            }
+            if (other.CompareTag("Shield"))
+            {
+                other.GetComponent<Shield>().Explosion();
+                powerUpController.shieldUpActive = false;
+                Handheld.Vibrate();
+                other.gameObject.SetActive(false);
+                Destroy(gameObject);
+                other.GetComponentInParent<CapsuleCollider>().enabled = true;
+            }
+            if (other.CompareTag("Player"))
+            {
+                if (gameController.GetLife() < 1)
+                {
+                    other.GetComponent<Player>().TriggerDestruction(true);
+                    other.GetComponent<Player>().Explosion();
+                } else if (gameController.GetLife() >= 1)
+                {
+                    gameController.TakeLife();
+                    other.GetComponent<Player>().TriggerDestruction(false);
+                    other.GetComponent<Player>().Explosion();
+                }
+            }
+            Handheld.Vibrate();
         }
-        Destroy(this);
+        Destroy(gameObject);
     }
 
 }

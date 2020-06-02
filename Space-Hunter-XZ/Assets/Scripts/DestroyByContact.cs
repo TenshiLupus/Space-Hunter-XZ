@@ -40,7 +40,7 @@ public class DestroyByContact : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         playerDied = false;
-        if (other.CompareTag("Boundary") || other.CompareTag("Enemy") || other.CompareTag("EnemyAdv") || other.CompareTag("Wall"))
+        if (other.CompareTag("EnemyBullet") || other.CompareTag("ExplosiveBarrel") ||other.CompareTag("Boundary") || other.CompareTag("Enemy") || other.CompareTag("EnemyAdv") || other.CompareTag("Wall") || other.CompareTag("PowerUp"))
         {
             return;
         } 
@@ -49,7 +49,7 @@ public class DestroyByContact : MonoBehaviour
             Instantiate(explosionSmall, new Vector3(transform.position.x, transform.position.y-0.3f, transform.position.z), transform.rotation);
         }
         if (other.CompareTag("Shield")) {
-            Instantiate(shieldExplosion, transform.position, transform.rotation);
+            other.GetComponent<Shield>().Explosion();
             powerUpController.shieldUpActive = false;
             Handheld.Vibrate();
             other.gameObject.SetActive(false);
@@ -64,16 +64,16 @@ public class DestroyByContact : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             if(gameController.GetLife() < 1){
-                Instantiate(playerExplosion, transform.position, transform.rotation);
-                Handheld.Vibrate();
-                gameController.GameOver();
+                Instantiate(explosion, transform.position, transform.rotation);
+                other.GetComponent<Player>().Explosion();
+                other.GetComponent<Player>().TriggerDestruction(true);
                 health = 0;
             }
             else if(gameController.GetLife() >=1){
                 gameController.TakeLife();
-                Instantiate(playerExplosion, transform.position, transform.rotation);
-                Handheld.Vibrate();
-                player.GetComponent<Player>().Respawn();
+                Instantiate(explosion, transform.position, transform.rotation);
+                other.GetComponent<Player>().Explosion();
+                other.GetComponent<Player>().TriggerDestruction(false);
                 health = 0;
                 playerDied = true;
                 respawn = true;
@@ -85,22 +85,33 @@ public class DestroyByContact : MonoBehaviour
         }
         if (health <= 1 && renderer != null)
         {
-            renderer.material = materialHighlight;
+            ChangeMaterial();
             Invoke("Destroy", 0.1f);
             Invoke("Explosion", 0.1f);
         }
         if (health > 1 && renderer != null)
         {
-            renderer.material = materialHighlight;
+            ChangeMaterial();
             health -= 1;
             Invoke("ResetColor", 0.1f);
         }
-        if (renderer == null)
+        if (renderer == null && !other.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
     }
 
+    private void ChangeMaterial()
+    {
+        renderer.material = materialHighlight;
+    }
+
+    public void TriggerDestruction ()
+    {
+        ChangeMaterial();
+        Invoke("Explosion", 0.1f);
+        Invoke("Destroy", 0.1f);
+    }
     public void Explosion()
     {
         Instantiate(explosion, transform.position, transform.rotation);

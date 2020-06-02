@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1394616256808965379}
   m_Layer: 0
   m_Name: BoltEnemyHard
-  m_TagString: Enemy
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
