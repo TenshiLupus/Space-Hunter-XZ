@@ -10,8 +10,8 @@ public class BeamShip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("StartBeam", 1);
-        Invoke("StopBeam", 2.5f);
+        Invoke("StartBeam", 0.8f);
+        Invoke("StopBeam", 3.2f);
     }
 
     // Update is called once per frame

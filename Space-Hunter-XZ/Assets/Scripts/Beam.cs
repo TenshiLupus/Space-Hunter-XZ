@@ -41,7 +41,6 @@ public class Beam : MonoBehaviour
             powerUpController.shieldUpActive = false;
             Handheld.Vibrate();
             other.gameObject.SetActive(false);
-            Destroy(gameObject);
             other.GetComponentInParent<CapsuleCollider>().enabled = true;
             return;
         }

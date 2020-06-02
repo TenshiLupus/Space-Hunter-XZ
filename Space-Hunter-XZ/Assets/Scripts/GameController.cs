@@ -11,10 +11,11 @@ public class GameController : MonoBehaviour
     public Transform scaleReference;
     public GameObject[] hazards;
     public GameObject[] hazardsHard;
-    public GameObject EnemyLarge;
+    public GameObject enemyLarge;
     public GameObject advEnemy;
     public GameObject advEnemyHard;
     public GameObject spawnPoint;
+    public GameObject spawnPointBeam;
     public GameObject spawnPointLeft;
     public GameObject spawnPointRight;
     public GameObject randomSide;
@@ -183,6 +184,26 @@ public class GameController : MonoBehaviour
                     if (hazardsIndex == 7)
                     {
                         barrelSpawned++;
+                    }
+                    if (wavesBeforeBarrel == 7 || wavesBeforeBarrel == 14)
+                    {
+                        int originalIndex = hazardsIndex;
+                        int spawnRandom = 2;
+                        if (spawnRandom == 1)
+                        {
+                            if (hardMode)
+                            {
+                                hazard = hazardsHard[hazardsIndex];
+
+                            } else
+                            {
+                                hazard = hazards[hazardsIndex];
+                            }
+                        }
+                        if (spawnRandom == 2)
+                        {
+                            hazard = enemyLarge;
+                        }
                     }
                     wavesBeforeBarrel++;
                     Vector3 spawnPosition = new Vector3(Random.Range(-spawnPoint.transform.position.x, spawnPoint.transform.position.x), spawnPoint.transform.position.y, spawnPoint.transform.position.z);
