@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public Transform scaleReference;
     public GameObject[] hazards;
     public GameObject[] hazardsHard;
+    public GameObject EnemyLarge;
     public GameObject advEnemy;
     public GameObject advEnemyHard;
     public GameObject spawnPoint;

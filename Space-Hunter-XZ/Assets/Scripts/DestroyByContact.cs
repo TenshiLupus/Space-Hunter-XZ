@@ -9,6 +9,8 @@ public class DestroyByContact : MonoBehaviour
     public GameObject playerExplosion;
     public GameObject shieldExplosion;
     public GameObject advancedWeapon;
+    public GameObject beamLeft;
+    public GameObject beamRight;
     public Renderer renderer;
     public Material materialNormal;
     public Material materialHighlight;
@@ -40,10 +42,15 @@ public class DestroyByContact : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         playerDied = false;
-        if (other.CompareTag("EnemyBullet") || other.CompareTag("ExplosiveBarrel") ||other.CompareTag("Boundary") || other.CompareTag("Enemy") || other.CompareTag("EnemyAdv") || other.CompareTag("Wall") || other.CompareTag("PowerUp"))
+        if (other.CompareTag("Beam") || other.CompareTag("EnemyBullet") || other.CompareTag("ExplosiveBarrel") ||other.CompareTag("Boundary") || other.CompareTag("Enemy") || other.CompareTag("EnemyAdv") || other.CompareTag("Wall") || other.CompareTag("PowerUp"))
         {
             return;
-        } 
+        }
+        if (beamLeft != null && beamRight != null)
+        {
+            beamLeft.SetActive(false);
+            beamRight.SetActive(false);
+        }
         if (explosion != null)
         {
             Instantiate(explosionSmall, new Vector3(transform.position.x, transform.position.y-0.3f, transform.position.z), transform.rotation);
