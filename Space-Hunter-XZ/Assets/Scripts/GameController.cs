@@ -188,7 +188,7 @@ public class GameController : MonoBehaviour
                     if (wavesBeforeBarrel == 7 || wavesBeforeBarrel == 14)
                     {
                         int originalIndex = hazardsIndex;
-                        int spawnRandom = Random.Range(1, 2);
+                        int spawnRandom = Random.Range(1, 4);
                         if (spawnRandom == 1)
                         {
                             if (hardMode)
@@ -200,7 +200,7 @@ public class GameController : MonoBehaviour
                                 hazard = hazards[hazardsIndex];
                             }
                         }
-                        if (spawnRandom == 2)
+                        if (spawnRandom >= 2)
                         {
                             hazard = enemyLarge;
                         }
