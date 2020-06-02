@@ -1753,7 +1753,6 @@ MonoBehaviour:
     type: 3}
   advEnemyHard: {fileID: 2815267009620056982, guid: 10813eed374c1fb489d569e2406c5582,
     type: 3}
-  spawnPointBarrel: {fileID: 2009237111}
   spawnPoint: {fileID: 2009237111}
   spawnPointLeft: {fileID: 710643846}
   spawnPointRight: {fileID: 640958773}
