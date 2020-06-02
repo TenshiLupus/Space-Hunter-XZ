@@ -17,7 +17,6 @@ public class Beam : MonoBehaviour
     {
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         powerUpController = GameObject.FindWithTag("PowerUpController").GetComponent<PowerUpController>();
-        shipAlive = true;
     }
 
     // Update is called once per frame

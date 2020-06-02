@@ -12,6 +12,9 @@ public class Translator : MonoBehaviour
     public Text highScoreButtonText;
     public Text highScoreButtonBackText;
     public Text highScoreText;
+    public Text resetText;
+    public Text yes;
+    public Text no;
     public Text scoreText;
     public Text scorePoints;
     public Text resetScoreButtonText;
@@ -104,6 +107,9 @@ public class Translator : MonoBehaviour
             creditBackButtonText.text = "BACK";
             highScoreText.text = "TOP SCORE";
             resetScoreButtonText.text = "RESET";
+            resetText.text = "RESET TEXT";
+            yes.text = "YES";
+            no.text = "NO";
             highScoreButtonBackText.text = "BACK";
             languageButtonText.text = "LANGUAGE";
             languageButtonText.fontSize = 55;
@@ -142,6 +148,9 @@ public class Translator : MonoBehaviour
             creditBackButtonText.text = "TILLBAKA";
             highScoreText.text = "HÖGSTA POÄNG";
             resetScoreButtonText.text = "NOLLSTÄLL";
+            resetText.text = "NOLLSTÄLL";
+            yes.text = "JA";
+            no.text = "NEJ";
             highScoreButtonBackText.text = "TILLBAKA";
             languageButtonText.text = "SPRÅK";
             languageButtonText.fontSize = 55;
@@ -181,6 +190,9 @@ public class Translator : MonoBehaviour
             creditBackButtonText.text = "戻る";
             highScoreText.text = "最高点";
             resetScoreButtonText.text = "再設定";
+            resetText.text = "再設定";
+            yes.text = "応";
+            no.text = "帰";
             highScoreButtonBackText.text = "戻る";
             languageButtonText.text = "言葉";
             languageButtonText.fontSize = 65;
