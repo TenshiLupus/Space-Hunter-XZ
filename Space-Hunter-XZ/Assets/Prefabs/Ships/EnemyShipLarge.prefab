@@ -137,7 +137,7 @@ MonoBehaviour:
   materialNormal: {fileID: 0}
   materialHighlight: {fileID: 0}
   scoreValue: 50
-  health: 0
+  health: 2
 --- !u!54 &2222289717424117717
 Rigidbody:
   m_ObjectHideFlags: 0

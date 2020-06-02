@@ -50,6 +50,7 @@ public class DestroyByContact : MonoBehaviour
         {
             beamLeft.SetActive(false);
             beamRight.SetActive(false);
+            Instantiate(explosion, transform.position, transform.rotation);
         }
         if (explosion != null)
         {
