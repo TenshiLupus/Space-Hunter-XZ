@@ -166,7 +166,7 @@ public class GameController : MonoBehaviour
                     {
                         hazardsIndex = Random.Range(0, hazards.Length - 2);
                     }
-                    if (wavesBeforeBarrel == 5)
+                    if (wavesBeforeBarrel == 5 || wavesBeforeBarrel == 10 || wavesBeforeBarrel == 15 || wavesBeforeBarrel == 20 || wavesBeforeBarrel == 25)
                     {
                         hazardsIndex = 7;
                     }
