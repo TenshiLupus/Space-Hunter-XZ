@@ -188,7 +188,7 @@ public class GameController : MonoBehaviour
                     if (wavesBeforeBarrel == 7 || wavesBeforeBarrel == 14)
                     {
                         int originalIndex = hazardsIndex;
-                        int spawnRandom = 2;
+                        int spawnRandom = Random.Range(1, 2);
                         if (spawnRandom == 1)
                         {
                             if (hardMode)
