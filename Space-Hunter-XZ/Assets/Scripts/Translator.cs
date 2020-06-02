@@ -107,7 +107,7 @@ public class Translator : MonoBehaviour
             creditBackButtonText.text = "BACK";
             highScoreText.text = "TOP SCORE";
             resetScoreButtonText.text = "RESET";
-            resetText.text = "RESET TEXT";
+            resetText.text = "RESET SCORE";
             yes.text = "YES";
             no.text = "NO";
             highScoreButtonBackText.text = "BACK";
