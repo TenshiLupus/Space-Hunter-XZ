@@ -111,7 +111,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b5cfa9bd280a29647ba6497c8b42a905, type: 2}
+  - {fileID: 2100000, guid: 7e20c5ef4f5740749a4ef0dba551f72d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,7 +168,6 @@ MonoBehaviour:
     type: 3}
   advancedWeapon: {fileID: 1323406237529471377, guid: 6816c73c79c4bd54dae2648577e008be,
     type: 3}
-  thisEnemy: {fileID: 6968024296803713173}
   renderer: {fileID: 8687359167797982281}
   materialNormal: {fileID: 2100000, guid: b5cfa9bd280a29647ba6497c8b42a905, type: 2}
   materialHighlight: {fileID: 2100000, guid: b1a262b4ed28dc74e899507c7c2136f9, type: 2}
@@ -186,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eefc0ad7df4d24e4aaf5f6055cb27709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaleReference: {fileID: 0}
   speedSide: 6
   speedDown: 9
   tilt: 15
