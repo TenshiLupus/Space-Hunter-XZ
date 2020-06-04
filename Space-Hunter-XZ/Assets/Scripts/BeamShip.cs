@@ -6,6 +6,7 @@ public class BeamShip : MonoBehaviour
 {
     public GameObject beamLeft;
     public GameObject beamRight;
+    public GameObject beamShip;
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +23,19 @@ public class BeamShip : MonoBehaviour
 
     void StartBeam()
     {
-        beamLeft.SetActive(true);
-        beamRight.SetActive(true);
+        if (beamShip != null)
+        {
+            beamLeft.SetActive(true);
+            beamRight.SetActive(true);
+        }
     }
 
     void StopBeam()
     {
-        beamLeft.SetActive(false);
-        beamRight.SetActive(false);
+        if (beamShip != null)
+        {
+            beamLeft.SetActive(false);
+            beamRight.SetActive(false);
+        }
     }
 }

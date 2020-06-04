@@ -231,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beamLeft: {fileID: 7966775885495883672}
   beamRight: {fileID: 7966775885245179135}
+  beamShip: {fileID: 2222289717424117718}
 --- !u!1 &3509462244055307160
 GameObject:
   m_ObjectHideFlags: 0

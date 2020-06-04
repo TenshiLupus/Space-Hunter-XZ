@@ -57,6 +57,8 @@ public class GameController : MonoBehaviour
     public float fadeTime;
 
     private bool lifeHasSpawned = false;
+    private bool shieldHasSpawned = false;
+    private bool laserHasSpawned = false;
     private bool gameOver;
     private bool hardMode;
     private int waveCounter;
@@ -121,47 +123,26 @@ public class GameController : MonoBehaviour
             int hazardsIndex;
             int barrelSpawned = 0;
             int wavesBeforeBarrel = 0;
-            bool powerUpSpawned = false;
             for (int i = 0; i < hazardCount; i++) // initiate first part of wave with random hazards
             {
                 if (gameOver == false)
                 {
                     hazardsIndex = Random.Range(0, hazards.Length -1);
                     GameObject hazard;
-                    if (!powerUpSpawned && !powerUpController.shieldUpActive && powerUpController.laserUpActive)
+                    if (hazardsIndex == 5 && shieldHasSpawned)
                     {
-                        hazardsIndex = Random.Range(0, hazards.Length -1);
-                        if (hazardsIndex == 4)
-                        {
-                            hazardsIndex = 7;
-                        }
+                        hazardsIndex = Random.Range(0, hazards.Length -5);
+                    }
+                    if (hazardsIndex == 4 && laserHasSpawned)
+                    {
+                        hazardsIndex = Random.Range(0, hazards.Length - 5);
                     }
                     if (hazardsIndex == 6 && lifeHasSpawned)
                     {
                         hazardsIndex = Random.Range(0, hazards.Length -1);
                         if (hazardsIndex == 6)
                         {
-                            hazardsIndex = 7;
-                        } if (powerUpSpawned)
-                        {
-                            if (hazardsIndex == 4 || hazardsIndex == 5)
-                            {
-                                hazardsIndex = 3;
-                            }
-                        }
-                    }
-                    if (!powerUpSpawned && powerUpController.shieldUpActive && !powerUpController.laserUpActive)
-                    {
-                        hazardsIndex = Random.Range(0, 4);
-                    }
-                    if (!powerUpSpawned && powerUpController.shieldUpActive && powerUpController.laserUpActive) {
-                        hazardsIndex = 7;
-                    }
-                    if (powerUpSpawned)
-                    {
-                        if (hazardsIndex == 4 || hazardsIndex == 5)
-                        {
-                            hazardsIndex = 3;
+                            hazardsIndex = Random.Range(0, 3);
                         }
                     }
                     if (barrelSpawned > 2)
@@ -170,12 +151,29 @@ public class GameController : MonoBehaviour
                     }
                     if (wavesBeforeBarrel == 5 || wavesBeforeBarrel == 10 || wavesBeforeBarrel == 15 || wavesBeforeBarrel == 20 || wavesBeforeBarrel == 25)
                     {
-                        hazardsIndex = 7;
+                        int spawnRandom = Random.Range(1, 4);
+                        if (spawnRandom == 1)
+                        {
+                            if (hardMode)
+                            {
+                                hazardsIndex = 3;
+                            } else
+                            {
+                                hazardsIndex = Random.Range(0, 3);
+                            }
+                        } else
+                        {
+                            hazardsIndex = 7;
+                        }
                     }
                     if (hardMode) { hazard = hazardsHard[hazardsIndex]; } else { hazard = hazards[hazardsIndex]; }
-                    if (hazardsIndex == 4 || hazardsIndex == 5)
+                    if (hazardsIndex == 4)
                     {
-                        powerUpSpawned = true;
+                        LaserSpawnTimer();
+                    }
+                    if (hazardsIndex == 5)
+                    {
+                        ShieldSpawnTimer();
                     }
                     if (hazardsIndex == 6)
                     {
@@ -187,8 +185,7 @@ public class GameController : MonoBehaviour
                     }
                     if (wavesBeforeBarrel == 7 || wavesBeforeBarrel == 14)
                     {
-                        int originalIndex = hazardsIndex;
-                        int spawnRandom = Random.Range(1, 4);
+                        int spawnRandom = Random.Range(0, 3);
                         if (spawnRandom == 1)
                         {
                             if (hardMode)
@@ -259,9 +256,28 @@ public class GameController : MonoBehaviour
         Invoke("ResetLifeSpawnTimer", 30);
     }
 
+    private void ShieldSpawnTimer()
+    {
+        shieldHasSpawned = true;
+        Invoke("ResetShieldSpawnTimer", 15);
+    }
+    private void LaserSpawnTimer()
+    {
+        laserHasSpawned = true;
+        Invoke("ResetLaserSpawnTimer", 15);
+    }
+
     private void ResetLifeSpawnTimer ()
     {
         lifeHasSpawned = false;
+    }
+    private void ResetShieldSpawnTimer()
+    {
+        shieldHasSpawned = false;
+    }
+    private void ResetLaserpawnTimer()
+    {
+        laserHasSpawned = false;
     }
     public void StartWeaponSpawnTimer()
     {
@@ -304,11 +320,6 @@ public class GameController : MonoBehaviour
         lifeSystem.SetActive(false);
         gameOver = true;
     }
-    void DestroyAllObjects()
-    {
-
-    }
-
 
     public void GiveLife(){
         if (lifeCounter < 4)
