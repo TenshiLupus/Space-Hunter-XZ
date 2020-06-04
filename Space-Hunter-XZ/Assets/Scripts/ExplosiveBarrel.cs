@@ -95,9 +95,6 @@ public class ExplosiveBarrel : MonoBehaviour
                 other.GetComponent<DestroyByContact>().Explosion(); 
                 other.GetComponent<DestroyByContact>().TriggerDestruction();
             }
-            if (other.CompareTag("Beam")) {
-                Destroy(other);
-            }
             if (other.CompareTag("ExplosiveBarrel") && !other == this)
             {
                 other.GetComponent<ExplosiveBarrel>().Explode();

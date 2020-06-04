@@ -122,6 +122,11 @@ public class DestroyByContact : MonoBehaviour
     public void TriggerDestruction ()
     {
         ChangeMaterial();
+        if (beamLeft != null && beamRight != null)
+        {
+            Destroy(beamLeft);
+            Destroy(beamRight);
+        }
         Invoke("Explosion", 0.1f);
         Invoke("Destroy", 0.1f);
     }

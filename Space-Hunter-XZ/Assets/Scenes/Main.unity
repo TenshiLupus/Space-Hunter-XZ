@@ -1821,6 +1821,9 @@ MonoBehaviour:
   highScoreButtonText: {fileID: 0}
   highScoreButtonBackText: {fileID: 0}
   highScoreText: {fileID: 0}
+  resetText: {fileID: 0}
+  yes: {fileID: 0}
+  no: {fileID: 0}
   scoreText: {fileID: 494777231}
   scorePoints: {fileID: 764705081}
   resetScoreButtonText: {fileID: 0}
