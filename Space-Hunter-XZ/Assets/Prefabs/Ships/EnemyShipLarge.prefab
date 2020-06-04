@@ -183,8 +183,8 @@ MonoBehaviour:
   beamLeft: {fileID: 7966775885495883672}
   beamRight: {fileID: 7966775885245179135}
   renderer: {fileID: 0}
-  materialNormal: {fileID: 0}
-  materialHighlight: {fileID: 0}
+  materialNormal: {fileID: 2100000, guid: 84569b5c484409d4eb7241e94c109466, type: 2}
+  materialHighlight: {fileID: 2100000, guid: 08e4c74a226805948a3eac58cc2f227a, type: 2}
   scoreValue: 50
   health: 2
 --- !u!54 &2222289717424117717
@@ -211,7 +211,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2222289717424117718}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.009913827
   m_Height: 0.04044153

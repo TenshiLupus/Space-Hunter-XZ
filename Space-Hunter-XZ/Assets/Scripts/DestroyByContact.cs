@@ -26,6 +26,11 @@ public class DestroyByContact : MonoBehaviour
 
     void Start()
     {
+        if (this.gameObject.CompareTag("Bullet") || this.gameObject.CompareTag("EnemyBullet")) {
+            renderer = null;
+         } else {
+            renderer = GetComponentInChildren<MeshRenderer>();
+        }
         player = GameObject.FindWithTag("Player");
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
         powerUpController = GameObject.FindWithTag("PowerUpController").GetComponent<PowerUpController>();
@@ -45,12 +50,6 @@ public class DestroyByContact : MonoBehaviour
         if (other.CompareTag("Beam") || other.CompareTag("EnemyBullet") || other.CompareTag("ExplosiveBarrel") ||other.CompareTag("Boundary") || other.CompareTag("Enemy") || other.CompareTag("EnemyAdv") || other.CompareTag("Wall") || other.CompareTag("PowerUp"))
         {
             return;
-        }
-        if (beamLeft != null && beamRight != null)
-        {
-            beamLeft.SetActive(false);
-            beamRight.SetActive(false);
-            Instantiate(explosion, transform.position, transform.rotation);
         }
         if (explosion != null)
         {
@@ -90,6 +89,12 @@ public class DestroyByContact : MonoBehaviour
         if (!respawn)
         {
             Destroy(other.gameObject);
+        }
+        if (beamLeft != null && beamRight != null)
+        {
+            beamLeft.SetActive(false);
+            beamRight.SetActive(false);
+            Instantiate(explosion, transform.position, transform.rotation);
         }
         if (health <= 1 && renderer != null)
         {

@@ -50,16 +50,22 @@ public class ExplosiveBarrel : MonoBehaviour
                 }
             }
         }
-        if (other.CompareTag("Enemy"))
-        {
+        if (other.CompareTag("Player")) {
             blowedUp = true;
             ChangeMaterial();
             Invoke("Destroy", 0.1f);
             Invoke("Explode", 0.1f);
+        }
+        if (other.CompareTag("Enemy"))
+        {
+            blowedUp = true;
+            ChangeMaterial();
+            Invoke("Destroy", 0.2f);
+            Invoke("Explode", 0.1f);
             Instantiate(explosion, transform.position, transform.rotation);
             other.GetComponent<DestroyByContact>().TriggerDestruction();
         }
-        if (other.CompareTag("Player") || other.CompareTag("Shield"))
+        if (other.CompareTag("Shield"))
         {
             Explode();
         }
@@ -73,7 +79,10 @@ public class ExplosiveBarrel : MonoBehaviour
         this.GetComponent<MeshRenderer>().material = materialNormal;
     }
 
-
+    void Destroy ()
+    {
+        Destroy(gameObject);
+    }
     void Explode(){
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         Instantiate(explosionLarge, transform.position, transform.rotation);
@@ -85,6 +94,9 @@ public class ExplosiveBarrel : MonoBehaviour
             {
                 other.GetComponent<DestroyByContact>().Explosion(); 
                 other.GetComponent<DestroyByContact>().TriggerDestruction();
+            }
+            if (other.CompareTag("Beam")) {
+                Destroy(other);
             }
             if (other.CompareTag("ExplosiveBarrel") && !other == this)
             {
