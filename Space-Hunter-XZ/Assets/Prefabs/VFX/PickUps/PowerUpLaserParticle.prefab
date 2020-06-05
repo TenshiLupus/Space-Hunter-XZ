@@ -4766,7 +4766,6 @@ GameObject:
   - component: {fileID: 9510517249402664}
   - component: {fileID: 27318456311425076}
   - component: {fileID: 5377454835995729525}
-  - component: {fileID: -8511854835155481256}
   m_Layer: 0
   m_Name: PowerUpLaserParticle
   m_TagString: Untagged
@@ -9607,16 +9606,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-8511854835155481256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5105026268675140333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1a7ab6e3fad0274d926e76c390f1d1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 2

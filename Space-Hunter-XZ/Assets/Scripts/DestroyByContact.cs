@@ -55,23 +55,28 @@ public class DestroyByContact : MonoBehaviour
         {
             Instantiate(explosionSmall, new Vector3(transform.position.x, transform.position.y-0.3f, transform.position.z), transform.rotation);
         }
+        if (other.CompareTag("Shield")) {
+            other.GetComponent<Shield>().Explosion();
+            powerUpController.shieldUpActive = false;
+            Handheld.Vibrate();
+            other.gameObject.SetActive(false);
+            Destroy(gameObject);
+            other.GetComponentInParent<CapsuleCollider>().enabled = true;
+            return;
+        }
         if (other.CompareTag("Hazard"))
         {
             Instantiate(explosion, transform.position, transform.rotation);
-            Destroy(gameObject);
-            return;
         }
         if (other.CompareTag("Player"))
         {
-            if (gameController.GetLife() < 1)
-            {
+            if(gameController.GetLife() < 1){
                 Instantiate(explosion, transform.position, transform.rotation);
                 other.GetComponent<Player>().Explosion();
                 other.GetComponent<Player>().TriggerDestruction(true);
                 health = 0;
             }
-            else if (gameController.GetLife() >= 1)
-            {
+            else if(gameController.GetLife() >=1){
                 gameController.TakeLife();
                 Instantiate(explosion, transform.position, transform.rotation);
                 other.GetComponent<Player>().Explosion();
@@ -79,48 +84,16 @@ public class DestroyByContact : MonoBehaviour
                 health = 0;
                 playerDied = true;
                 respawn = true;
-             }
+            }
         }
-        if (!respawn && !other.CompareTag("Shield"))
+        if (!respawn)
         {
             Destroy(other.gameObject);
         }
-        if (other.CompareTag("Shield"))
-        {
-            other.GetComponent<Shield>().Explosion();
-            powerUpController.shieldUpActive = false;
-            Handheld.Vibrate();
-            if (beamLeft != null && beamRight != null)
-            {
-                beamLeft.SetActive(false);
-                beamRight.SetActive(false);
-                Destroy(transform.parent.gameObject);
-                if (gameController.GetLife() < 1)
-                {
-                    Instantiate(explosion, transform.position, transform.rotation);
-                    other.GetComponentInParent<Player>().Explosion();
-                    other.GetComponentInParent<Player>().TriggerDestruction(true);
-                    health = 0;
-                }
-                else if (gameController.GetLife() >= 1)
-                {
-                    gameController.TakeLife();
-                    Instantiate(explosion, transform.position, transform.rotation);
-                    other.GetComponentInParent<Player>().Explosion();
-                    other.GetComponentInParent<Player>().TriggerDestruction(false);
-                    health = 0;
-                    playerDied = true;
-                    respawn = true;
-                }
-            }
-            other.GetComponentInParent<CapsuleCollider>().enabled = true;
-            other.gameObject.SetActive(false);
-        }
-        if (beamLeft != null && beamRight != null && health <= 1)
+        if (beamLeft != null && beamRight != null)
         {
             beamLeft.SetActive(false);
             beamRight.SetActive(false);
-            Destroy(transform.parent.gameObject);
             Instantiate(explosion, transform.position, transform.rotation);
         }
         if (health <= 1 && renderer != null)

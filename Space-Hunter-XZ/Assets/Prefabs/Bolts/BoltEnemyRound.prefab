@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3345069191229124996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -105,9 +105,6 @@ MonoBehaviour:
     type: 3}
   shieldExplosion: {fileID: 9145354182860747553, guid: 8c128d334f5545348a926cf960e1641f,
     type: 3}
-  advancedWeapon: {fileID: 0}
-  beamLeft: {fileID: 0}
-  beamRight: {fileID: 0}
   renderer: {fileID: 0}
   materialNormal: {fileID: 0}
   materialHighlight: {fileID: 0}

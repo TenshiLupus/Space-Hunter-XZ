@@ -29,11 +29,7 @@ public class ExplosiveBarrel : MonoBehaviour
     }
 
      void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("EnemyBullet") || other.CompareTag("Boundary"))
-        {
-            return;
-        }
-        if (other.CompareTag("Bullet"))
+        if (other.CompareTag("Bullet") || other.CompareTag("EnemyBullet"))
         {
             if (!blowedUp  && health <= 1)
             {
@@ -94,7 +90,7 @@ public class ExplosiveBarrel : MonoBehaviour
         foreach(Collider nearbyObject in colliders)
         {
             GameObject other = nearbyObject.gameObject;
-            if (other.CompareTag("Enemy") || other.CompareTag("EnemyAdv") ||other.CompareTag("Hazard"))
+            if (other.CompareTag("Enemy") || other.CompareTag("Hazard"))
             {
                 other.GetComponent<DestroyByContact>().Explosion(); 
                 other.GetComponent<DestroyByContact>().TriggerDestruction();

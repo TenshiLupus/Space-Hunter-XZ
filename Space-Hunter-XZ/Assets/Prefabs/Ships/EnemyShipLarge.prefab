@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e877afcd45483e641aeb12d46e354a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -2
+  speed: -3
 --- !u!114 &2222289717424117714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   materialNormal: {fileID: 2100000, guid: 84569b5c484409d4eb7241e94c109466, type: 2}
   materialHighlight: {fileID: 2100000, guid: 08e4c74a226805948a3eac58cc2f227a, type: 2}
   scoreValue: 50
-  health: 3
+  health: 2
 --- !u!54 &2222289717424117717
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -215,8 +215,8 @@ CapsuleCollider:
   m_Enabled: 1
   m_Radius: 0.009913827
   m_Height: 0.04044153
-  m_Direction: 0
-  m_Center: {x: 5.544699e-19, y: 0, z: 0.01357303}
+  m_Direction: 1
+  m_Center: {x: 5.544699e-19, y: -0.00068608974, z: -0.00038399737}
 --- !u!114 &2222289717424117719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -955,10 +955,9 @@ GameObject:
   - component: {fileID: 7966775886275011092}
   - component: {fileID: 7966775886275011094}
   - component: {fileID: 7966775886275011093}
-  - component: {fileID: 3169893486817640074}
   m_Layer: 0
   m_Name: EnemyShipLarge
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -992,7 +991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e877afcd45483e641aeb12d46e354a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -2
+  speed: -3
 --- !u!54 &7966775886275011093
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1009,16 +1008,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3169893486817640074
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7966775886275011091}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.01, y: 0.01, z: 0.01}
-  m_Center: {x: 0, y: 0, z: 0}

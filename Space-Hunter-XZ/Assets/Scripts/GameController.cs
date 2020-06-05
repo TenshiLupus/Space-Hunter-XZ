@@ -12,7 +12,6 @@ public class GameController : MonoBehaviour
     public GameObject[] hazards;
     public GameObject[] hazardsHard;
     public GameObject enemyLarge;
-    public GameObject enemyLargeHard;
     public GameObject advEnemy;
     public GameObject advEnemyHard;
     public GameObject spawnPoint;
@@ -74,8 +73,6 @@ public class GameController : MonoBehaviour
             hardMode = true;
         } else
         {
-            spawnWait *= 1.5f;
-            advWaveWait *= 1.5f;
             hardMode = false;
         }
         gameOver = false; ;
@@ -125,7 +122,7 @@ public class GameController : MonoBehaviour
             
             int hazardsIndex;
             int barrelSpawned = 0;
-            int specialSpawnCounter = 0;
+            int wavesBeforeBarrel = 0;
             for (int i = 0; i < hazardCount; i++) // initiate first part of wave with random hazards
             {
                 if (gameOver == false)
@@ -152,12 +149,18 @@ public class GameController : MonoBehaviour
                     {
                         hazardsIndex = Random.Range(0, hazards.Length - 2);
                     }
-                    if (specialSpawnCounter == 5 || specialSpawnCounter == 10 || specialSpawnCounter == 15 || specialSpawnCounter == 20 || specialSpawnCounter == 25)
+                    if (wavesBeforeBarrel == 5 || wavesBeforeBarrel == 10 || wavesBeforeBarrel == 15 || wavesBeforeBarrel == 20 || wavesBeforeBarrel == 25)
                     {
                         int spawnRandom = Random.Range(1, 4);
-                        if (spawnRandom <= 2)
+                        if (spawnRandom == 1)
                         {
+                            if (hardMode)
+                            {
                                 hazardsIndex = 3;
+                            } else
+                            {
+                                hazardsIndex = Random.Range(0, 3);
+                            }
                         } else
                         {
                             hazardsIndex = 7;
@@ -180,10 +183,10 @@ public class GameController : MonoBehaviour
                     {
                         barrelSpawned++;
                     }
-                    if (specialSpawnCounter == 7 || specialSpawnCounter == 14)
+                    if (wavesBeforeBarrel == 7 || wavesBeforeBarrel == 14)
                     {
-                        int spawnRandom = Random.Range(1, 4);
-                        if (spawnRandom <= 2)
+                        int spawnRandom = Random.Range(0, 3);
+                        if (spawnRandom == 1)
                         {
                             if (hardMode)
                             {
@@ -194,26 +197,19 @@ public class GameController : MonoBehaviour
                                 hazard = hazards[hazardsIndex];
                             }
                         }
-                        if (spawnRandom >= 3)
+                        if (spawnRandom >= 2)
                         {
-                            if (hardMode)
-                            {
-                                hazard = enemyLargeHard;
-                            }
-                            else
-                            {
-                                hazard = enemyLarge;
-                            }
+                            hazard = enemyLarge;
                         }
                     }
-                    specialSpawnCounter++;
+                    wavesBeforeBarrel++;
                     Vector3 spawnPosition = new Vector3(Random.Range(-spawnPoint.transform.position.x, spawnPoint.transform.position.x), spawnPoint.transform.position.y, spawnPoint.transform.position.z);
                     Quaternion spawnRotation = Quaternion.identity;
                     Instantiate(hazard, spawnPosition, spawnRotation);
                     yield return new WaitForSeconds(spawnWait);
                 }
             }
-            specialSpawnCounter = 0;
+            wavesBeforeBarrel = 0;
             barrelSpawned = 0;
             yield return new WaitForSeconds(advWaveWait); // wait before second part of wave
             breakCounter++;
@@ -257,7 +253,7 @@ public class GameController : MonoBehaviour
     private void LifeSpawnTimer()
     {
         lifeHasSpawned = true;
-        Invoke("ResetLifeSpawnTimer", 45);
+        Invoke("ResetLifeSpawnTimer", 30);
     }
 
     private void ShieldSpawnTimer()
@@ -271,15 +267,15 @@ public class GameController : MonoBehaviour
         Invoke("ResetLaserSpawnTimer", 15);
     }
 
-    public void ResetLifeSpawnTimer ()
+    private void ResetLifeSpawnTimer ()
     {
         lifeHasSpawned = false;
     }
-    public void ResetShieldSpawnTimer()
+    private void ResetShieldSpawnTimer()
     {
         shieldHasSpawned = false;
     }
-    public void ResetLaserpawnTimer()
+    private void ResetLaserpawnTimer()
     {
         laserHasSpawned = false;
     }

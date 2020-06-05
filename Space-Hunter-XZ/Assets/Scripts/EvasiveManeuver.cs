@@ -12,10 +12,6 @@ public class EvasiveManeuver : MonoBehaviour
     public Vector2 maneuverTime;
     public Vector2 maneuverWait;
     public Boundary boundary;
-    public GameObject top;
-    public GameObject bottom;
-    public GameObject left;
-    public GameObject right;
 
 
     private float currentSpeed;
@@ -24,10 +20,6 @@ public class EvasiveManeuver : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        top = GameObject.Find("BoundaryTop");
-        bottom = GameObject.Find("BoundaryBottom");
-        left = GameObject.Find("BoundaryLeft");
-        right = GameObject.Find("BoundaryRight");
         currentSpeed = speed;
         StartCoroutine(Evade());
     }
@@ -50,8 +42,8 @@ public class EvasiveManeuver : MonoBehaviour
         rb.velocity = new Vector3(newManeuver, currentSpeed, 0.0f);
         rb.position = new Vector3
         (
-            Mathf.Clamp(rb.position.x, left.transform.position.x+0.2f, right.transform.position.x-0.2f),
-            Mathf.Clamp(rb.position.y, bottom.transform.position.y-4, top.transform.position.y+4),
+            Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax),
+            Mathf.Clamp(rb.position.y, boundary.yMin, boundary.yMax),
             0.0f
          );
 
