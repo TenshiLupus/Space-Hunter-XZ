@@ -9,27 +9,32 @@ public class AdvEnemy : MonoBehaviour
     public float speedDown;
     public float tilt;
     public float waitTime;
+    public GameObject left;
+    public GameObject right;
+
+    private Rigidbody rb;
 
     private float currentTime;
     private float timer;
-    private Rigidbody rb;
     void Start()
     {
-        scaleReference = GameObject.FindWithTag("ScaleReference").transform;
+        scaleReference = GameObject.Find("ScaleReference").transform;
         rb = GetComponent<Rigidbody>();
         timer = Random.Range(0.75f, 1.05f);
         speedSide = speedSide * (scaleReference.position.x / 5.625f);
+        left = GameObject.Find("BoundaryLeft");
+        right = GameObject.Find("BoundaryRight");
         if (speedSide < 6)
         {
             speedSide = 6;
         }
-        if (GetComponent<Transform>().position.x < 0)
+        if (rb.position.x < 0)
         {
-            GetComponent<Rigidbody>().velocity = transform.right * speedSide;
+            rb.velocity = transform.right * speedSide;
         }
-        else if (GetComponent<Transform>().position.x > 0)
+        else if (rb.position.x > 0)
         {
-            GetComponent<Rigidbody>().velocity = transform.right * -speedSide;
+            rb.velocity = transform.right * -speedSide;
         }
     }
 
@@ -39,16 +44,23 @@ public class AdvEnemy : MonoBehaviour
         currentTime += Time.deltaTime;
         if (currentTime > timer && currentTime < timer + 1)
         {
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
         }
         if (currentTime > waitTime)
         {
-            GetComponent<Rigidbody>().velocity = transform.up * -speedDown;
+            rb.velocity = transform.up * -speedDown;
         }
     }
 
     private void FixedUpdate()
     {
-        rb.rotation = Quaternion.Euler(0.0f, Mathf.Clamp(rb.velocity.x * -tilt, -45f, 45f), 0.0f);
+        if (rb.velocity.x > 0)
+        {
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -50, right.transform.position.x - 0.4f), transform.position.y, transform.position.z);
+        }
+        else if (rb.velocity.x < 0)
+        {
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, left.transform.position.x + 0.4f, 50), transform.position.y, transform.position.z);
+        }
     }
 }

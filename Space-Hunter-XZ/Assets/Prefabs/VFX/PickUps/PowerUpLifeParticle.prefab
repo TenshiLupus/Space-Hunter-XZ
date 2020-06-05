@@ -4766,6 +4766,7 @@ GameObject:
   - component: {fileID: 381154407334547398}
   - component: {fileID: 363355435358929114}
   - component: {fileID: 5749802068684355227}
+  - component: {fileID: -3618801542282616072}
   m_Layer: 0
   m_Name: PowerUpLifeParticle
   m_TagString: Untagged
@@ -9606,3 +9607,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3618801542282616072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4878342267698184707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1a7ab6e3fad0274d926e76c390f1d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 2

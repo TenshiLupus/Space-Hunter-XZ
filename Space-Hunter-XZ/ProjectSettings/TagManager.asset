@@ -18,6 +18,10 @@ TagManager:
   - ExplosiveBarrel
   - EnemyBullet
   - Beam
+  - BoundaryRight
+  - BoundaryLeft
+  - BoundaryTop
+  - BoundaryBottom
   layers:
   - Default
   - TransparentFX

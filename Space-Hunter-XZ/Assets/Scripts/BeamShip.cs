@@ -11,8 +11,15 @@ public class BeamShip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("StartBeam", 0.8f);
-        Invoke("StopBeam", 3.2f);
+        if (PlayerPrefs.GetString("GameMode") == "Hard")
+        {
+            Invoke("StartBeam", 0.8f);
+            Invoke("StopBeam", 3.5f);
+        } else
+        {
+            Invoke("StartBeam", 1.2f);
+            Invoke("StopBeam", 5.25f);
+        }
     }
 
     // Update is called once per frame

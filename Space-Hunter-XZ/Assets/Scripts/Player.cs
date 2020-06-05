@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     public GameObject engine;
     public Transform shotSpawn;
     public float fireRate;
-
     public float respawnTimer;
 
     private Coroutine shootCoroutine;

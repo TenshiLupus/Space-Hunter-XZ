@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e877afcd45483e641aeb12d46e354a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -3
+  speed: -2
 --- !u!114 &4861857248659119745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +118,9 @@ MonoBehaviour:
     type: 3}
   shieldExplosion: {fileID: 9145354182860747553, guid: 8c128d334f5545348a926cf960e1641f,
     type: 3}
+  advancedWeapon: {fileID: 0}
+  beamLeft: {fileID: 0}
+  beamRight: {fileID: 0}
   renderer: {fileID: 7098061251132646129}
   materialNormal: {fileID: 2100000, guid: bf5313750df95fa44bc7eda2f07e7693, type: 2}
   materialHighlight: {fileID: 2100000, guid: 08e4c74a226805948a3eac58cc2f227a, type: 2}
@@ -258,7 +261,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.037745006
-  m_Height: 0.079296224
+  m_Radius: 0.027385812
+  m_Height: 0.09628828
   m_Direction: 1
-  m_Center: {x: -0.001951909, y: -0.0043717157, z: 0.004779053}
+  m_Center: {x: -0.001951909, y: -0.0043717157, z: 0.015138245}
