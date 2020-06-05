@@ -50,6 +50,10 @@ public class Translator : MonoBehaviour
     void Start()
     {
         selectedLanguage = PlayerPrefs.GetString("Language");
+        if (PlayerPrefs.GetString("Language") == null)
+        {
+            selectedLanguage = "English";
+        } 
         scene = SceneManager.GetActiveScene();
         currentScene = scene.name;
         ChangeLanguage();

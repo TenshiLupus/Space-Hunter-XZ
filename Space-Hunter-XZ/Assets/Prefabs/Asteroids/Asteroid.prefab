@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e877afcd45483e641aeb12d46e354a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -3
+  speed: -2
 --- !u!114 &1691789709656149508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,6 +71,9 @@ MonoBehaviour:
     type: 3}
   shieldExplosion: {fileID: 9145354182860747553, guid: 8c128d334f5545348a926cf960e1641f,
     type: 3}
+  advancedWeapon: {fileID: 0}
+  beamLeft: {fileID: 0}
+  beamRight: {fileID: 0}
   renderer: {fileID: 733214669949793351}
   materialNormal: {fileID: 2100000, guid: bf5313750df95fa44bc7eda2f07e7693, type: 2}
   materialHighlight: {fileID: 2100000, guid: 08e4c74a226805948a3eac58cc2f227a, type: 2}
