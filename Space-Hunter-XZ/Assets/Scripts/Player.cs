@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
     public void TriggerDestruction(bool dead)
     {
         ChangeMaterial();
-        Handheld.Vibrate();
+        //Handheld.Vibrate();
         Invoke("Explosion", 0.1f);
         if (dead)
         {

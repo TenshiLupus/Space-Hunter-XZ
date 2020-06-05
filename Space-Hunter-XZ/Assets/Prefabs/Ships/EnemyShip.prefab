@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e877afcd45483e641aeb12d46e354a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -2
+  speed: -2.5
 --- !u!33 &7490748548686545704
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dacc833e28f096046adc7b836e660300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -2
+  speed: -2.5
   dodge: 5
   smoothing: 7.5
   tilt: 15
@@ -200,6 +200,10 @@ MonoBehaviour:
     xMax: 2.3
     yMin: -7
     yMax: 8
+  top: {fileID: 0}
+  bottom: {fileID: 0}
+  left: {fileID: 0}
+  right: {fileID: 0}
 --- !u!82 &3239253038667778828
 AudioSource:
   m_ObjectHideFlags: 0

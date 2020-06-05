@@ -20,7 +20,7 @@ public class MenuController : MonoBehaviour
     public GameObject yesNoDialog;
     public GameObject englishArrow;
     public GameObject swedishArrow;
-    public GameObject japaneseArrow;
+    public GameObject frenchArrow;
     public GameObject normalArrow;
     public GameObject hardArrow;
 
@@ -90,6 +90,7 @@ public class MenuController : MonoBehaviour
     }
     public void Yes()
     {
+        audioSource.PlayOneShot(startButtonSound, 0.7f);
         ResetScore();
         highScoreMenu.SetActive(true);
         yesNoDialog.SetActive(false);
@@ -150,14 +151,19 @@ public class MenuController : MonoBehaviour
         {
             swedishArrow.SetActive(true);
         }
+        if (PlayerPrefs.GetString("Language") == "French")
+        {
+            frenchArrow.SetActive(true);
+        }
 
     }
 
     public void ChangeToEnglish()
     {
+        audioSource.PlayOneShot(startButtonSound, 0.7f);
         translator.GetComponent<Translator>().ChangeMenuTextEnglish();
         swedishArrow.SetActive(false);
-        japaneseArrow.SetActive(false);
+        frenchArrow.SetActive(false);
         englishArrow.SetActive(true);
         languageMenu.SetActive(false);
         optionsMenu.SetActive(true);
@@ -165,20 +171,22 @@ public class MenuController : MonoBehaviour
 
     public void ChangeToSwedish()
     {
+        audioSource.PlayOneShot(startButtonSound, 0.7f);
         translator.GetComponent<Translator>().ChangeMenuTextSwedish();
         englishArrow.SetActive(false);
-        japaneseArrow.SetActive(false);
+        frenchArrow.SetActive(false);
         swedishArrow.SetActive(true);
         languageMenu.SetActive(false);
         optionsMenu.SetActive(true);
     }
 
-    public void ChangeToJapanese()
+    public void ChangeToFrench()
     {
-        translator.GetComponent<Translator>().ChangeMenuTextJapanese();
+        audioSource.PlayOneShot(startButtonSound, 0.7f);
+        translator.GetComponent<Translator>().ChangeMenuTextFrench();
         englishArrow.SetActive(false);
         swedishArrow.SetActive(false);
-        japaneseArrow.SetActive(true);
+        frenchArrow.SetActive(true);
         languageMenu.SetActive(false);
         optionsMenu.SetActive(true);
     }
@@ -199,6 +207,7 @@ public class MenuController : MonoBehaviour
 
     public void ChangeToNormal ()
     {
+        audioSource.PlayOneShot(startButtonSound, 0.7f);
         PlayerPrefs.SetString("GameMode", "Normal");
         PlayerPrefs.Save();
         hardArrow.SetActive(false);
@@ -209,6 +218,7 @@ public class MenuController : MonoBehaviour
 
     public void ChangeToHard()
     {
+        audioSource.PlayOneShot(startButtonSound, 0.7f);
         PlayerPrefs.SetString("GameMode", "Hard");
         PlayerPrefs.Save();
         normalArrow.SetActive(false);

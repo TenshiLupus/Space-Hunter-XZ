@@ -39,7 +39,6 @@ public class Translator : MonoBehaviour
     public GameObject optionsButton;
     public GameObject exitButton;
 
-
     private float rectWidth;
 
 
@@ -78,16 +77,16 @@ public class Translator : MonoBehaviour
             else if (selectedLanguage.Equals("Swedish"))
             {
                 ChangeMainTextSwedish();
-            } else if (selectedLanguage.Equals("Japanese"))
+            } else if (selectedLanguage.Equals("French"))
             {
-                ChangeMainTextJapanese();
+                ChangeMainTextFrench();
             }
         }
         else if (currentScene.Equals("MainMenu"))
         {
             if (selectedLanguage.Equals("English")) ChangeMenuTextEnglish();
             else if (selectedLanguage.Equals("Swedish")) ChangeMenuTextSwedish();
-            else if (selectedLanguage.Equals("Japanese")) ChangeMenuTextJapanese();
+            else if (selectedLanguage.Equals("French")) ChangeMenuTextFrench();
         }
     }
 
@@ -109,8 +108,8 @@ public class Translator : MonoBehaviour
             exitText.text = "EXIT";
             scoreText.text = "SCORE: ";
             creditBackButtonText.text = "BACK";
-            highScoreText.text = "TOP SCORE";
-            resetScoreButtonText.text = "RESET";
+            highScoreText.text = "HIGH SCORE";
+            resetScoreButtonText.text = "RESET SCORE";
             resetText.text = "RESET SCORE";
             yes.text = "YES";
             no.text = "NO";
@@ -180,33 +179,33 @@ public class Translator : MonoBehaviour
         }
     }
 
-    public void ChangeMenuTextJapanese()
+    public void ChangeMenuTextFrench()
     {
         if (currentScene.Equals("MainMenu"))
         {
-            credits.text = "開発者";
-            creditsMusicText.text = "音楽";
-            creditsButtonText.text = "創作";
-            highScoreButtonText.text = "点数";
-            startText.text = "開始";
-            exitText.text = "終";
-            scoreText.text = "点数: ";
-            creditBackButtonText.text = "戻る";
-            highScoreText.text = "最高点";
-            resetScoreButtonText.text = "再設定";
-            resetText.text = "再設定";
-            yes.text = "応";
-            no.text = "帰";
-            highScoreButtonBackText.text = "戻る";
-            languageButtonText.text = "言葉";
+            credits.text = "DÉVELOPPEMENT DU JEU";
+            creditsMusicText.text = "MUSIQUE";
+            creditsButtonText.text = "CRÉDITS";
+            highScoreButtonText.text = "RECORD";
+            startText.text = "JOUER";
+            exitText.text = "QUITTER";
+            scoreText.text = "POINTS: ";
+            creditBackButtonText.text = "RETOUR";
+            highScoreText.text = "RECORD";
+            resetScoreButtonText.text = "RÉINITIALISER";
+            resetText.text = "RÉINITIALISER";
+            yes.text = "OUI";
+            no.text = "NON";
+            highScoreButtonBackText.text = "RETOUR";
+            languageButtonText.text = "LANGAGE";
             languageButtonText.fontSize = 65;
-            gameModeButtonText.text = "難易度";
+            gameModeButtonText.text = "NIVEAU";
             gameModeButtonText.fontSize = 65;
-            normalButtonText.text = "初級";
-            hardButtonText.text = "上級";
-            optionsBackButtonText.text = "戻る";
+            normalButtonText.text = "NORMAL";
+            hardButtonText.text = "DIFFICILE";
+            optionsBackButtonText.text = "RETOUR";
             optionsBackButtonText.fontSize = 65;
-            optionsButtonText.text = "設定";
+            optionsButtonText.text = "OPTIONS";
             optionsButtonText.fontSize = 80;
             optionsButtonText.resizeTextForBestFit = false;
             RectTransform transformCredits = creditsButton.GetComponent<RectTransform>();
@@ -219,7 +218,7 @@ public class Translator : MonoBehaviour
             transformOptions.sizeDelta = new Vector2(550, 95);
             RectTransform transformExit = exitButton.GetComponent<RectTransform>();
             transformExit.sizeDelta = new Vector2(550, 95);
-            SaveData("Japanese");
+            SaveData("French");
         }
     }
 
@@ -242,13 +241,13 @@ public class Translator : MonoBehaviour
         SaveData("Swedish");
     }
 
-    public void ChangeMainTextJapanese()
+    public void ChangeMainTextFrench()
     {
-        scoreText.text = "点数";
-        menuButtonText.text = "メニュー";
-        continueText.text = "続く";
-        rButtonText.text = "再起動";
-        bmButtonText.text = "終";
-        SaveData("Japanese");
+        scoreText.text = "POINTS";
+        menuButtonText.text = "MENU";
+        continueText.text = "CONTINUER";
+        rButtonText.text = "RECOMMENCER";
+        bmButtonText.text = "MENU PRINCIPAL";
+        SaveData("French");
     }
 }

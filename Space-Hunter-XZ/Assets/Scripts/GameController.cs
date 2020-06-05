@@ -76,6 +76,7 @@ public class GameController : MonoBehaviour
         {
             spawnWait *= 1.5f;
             advWaveWait *= 1.5f;
+
             hardMode = false;
         }
         gameOver = false; ;
@@ -233,6 +234,7 @@ public class GameController : MonoBehaviour
                 }
                 yield return new WaitForSeconds(waveWait);
             }
+            yield return new WaitForSeconds(0.5f);
             if (gameOver == false && breakCounter == wavesBeforeBreak) // a short break for the player before next waves
             {
                 canShoot = false;

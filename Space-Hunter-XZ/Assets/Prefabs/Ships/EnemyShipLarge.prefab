@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e877afcd45483e641aeb12d46e354a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -2
+  speed: -2.5
 --- !u!54 &2393637186813999587
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -176,8 +176,8 @@ MonoBehaviour:
   shieldExplosion: {fileID: 9145354182860747553, guid: 8c128d334f5545348a926cf960e1641f,
     type: 3}
   advancedWeapon: {fileID: 0}
-  beamLeft: {fileID: 0}
-  beamRight: {fileID: 0}
+  beamLeft: {fileID: 5868028252161227182}
+  beamRight: {fileID: 5868028250835913417}
   renderer: {fileID: 98815434750785866}
   materialNormal: {fileID: 2100000, guid: 84569b5c484409d4eb7241e94c109466, type: 2}
   materialHighlight: {fileID: 2100000, guid: 08e4c74a226805948a3eac58cc2f227a, type: 2}
@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e877afcd45483e641aeb12d46e354a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -2
+  speed: -2.5
 --- !u!54 &5868028251803618339
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -655,7 +655,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a137b64f1a2d4e54798ddb6e28583006, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 831d8d61d2395ce41b3e2b23d9fb3e96, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

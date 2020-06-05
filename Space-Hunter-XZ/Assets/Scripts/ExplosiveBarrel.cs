@@ -80,7 +80,7 @@ public class ExplosiveBarrel : MonoBehaviour
     }
     public void ResetColor()
     {
-        this.GetComponent<MeshRenderer>().material = materialNormal;
+        renderer.material = materialNormal;
     }
 
     void Destroy ()
@@ -101,7 +101,7 @@ public class ExplosiveBarrel : MonoBehaviour
             }
             if (other.CompareTag("ExplosiveBarrel") && !other == this)
             {
-                other.GetComponent<ExplosiveBarrel>().Explode();
+                other.GetComponentInChildren<ExplosiveBarrel>().Explode();
             }
             if (other.CompareTag("Shield"))
             {
@@ -125,7 +125,7 @@ public class ExplosiveBarrel : MonoBehaviour
                     other.GetComponent<Player>().Explosion();
                 }
             }
-            //Handheld.Vibrate();
+            Handheld.Vibrate();
         }
         Destroy(gameObject);
     }

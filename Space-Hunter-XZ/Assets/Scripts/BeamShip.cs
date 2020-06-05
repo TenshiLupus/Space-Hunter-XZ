@@ -17,8 +17,8 @@ public class BeamShip : MonoBehaviour
             Invoke("StopBeam", 3.5f);
         } else
         {
-            Invoke("StartBeam", 1.2f);
-            Invoke("StopBeam", 5.25f);
+            Invoke("StartBeam", 1.0f);
+            Invoke("StopBeam", 4.375f);
         }
     }
 
