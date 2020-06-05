@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
         {
             gameController.canShoot = false;
             ResetMaterial();
-            Invoke("Respawn", 0.1f);
+            Invoke("Respawn", 0.3f);
         }
     }
     public void Explosion()

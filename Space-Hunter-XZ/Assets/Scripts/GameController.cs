@@ -279,7 +279,7 @@ public class GameController : MonoBehaviour
     {
         shieldHasSpawned = false;
     }
-    public void ResetLaserpawnTimer()
+    public void ResetLaserSpawnTimer()
     {
         laserHasSpawned = false;
     }

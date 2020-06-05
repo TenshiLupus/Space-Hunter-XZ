@@ -1741,15 +1741,17 @@ MonoBehaviour:
   - {fileID: 1809675087963228243, guid: 41bab9601427e814f9ddedb94f0db4fc, type: 3}
   - {fileID: 5323879983553503693, guid: b2dc048652860204087bd411f75752f1, type: 3}
   hazardsHard:
-  - {fileID: 8856818603158250029, guid: 645d1a0c69b6bff4790fb589f20c5736, type: 3}
-  - {fileID: 8844426546164520493, guid: 0fb489606c056e94680dfa09db8a8d77, type: 3}
-  - {fileID: 6322808085373666452, guid: e05a7dc83c340b84da28e923cd2499dc, type: 3}
+  - {fileID: 296299901635406916, guid: a203f6ec4db84444f857bb99e48d35b7, type: 3}
+  - {fileID: 3723608001190300358, guid: 27973e3f1f3d0a74c8f64fd2a4c81508, type: 3}
+  - {fileID: 5950228778226741221, guid: b23c045690aa6fc4d8f01ec47bf35135, type: 3}
   - {fileID: 1141133433274644773, guid: 89a7368f683fdf746ad07fc5df0a0455, type: 3}
-  - {fileID: 5089070219954922067, guid: c3cb147f89816c74094de695ae534dc2, type: 3}
-  - {fileID: 4417594177318449628, guid: d3a99374cc0f5094e9f409a33c0d9588, type: 3}
-  - {fileID: 1809675087963228243, guid: 41bab9601427e814f9ddedb94f0db4fc, type: 3}
-  - {fileID: 5323879983553503693, guid: b2dc048652860204087bd411f75752f1, type: 3}
-  enemyLarge: {fileID: 7966775886275011091, guid: 6587aa1319b56a04fb43588725f56056,
+  - {fileID: 4131250671046456042, guid: 6bd48a390458d744ba133cdab0dfced9, type: 3}
+  - {fileID: 1520255823366294247, guid: ca402847346a2e547a13e8a7fd4d284c, type: 3}
+  - {fileID: 4573754728437289999, guid: bec8aa9efbb270047a1aaaa15885bcf9, type: 3}
+  - {fileID: 7908703556075207846, guid: ac76b88059b208846a1c1b29de4a92a7, type: 3}
+  enemyLarge: {fileID: 5868028251803618341, guid: 6587aa1319b56a04fb43588725f56056,
+    type: 3}
+  enemyLargeHard: {fileID: 5759909683695163707, guid: e91d00663643af44288fb022b37e24a5,
     type: 3}
   advEnemy: {fileID: 6968024296803713173, guid: 35ab3412efe550945a46ce095eb2de31,
     type: 3}
@@ -2297,7 +2299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1723119311}
   m_Layer: 0
-  m_Name: ReferenceSpeed
+  m_Name: ScaleReference
   m_TagString: ScaleReference
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2792,7 +2794,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943057154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.73}
+  m_LocalPosition: {x: 0, y: 0, z: 1.73}
   m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_Children:
   - {fileID: 310788069}
@@ -3114,6 +3116,11 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.scalar
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 4231340326053841144, guid: 0d24eaefbe6d1174c83e829c15424edf,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4231340326053841151, guid: 0d24eaefbe6d1174c83e829c15424edf,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3153,6 +3160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231340326119327682, guid: 0d24eaefbe6d1174c83e829c15424edf,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4231340326590569084, guid: 0d24eaefbe6d1174c83e829c15424edf,
         type: 3}

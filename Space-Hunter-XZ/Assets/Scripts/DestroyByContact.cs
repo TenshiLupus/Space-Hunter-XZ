@@ -177,6 +177,6 @@ public class DestroyByContact : MonoBehaviour
     }
     public void ResetColor()
     {
-        this.GetComponent<MeshRenderer>().material = materialNormal;
+        renderer.material = materialNormal;
     }
 }
